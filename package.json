@@ -3,6 +3,7 @@
   "version": "0.0.1",
   "description": "The last markdown to HTML slide show generator you need",
   "main": "dist/index.js",
+  "bin": "./bin/cli.js",
   "scripts": {
     "bundle": "rollup -c",
     "dev": "chokidar --initial \"browser/*.*\" \"dist/*.*\" \"example/*.md\" --command \"npm start\"",
