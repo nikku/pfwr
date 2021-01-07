@@ -19,7 +19,7 @@ if (args[0] === '--version') {
 }
 
 if (args[0] === '--help' || args.length !== 2) {
-  console.log('Usage: pfwr input output');
+  console.log('Usage: pfwr <input.md> <output.html>');
 
   process.exit(0);
 }
