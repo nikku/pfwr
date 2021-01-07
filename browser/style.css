@@ -1,0 +1,147 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+:root {
+
+  --font-size-h1: 3em;
+  --font-size-h2: 1.8em;
+  --font-size-h3: 1.4em;
+  --font-size-h4: 1.1em;
+  --font-size-default: 3.5em;
+  --font-size-small: .4em;
+
+  --font-size-default-print: 2.5em;
+
+  --slide-margin: 2rem;
+
+  --font-family-body: 'Montserrat', sans-serif;
+  --font-family-heading: 'Roboto Slab', serif;
+
+  --list-margin: .5em;
+
+  --color-default: #333;
+  --color-highlight: fuchsia;
+  --color-muted: #888;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-family-heading);
+  margin: 1rem;
+}
+
+h1 {
+  font-size: var(--font-size-h1);
+}
+
+h2 {
+  font-size: var(--font-size-h2);
+}
+
+h3 {
+  font-size: var(--font-size-h3);
+}
+
+h4 {
+  font-size: var(--font-size-h4);
+}
+
+li + li {
+  margin-top: var(--list-margin);
+}
+
+a {
+  color: steelblue;
+}
+
+em {
+  background: var(--color-highlight);
+  font-style: normal;
+  color: white;
+}
+
+.slide > * {
+  margin-left: var(--slide-margin);
+  margin-right: var(--slide-margin);
+}
+
+.slide-container {
+  font-family: var(--font-family-body);
+  font-size: var(--font-size-default);
+  color: var(--color-default);
+}
+
+.slide ul {
+  margin-left: calc(var(--slide-margin) * 2);
+  margin-right: calc(var(--slide-margin) * 2);
+}
+
+.slide-container {
+  width: 100vw;
+  height: 100vh;
+}
+
+.slide {
+  position: relative;
+
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.slide-number {
+  position: absolute;
+  bottom: calc(var(--slide-margin) / 2);
+  right: calc(var(--slide-margin) / 2);
+  color: var(--color-muted);
+  font-size: var(--font-size-small);
+  margin: 0 .3em;
+}
+
+img.emoji {
+   height: 1em;
+   width: 1em;
+   margin: 0 .05em 0 .1em;
+   vertical-align: -0.1em;
+   max-width: none !important;
+   max-height: none !important;
+}
+
+@media print {
+  .slide-container {
+    font-size: var(--font-size-default-print);
+  }
+
+  .slide {
+    page-break-after: always;
+  }
+}
+
+@media screen {
+  .slide-container {
+    overflow: hidden;
+  }
+
+  .slide {
+    position: absolute;
+    transform: translate(-100%, -100%);
+  }
+
+  .slide.current {
+    top: 0;
+    left: 0;
+    transform: translate(0, 0);
+  }
+}
+
+.slide img {
+  max-width: calc(100% - var(--slide-margin));
+  max-height: calc(100% - var(--slide-margin));
+  object-fit: contain;
+}

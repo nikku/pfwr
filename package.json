@@ -1,0 +1,50 @@
+{
+  "name": "pfwr",
+  "version": "0.0.0",
+  "description": "The last markdown to HTML slide show generator you need",
+  "main": "dist/index.js",
+  "scripts": {
+    "bundle": "rollup -c",
+    "dev": "chokidar --initial \"browser/*.*\" \"dist/*.*\" \"example/*.md\" --command \"npm start\"",
+    "start": "node bin/cli.js example/presentation.md example/index.html",
+    "pretest": "npm run bundle",
+    "test": "echo 'no tests yet'"
+  },
+  "author": "Nico Rehwaldt<https://github.com/nikku>",
+  "license": "MIT",
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^17.0.0",
+    "@rollup/plugin-json": "^4.1.0",
+    "@rollup/plugin-node-resolve": "^11.0.1",
+    "chokidar-cli": "^2.1.0",
+    "mdast-comment-marker": "^1.1.2",
+    "rehype-document": "^5.1.0",
+    "rehype-format": "^3.1.0",
+    "rehype-stringify": "^8.0.0",
+    "rehype-wrap": "^1.0.10",
+    "remark-breaks": "^2.0.1",
+    "remark-emoji": "^2.1.0",
+    "remark-external-links": "^8.0.0",
+    "remark-footnotes": "^3.0.0",
+    "remark-frontmatter": "^3.0.0",
+    "remark-gfm": "^1.0.0",
+    "remark-parse": "^9.0.0",
+    "remark-rehype": "^8.0.0",
+    "remark-twemoji": "^0.1.1",
+    "remark-unwrap-images": "^2.0.0",
+    "rollup": "^2.36.1",
+    "twemoji": "^13.0.1",
+    "unified": "^9.2.0",
+    "unist-util-find-after": "^3.0.0",
+    "unist-util-visit-parents": "^3.1.1"
+  },
+  "keywords": [
+    "markdown-to-html",
+    "markdown",
+    "presentation",
+    "cli"
+  ],
+  "dependencies": {
+    "to-vfile": "^6.1.0"
+  }
+}
