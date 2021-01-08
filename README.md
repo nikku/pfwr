@@ -1,6 +1,6 @@
 # pfwr
 
-A tiny but many batteries included utility to convert markdown to a beautiful HTML presentation.
+A tiny but batteries included utility to convert a [Markdown file](https://daringfireball.net/projects/markdown/) to a beautiful HTML presentation.
 
 
 ## Usage
