@@ -19,8 +19,8 @@ function transform(tree) {
   function commentConfigHtml(node) {
     var marker = commentMarker(node)
 
-    if (marker && marker.name === 'meta') {
-      node.meta = Object.assign(node.meta || {}, marker.parameters);
+    if (marker && marker.name === 'config') {
+      node.config = Object.assign(node.config || {}, marker.parameters);
     }
   }
 

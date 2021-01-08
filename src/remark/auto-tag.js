@@ -35,8 +35,21 @@ function annotateGroup(node) {
     el => el.type !== 'heading' && el.type !== 'list'
   );
 
-  if (isLanding) {
-    node.data.hProperties.className.push('centered');
-  }
+  const configNode = node.children.find(el => el.config);
+
+  const {
+    align = isLanding ? 'center' : 'left',
+    ...config
+  } = configNode && configNode.config || {};
+
+  const dataAttributes = config ? Object.entries(config).reduce((attrs, [ key, value ]) => {
+    attrs[`data-${key}`] = value;
+
+    return attrs;
+  }, {}) : {};
+
+  node.data.hProperties = Object.assign(node.data.hProperties, dataAttributes, {
+    'data-align': align
+  });
 
 }

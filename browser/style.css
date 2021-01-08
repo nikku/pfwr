@@ -35,6 +35,8 @@ body {
   --color-default: #333;
   --color-highlight: fuchsia;
 
+  --color-highlight-inverse: lightgoldenrodyellow;
+
   --color-link: steelblue;
   --color-table-head: lightsteelblue;
 }
@@ -122,8 +124,31 @@ table, pre {
   align-items: flex-start;
 }
 
-.slide.centered {
+.slide[data-align='center'] {
   align-items: center;
+}
+
+.slide[data-align='left'] {
+  align-items: flex-start;
+}
+
+.slide[data-align='right'] {
+  align-items: flex-end;
+}
+
+.slide[data-theme='funky'] {
+  background: var(--color-highlight);
+  color: var(--color-bright);
+}
+
+.slide[data-theme='funky'] code {
+  background: #1b1f232f;
+  color: white;
+}
+
+.slide[data-theme='funky'] em {
+  color: var(--color-default);
+  background: var(--color-highlight-inverse);
 }
 
 table {
