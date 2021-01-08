@@ -5,6 +5,7 @@ var unified = require('unified');
 var markdown = require('remark-parse');
 var frontmatter = require('remark-frontmatter');
 var gfm = require('remark-gfm');
+var breaks = require('remark-breaks')
 var remark2rehype = require('remark-rehype');
 var format = require('rehype-format');
 var html = require('rehype-stringify');
@@ -32,6 +33,7 @@ function pfwr(vfile) {
     unified()
       .use(markdown)
       .use(gfm)
+      .use(breaks)
       .use(frontmatter, ['yaml'])
       .use(parseComments)
       .use(pageSplit)
