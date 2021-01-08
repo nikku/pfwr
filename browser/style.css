@@ -109,8 +109,19 @@ img.emoji {
    width: 1em;
    margin: 0 .05em 0 .1em;
    vertical-align: -0.1em;
-   max-width: none !important;
-   max-height: none !important;
+}
+
+.slide > img {
+  max-width: calc(100% - var(--slide-margin));
+  max-height: calc(100% - var(--slide-margin));
+  object-fit: contain;
+}
+
+.slide > pre[class*="language-"] {
+  margin-left: var(--slide-margin);
+  margin-right: var(--slide-margin);
+
+  font-size: .5em;
 }
 
 @media print {
@@ -138,17 +149,4 @@ img.emoji {
     left: 0;
     transform: translate(0, 0);
   }
-}
-
-.slide img {
-  max-width: calc(100% - var(--slide-margin));
-  max-height: calc(100% - var(--slide-margin));
-  object-fit: contain;
-}
-
-.slide > pre[class*="language-"] {
-  margin-left: var(--slide-margin);
-  margin-right: var(--slide-margin);
-
-  font-size: .5em;
 }
