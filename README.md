@@ -1,6 +1,8 @@
 # pfwr
 
-A tiny but batteries included utility to convert [any Markdown file](https://github.com/nikku/pfwr/blob/main/README.md#example) to [a beautiful HTML presentation](https://cdn.statically.io/gh/nikku/pfwr/v0.0.3/example/presentation.html).
+Turns your [Markdown file](https://github.com/nikku/pfwr/blob/main/README.md#example) into [a beautiful HTML presentation](https://cdn.statically.io/gh/nikku/pfwr/v0.0.3/example/presentation.html). Batteries included.
+
+[![Slide deck generated from Markdown via pfwr](./docs/screenshot.png)](https://cdn.statically.io/gh/nikku/pfwr/v0.0.3/example/presentation.html)
 
 
 ## Usage
