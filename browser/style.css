@@ -21,16 +21,24 @@ body {
 
   --font-family-body: 'Montserrat', sans-serif;
   --font-family-heading: 'Roboto Slab', serif;
+  --font-family-code: 'Roboto Mono', monospace;
 
   --list-margin: .5em;
 
   --color-default: #333;
   --color-highlight: fuchsia;
   --color-muted: #888;
+  --color-light-gray: #DDD;
+}
+
+code {
+  font-family: var(--font-family-code);
+  background: var(--color-light-gray);
 }
 
 h1, h2, h3, h4 {
   font-family: var(--font-family-heading);
+
   margin: 1rem;
 }
 

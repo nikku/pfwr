@@ -54,7 +54,7 @@ function pfwr(vfile) {
       })
       .use(doc, {
         css: [
-          'https://fonts.googleapis.com/css2?family=Montserrat&family=Roboto+Slab:wght@400;700&display=swap'
+          'https://fonts.googleapis.com/css2?family=Montserrat&family=Roboto+Slab:wght@400;700&family=Roboto+Mono:wght@400;700&display=swap'
         ],
         style: [
           prismStyle,
