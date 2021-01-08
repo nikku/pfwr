@@ -1,0 +1,251 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>presentation</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>html,
+body {
+margin: 0;
+padding: 0;
+height: 100%;
+box-sizing: border-box;
+}
+:root {
+--font-size-h1: 3em;
+--font-size-h2: 1.8em;
+--font-size-h3: 1.4em;
+--font-size-h4: 1.1em;
+--font-size-default: 3.5em;
+--font-size-small: .4em;
+--font-size-default-print: 2.5em;
+--slide-margin: 2rem;
+--font-family-body: 'Montserrat', sans-serif;
+--font-family-heading: 'Roboto Slab', serif;
+--list-margin: .5em;
+--color-default: #333;
+--color-highlight: fuchsia;
+--color-muted: #888;
+}
+h1, h2, h3, h4 {
+font-family: var(--font-family-heading);
+margin: 1rem;
+}
+h1 {
+font-size: var(--font-size-h1);
+}
+h2 {
+font-size: var(--font-size-h2);
+}
+h3 {
+font-size: var(--font-size-h3);
+}
+h4 {
+font-size: var(--font-size-h4);
+}
+li + li {
+margin-top: var(--list-margin);
+}
+a {
+color: steelblue;
+}
+em {
+background: var(--color-highlight);
+font-style: normal;
+color: white;
+}
+.slide > * {
+margin-left: var(--slide-margin);
+margin-right: var(--slide-margin);
+}
+.slide-container {
+font-family: var(--font-family-body);
+font-size: var(--font-size-default);
+color: var(--color-default);
+}
+.slide ul {
+margin-left: calc(var(--slide-margin) * 2);
+margin-right: calc(var(--slide-margin) * 2);
+}
+.slide-container {
+width: 100vw;
+height: 100vh;
+}
+.slide {
+position: relative;
+width: 100%;
+height: 100%;
+display: flex;
+flex-direction: column;
+justify-content: center;
+}
+.slide-number {
+position: absolute;
+bottom: calc(var(--slide-margin) / 2);
+right: calc(var(--slide-margin) / 2);
+color: var(--color-muted);
+font-size: var(--font-size-small);
+margin: 0 .3em;
+}
+img.emoji {
+height: 1em;
+width: 1em;
+margin: 0 .05em 0 .1em;
+vertical-align: -0.1em;
+max-width: none !important;
+max-height: none !important;
+}
+@media print {
+.slide-container {
+font-size: var(--font-size-default-print);
+}
+.slide {
+page-break-after: always;
+}
+}
+@media screen {
+.slide-container {
+overflow: hidden;
+}
+.slide {
+position: absolute;
+transform: translate(-100%, -100%);
+}
+.slide.current {
+top: 0;
+left: 0;
+transform: translate(0, 0);
+}
+}
+.slide img {
+max-width: calc(100% - var(--slide-margin));
+max-height: calc(100% - var(--slide-margin));
+object-fit: contain;
+}</style>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat&#x26;family=Roboto+Slab:wght@400;700&#x26;display=swap">
+  </head>
+  <body>
+    <div id="slide-container" class="slide-container">
+      <section class="slide">
+        <h1><em>pfwr</em></h1>
+        <h3>What the heck is this</h3>
+      </section>
+      <section class="slide">
+        <h3><em>Disclaimer</em> I built this tool <img class="emoji" draggable="false" alt="😉" src="https://twemoji.maxcdn.com/v/13.0.1/svg/1f609.svg" title="😉"/></h3>
+        <p>Normal text may be added.</p>
+      </section>
+      <section class="slide">
+        <ul>
+          <li>bullet points</li>
+          <li>are supported, too</li>
+        </ul>
+      </section>
+      <section class="slide">
+        <img src="./assets/me.jpg" alt="">
+      </section>
+      <section class="slide"><center>
+        <p><img class="emoji" draggable="false" alt="➡️" src="https://twemoji.maxcdn.com/v/13.0.1/svg/27a1.svg" title="➡️"/> <a href="https://github.com/nikku/pfwr" target="_blank" rel="nofollow noopener noreferrer">Checkout on GitHub</a></p></center>
+      </section>
+    </div>
+    <script>function addPage(index, slide) {
+if (!index) {
+return;
+}
+const el = document.createElement('div');
+el.classList.add('slide-number');
+el.textContent = index + 1;
+slide.appendChild(el);
+}
+function pfwr(options) {
+const {
+container
+} = options;
+const slides = Array.from(container.querySelectorAll('.slide'));
+for (const idx in slides) {
+addPage(+idx, slides[+idx]);
+}
+// event listeners ////////////////////////
+const listeners = [];
+function on(event, fn) {
+listeners.push([ event, fn ]);
+}
+function emit(event, data) {
+for (const [ eventType, fn ] of listeners) {
+if (event === eventType) {
+fn(data);
+}
+}
+}
+// slide life cycle ////////////////
+let slideIndex = 0;
+function goto(next) {
+const nextIndex = ((next, currentIndex, slides) => {
+if (next === 'next') {
+return currentIndex + 1;
+}
+if (next === 'previous') {
+return currentIndex - 1;
+}
+if (next < 0) {
+return slides + next;
+}
+return next;
+})(next, slideIndex, slides.length);
+const slide = slides[slideIndex];
+const nextSlide = slides[nextIndex];
+if (!nextSlide) {
+return;
+}
+slide.classList.remove('current');
+nextSlide.classList.add('current');
+slideIndex = nextIndex;
+emit('slideChanged', {
+slideIndex
+});
+}
+function handleKey(event) {
+const key = event.key;
+if (key === 'Home') {
+goto(0);
+return false;
+}
+if (key === 'End') {
+goto(-1);
+return false;
+}
+if (key === 'ArrowRight' || key === 'Enter') {
+goto('next');
+return false;
+}
+if (key === 'ArrowLeft') {
+goto('previous');
+return false;
+}
+}
+function destroy() {
+document.removeEventListener('keydown', handleKey);
+}
+document.addEventListener('keydown', handleKey);
+return {
+on,
+goto,
+destroy
+};
+}</script>
+    <script>function setSlide(slide) {
+window.location.hash = '#' + (slide + 1);
+}
+function getSlide() {
+const hash = window.location.hash;
+const slideHash = hash && hash.substring(1);
+return (slideHash && parseInt(slideHash, 10) || 1) - 1;
+}
+const presentation = pfwr({
+container: document.querySelector('#slide-container')
+});
+presentation.goto(getSlide());
+presentation.on('slideChanged', function(event) {
+setSlide(event.slideIndex);
+});</script>
+  </body>
+</html>
