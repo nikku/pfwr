@@ -22,6 +22,10 @@ var autoTag = require('./remark/auto-tag');
 
 var pfwrStyle = fs.readFileSync(path.join(__dirname, '../browser/style.css'), 'utf8');
 var pfwrScript = fs.readFileSync(path.join(__dirname, '../browser/pfwr.js'), 'utf8');
+
+var prismScript = fs.readFileSync(path.join(__dirname, '../browser/vendor/prism.js'), 'utf8');
+var prismStyle = fs.readFileSync(path.join(__dirname, '../browser/vendor/prism.css'), 'utf8');
+
 var indexScript = fs.readFileSync(path.join(__dirname, '../browser/index.js'), 'utf8');
 
 function pfwr(vfile) {
@@ -53,10 +57,12 @@ function pfwr(vfile) {
           'https://fonts.googleapis.com/css2?family=Montserrat&family=Roboto+Slab:wght@400;700&display=swap'
         ],
         style: [
+          prismStyle,
           pfwrStyle
         ],
         script: [
           pfwrScript,
+          prismScript,
           indexScript
         ]
       })

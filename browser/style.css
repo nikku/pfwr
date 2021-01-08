@@ -145,3 +145,10 @@ img.emoji {
   max-height: calc(100% - var(--slide-margin));
   object-fit: contain;
 }
+
+.slide > pre[class*="language-"] {
+  margin-left: var(--slide-margin);
+  margin-right: var(--slide-margin);
+
+  font-size: .5em;
+}
