@@ -44,7 +44,11 @@ Normal text may be added.
 
 ---
 
-![](./me.png)
+![](./assets/me.jpg)
+
+---
+
+:arrow_right: [Checkout on GitHub](https://github.com/nikku/pfwr)
 ```
 
 Convert the file to an HTML file:
