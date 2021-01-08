@@ -62,7 +62,7 @@ Open [the presentation](https://cdn.statically.io/gh/nikku/pfwr/v0.0.3/example/p
 
 ## Security Considerations
 
-:warning: `pfwr` is not safe to use on untrusted input due to the fact that it allows you to embed arbitrary HTML within your slides.
+:warning: `pfwr` is not safe to use on untrusted input since it allows you to embed arbitrary HTML within your slides.
 
 
 ## License
