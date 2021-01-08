@@ -9,6 +9,13 @@ A tiny but many batteries included utility to convert markdown to a beautiful HT
 npx pfwr presentation.md presentation.html
 ```
 
+## Features
+
+* Recognizes [CommonMark](https://commonmark.org/) and [GitHub flavored Markdown](https://github.github.com/gfm/)
+* Creates a self-contained, printable HTML slide deck
+* Embeds HTML, on purpose (cf. [security considerations](#security-considerations))
+* Allows you to configure meta-data via front-matter
+
 
 ## Example
 
@@ -47,6 +54,11 @@ npx pfwr presentation.md presentation.html
 ```
 
 Open the presentation in your favorite browser.
+
+
+## Security Considerations
+
+:warning: `pfwr` is not safe to use on untrusted input due to the fact that it allows you to embed arbitrary HTML within your slides.
 
 
 ## License
