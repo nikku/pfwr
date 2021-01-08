@@ -3,7 +3,6 @@ var path = require('path');
 
 var unified = require('unified');
 var markdown = require('remark-parse');
-var footnotes = require('remark-footnotes');
 var frontmatter = require('remark-frontmatter');
 var gfm = require('remark-gfm');
 var remark2rehype = require('remark-rehype');
@@ -35,7 +34,6 @@ function pfwr(vfile) {
       .use(gfm)
       .use(frontmatter, ['yaml'])
       .use(parseComments)
-      .use(footnotes, { inlineNotes: true })
       .use(pageSplit)
       .use(externalLinks)
       .use(emoji)
