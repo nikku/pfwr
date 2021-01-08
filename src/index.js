@@ -10,7 +10,6 @@ var remark2rehype = require('remark-rehype');
 var format = require('rehype-format');
 var html = require('rehype-stringify');
 var externalLinks = require('remark-external-links');
-var unwrapImages = require('remark-unwrap-images');
 var emoji = require('remark-emoji');
 var twemoji = require('remark-twemoji');
 var doc = require('rehype-document');
@@ -34,7 +33,6 @@ function pfwr(vfile) {
     unified()
       .use(markdown)
       .use(gfm)
-      .use(unwrapImages)
       .use(frontmatter, ['yaml'])
       .use(parseComments)
       .use(footnotes, { inlineNotes: true })
