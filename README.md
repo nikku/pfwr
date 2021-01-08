@@ -57,7 +57,7 @@ Convert the file to an HTML file:
 npx pfwr presentation.md presentation.html
 ```
 
-Open the presentation in your favorite browser.
+Open [the presentation](https://cdn.statically.io/gh/nikku/pfwr/v0.0.3/example/presentation.html) in your favorite browser.
 
 
 ## Security Considerations
