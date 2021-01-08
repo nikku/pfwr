@@ -26,8 +26,6 @@ function transform(tree) {
 
     const meta = between.find(el => el.meta);
 
-    meta && console.log(Object.keys(meta || {}));
-
     const dataAttributes = Object.keys(meta || {}).reduce((attrs, key) => {
       attrs[`data-${key}`] = meta[key];
 
