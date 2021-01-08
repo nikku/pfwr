@@ -25,15 +25,28 @@ body {
 
   --list-margin: .5em;
 
+  --color-bright: white;
+
+  --color-light-gray: #F0F0F0;
+  --color-darker-gray: #CCC;
+  --color-code-bg: #1b1f230d;
+  --color-muted: #888;
+
   --color-default: #333;
   --color-highlight: fuchsia;
-  --color-muted: #888;
-  --color-light-gray: #DDD;
+
+  --color-link: steelblue;
+  --color-table-head: lightsteelblue;
 }
 
 code {
+  padding: .2em .4em;
+  margin: 0;
+  font-size: 85%;
+  border-radius: .1em;
+
+  background-color: var(--color-code-bg);
   font-family: var(--font-family-code);
-  background: var(--color-light-gray);
 }
 
 h1, h2, h3, h4 {
@@ -63,13 +76,18 @@ li + li {
 }
 
 a {
-  color: steelblue;
+  color: var(--color-link);
 }
 
 em {
   background: var(--color-highlight);
   font-style: normal;
   color: white;
+}
+
+table, pre {
+  width: fit-content;
+  min-width: 50%;
 }
 
 .slide > * {
@@ -103,13 +121,48 @@ em {
   justify-content: center;
 }
 
+table {
+  border-radius: 1rem;
+  overflow: hidden;
+  border-collapse: collapse;
+
+  background: var(--color-light-gray);
+  margin-top: var(--slide-margin);
+
+  font-size: .7em;
+}
+
+thead {
+  color: var(--color-bright);
+  background: var(--color-muted);
+}
+
+tbody tr + tr {
+  border-top: solid 1px var(--color-darker-gray);
+}
+
+table td,
+table th {
+  padding: .7em .8em;
+}
+
+table th:first-child,
+table td:first-child {
+  padding-left: 1.5em;
+}
+
+table th:last-child,
+table td:last-child {
+  padding-right: 1.5em;
+}
+
 .slide-number {
   position: absolute;
   bottom: calc(var(--slide-margin) / 2);
   right: calc(var(--slide-margin) / 2);
   color: var(--color-muted);
   font-size: var(--font-size-small);
-  margin: 0 .3em;
+  margin: 0;
 }
 
 img.emoji {
