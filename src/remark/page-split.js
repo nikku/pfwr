@@ -24,27 +24,16 @@ function transform(tree) {
 
     const between = tree.children.slice(idx + 1, end);
 
-    const meta = between.find(el => el.meta);
-
-    const dataAttributes = Object.keys(meta || {}).reduce((attrs, key) => {
-      attrs[`data-${key}`] = meta[key];
-
-      return attrs;
-    }, {});
-
     const group = {
       type: 'slide',
       children: between,
       data: {
         hName: 'section',
         hProperties: {
-          className: 'slide',
-          ...dataAttributes
+          className: [ 'slide' ]
         }
-      },
-      meta
+      }
     };
-
 
     tree.children.splice(idx, between.length + 1, group);
 

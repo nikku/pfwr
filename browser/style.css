@@ -119,6 +119,11 @@ table, pre {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: flex-start;
+}
+
+.slide.centered {
+  align-items: center;
 }
 
 table {
@@ -127,7 +132,6 @@ table {
   border-collapse: collapse;
 
   background: var(--color-light-gray);
-  margin-top: var(--slide-margin);
 
   font-size: .7em;
 }
@@ -166,16 +170,19 @@ table td:last-child {
 }
 
 img.emoji {
-   height: 1em;
-   width: 1em;
-   margin: 0 .05em 0 .1em;
-   vertical-align: -0.1em;
+  height: 1em;
+  width: 1em;
+  margin: 0 .05em 0 .1em;
+  vertical-align: -0.1em;
 }
 
-.slide > img {
+img {
+  object-fit: contain;
+}
+
+.slide img:not(.emoji) {
   max-width: calc(100% - var(--slide-margin));
   max-height: calc(100% - var(--slide-margin));
-  object-fit: contain;
 }
 
 .slide > pre[class*="language-"] {
