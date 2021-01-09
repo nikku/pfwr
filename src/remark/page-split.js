@@ -22,7 +22,7 @@ function transform(tree) {
 
   for (const idx of splitIndices) {
 
-    const between = tree.children.slice(idx + 1, end);
+    const between = tree.children.slice(idx === 0 ? 0 : idx + 1, end);
 
     const group = {
       type: 'slide',
