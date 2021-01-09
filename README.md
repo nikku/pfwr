@@ -2,9 +2,9 @@
 
 [![CI Status](https://img.shields.io/github/workflow/status/nikku/pfwr/CI/main)](https://github.com/nikku/pfwr/actions?query=workflow%3ACI)
 
-Turns your [Markdown file](https://github.com/nikku/pfwr/blob/main/README.md#example) into [a beautiful HTML presentation](https://cdn.statically.io/gh/nikku/pfwr/v0.0.4/example/presentation.html). Batteries included.
+Turns your [Markdown file](https://github.com/nikku/pfwr/blob/main/README.md#example) into [a beautiful HTML presentation](https://cdn.statically.io/gh/nikku/pfwr/v0.0.6/example/presentation.html). Batteries included.
 
-[![Slide deck generated from Markdown via pfwr](https://raw.githubusercontent.com/nikku/pfwr/main/docs/screenshot.png)](https://cdn.statically.io/gh/nikku/pfwr/v0.0.4/example/presentation.html)
+[![Slide deck generated from Markdown via pfwr](https://raw.githubusercontent.com/nikku/pfwr/main/docs/screenshot.png)](https://cdn.statically.io/gh/nikku/pfwr/v0.0.6/example/presentation.html)
 
 
 ## Usage
@@ -61,7 +61,7 @@ Convert the file to an HTML file:
 npx pfwr presentation.md presentation.html
 ```
 
-Open [the presentation](https://cdn.statically.io/gh/nikku/pfwr/v0.0.4/example/presentation.html) in your favorite browser.
+Open [the presentation](https://cdn.statically.io/gh/nikku/pfwr/v0.0.6/example/presentation.html) in your favorite browser.
 
 
 ## Security Considerations
