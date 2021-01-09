@@ -35,7 +35,7 @@ function transform(tree) {
       }
     };
 
-    tree.children.splice(idx, between.length + 1, group);
+    tree.children.splice(idx, between.length + (idx === 0 ? 0 : 1), group);
 
     end = idx;
   }
