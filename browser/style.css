@@ -25,7 +25,7 @@ body {
 
   --list-margin: .5em;
 
-  --color-bright: white;
+  --color-bright: #FEFEFE;
 
   --color-light-gray: #F0F0F0;
   --color-darker-gray: #CCC;
@@ -35,10 +35,10 @@ body {
   --color-default: #333;
   --color-highlight: fuchsia;
 
-  --color-highlight-inverse: lightgoldenrodyellow;
+  --color-highlight-inverse: #ffc124;
 
-  --color-link: steelblue;
-  --color-table-head: lightsteelblue;
+  --color-link: #0076ff;
+  --color-table-head: #ff7e00;
 }
 
 code {
@@ -168,7 +168,7 @@ table {
 
 thead {
   color: var(--color-bright);
-  background: var(--color-muted);
+  background: var(--color-table-head);
 }
 
 tbody tr + tr {
