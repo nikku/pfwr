@@ -13,6 +13,7 @@ var externalLinks = require('remark-external-links');
 var emoji = require('remark-emoji');
 var twemoji = require('remark-twemoji');
 var doc = require('rehype-document');
+var meta = require('rehype-meta');
 var wrap = require('rehype-wrap');
 
 var pageSplit = require('./remark/page-split');
@@ -64,6 +65,7 @@ function pfwr(vfile) {
           indexScript
         ]
       })
+      .use(meta)
       .use(format)
       .use(html, {
         allowDangerousHtml: true

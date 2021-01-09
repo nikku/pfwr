@@ -1,4 +1,5 @@
 const visit = require('unist-util-visit-parents')
+const yaml = require('js-yaml');
 
 module.exports = plugin
 
@@ -6,16 +7,44 @@ function plugin () {
   return transform
 }
 
-function transform(tree) {
+function transform(tree, file) {
+
+  const slides = [];
+  const config = [];
 
   visit(
     tree,
-    node => node.type === 'slide',
-    node => annotateGroup(node)
+    node => {
+      if (node.type === 'slide') {
+        slides.push(node);
+      }
+
+      if (node.type === 'yaml') {
+        config.push(node);
+      }
+    }
   );
+
+  for (const node of slides) {
+    tagSlide(node)
+  }
+
+  for (const node of config) {
+    tagFile(node, file);
+  }
+
 }
 
-function annotateGroup(node) {
+function tagFile(node, file) {
+
+  const config = yaml.load(node.value);
+
+  file.data.meta = Object.assign({
+    type: 'presentation'
+  }, config);
+}
+
+function tagSlide(node) {
 
   const imageOnly = node.children.every(
     el => el.type === 'paragraph' && el.children.every(
