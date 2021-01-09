@@ -1,8 +1,6 @@
-const visit = require('unist-util-visit-parents')
+import visit from 'unist-util-visit-parents';
 
-module.exports = plugin
-
-function plugin () {
+export default function plugin() {
   return transform
 }
 

@@ -1,10 +1,8 @@
-const visit = require('unist-util-visit-parents');
+import visit from 'unist-util-visit-parents';
+import commentMarker from 'mdast-comment-marker';
 
-const commentMarker = require('mdast-comment-marker');
 
-module.exports = plugin
-
-function plugin () {
+export default function plugin() {
   return transform
 }
 

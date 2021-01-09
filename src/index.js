@@ -1,32 +1,32 @@
-var fs = require('fs');
-var path = require('path');
+import fs from 'fs';
+import path from 'path';
 
-var unified = require('unified');
-var markdown = require('remark-parse');
-var frontmatter = require('remark-frontmatter');
-var gfm = require('remark-gfm');
-var breaks = require('remark-breaks')
-var remark2rehype = require('remark-rehype');
-var format = require('rehype-format');
-var html = require('rehype-stringify');
-var externalLinks = require('remark-external-links');
-var emoji = require('remark-emoji');
-var twemoji = require('remark-twemoji');
-var doc = require('rehype-document');
-var meta = require('rehype-meta');
-var wrap = require('rehype-wrap');
+import unified from 'unified';
+import markdown from 'remark-parse';
+import frontmatter from 'remark-frontmatter';
+import gfm from 'remark-gfm';
+import breaks from 'remark-breaks';
+import remark2rehype from 'remark-rehype';
+import format from 'rehype-format';
+import html from 'rehype-stringify';
+import externalLinks from 'remark-external-links';
+import emoji from 'remark-emoji';
+import twemoji from 'remark-twemoji';
+import doc from 'rehype-document';
+import meta from 'rehype-meta';
+import wrap from 'rehype-wrap';
 
-var pageSplit = require('./remark/page-split');
-var parseComments = require('./remark/parse-comments');
-var autoTag = require('./remark/auto-tag');
+import pageSplit from './remark/page-split';
+import parseComments from './remark/parse-comments';
+import autoTag from './remark/auto-tag';
 
-var pfwrStyle = fs.readFileSync(path.join(__dirname, '../browser/style.css'), 'utf8');
-var pfwrScript = fs.readFileSync(path.join(__dirname, '../browser/pfwr.js'), 'utf8');
+const pfwrStyle = fs.readFileSync(path.join(__dirname, '../browser/style.css'), 'utf8');
+const pfwrScript = fs.readFileSync(path.join(__dirname, '../browser/pfwr.js'), 'utf8');
 
-var prismScript = fs.readFileSync(path.join(__dirname, '../browser/vendor/prism.js'), 'utf8');
-var prismStyle = fs.readFileSync(path.join(__dirname, '../browser/vendor/prism.css'), 'utf8');
+const prismScript = fs.readFileSync(path.join(__dirname, '../browser/vendor/prism.js'), 'utf8');
+const prismStyle = fs.readFileSync(path.join(__dirname, '../browser/vendor/prism.css'), 'utf8');
 
-var indexScript = fs.readFileSync(path.join(__dirname, '../browser/index.js'), 'utf8');
+const indexScript = fs.readFileSync(path.join(__dirname, '../browser/index.js'), 'utf8');
 
 function pfwr(vfile) {
 

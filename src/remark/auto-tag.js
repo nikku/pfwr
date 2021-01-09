@@ -1,9 +1,7 @@
-const visit = require('unist-util-visit-parents')
-const yaml = require('js-yaml');
+import visit from 'unist-util-visit-parents';
+import yaml from 'js-yaml';
 
-module.exports = plugin
-
-function plugin () {
+export default function plugin() {
   return transform
 }
 
