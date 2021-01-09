@@ -2,4 +2,5 @@
 !dist
 example
 src
+tasks
 rollup.config.js

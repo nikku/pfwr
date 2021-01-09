@@ -1,0 +1,8 @@
+#! /bin/bash
+
+VERSION=$(cat package.json | grep '"version"' -m 1 | cut -d'"' -f4)
+
+sed -i -E "s#pfwr/[^/]+/example#pfwr/v$VERSION/example#g" README.md
+sed -i -E "s#pfwr/[^/]+/example#pfwr/v$VERSION/example#g" example/README.md
+
+git add -A
