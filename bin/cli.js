@@ -25,13 +25,18 @@ if (args[0] === '--help' || args.length !== 2) {
 }
 
 (function run() {
-  var inputFile = vfile.readSync(args[0]);
+
+  const t = Date.now();
+
+  const inputFile = vfile.readSync(args[0]);
 
   return pfwr(inputFile).then(outputFile => {
     vfile.writeSync({
       contents: outputFile.contents,
       path: args[1]
     });
+
+    console.log('Transformed %s -> %s in %sms', args[0], args[1], (Date.now() - t));
   });
 })().catch(err => {
   console.error(err);
