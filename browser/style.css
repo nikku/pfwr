@@ -26,6 +26,7 @@ body {
   --list-margin: .5em;
 
   --color-bright: #FEFEFE;
+  --color-brighter: #F0F0F0;
 
   --color-light-gray: #F0F0F0;
   --color-darker-gray: #CCC;
@@ -154,6 +155,10 @@ table, pre {
 .slide[data-theme='funky'] em {
   color: var(--color-default);
   background: var(--color-highlight-inverse);
+}
+
+.slide[data-theme='funky'] .slide-number {
+  color: var(--color-brighter);
 }
 
 table {
