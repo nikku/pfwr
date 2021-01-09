@@ -1,17 +1,52 @@
 ---
-title: What is pfwr
+title: pfwr - Generate Presentations From Your Markdown Slidedeck
 author: nikku
 ---
 
 # *pfwr*
 
-### What the heck is this
+### Turns Your Markdown Presentation into a :sunflower: HTML Slidedeck.
 
 ---
 
 ### *Disclaimer* I built this tool :wink:
 
-Normal text may be added.
+[`@nikku`](https://github.com/nikku) on GitHub
+
+---
+
+### Write Markdown
+
+```markdown
+
+# First Slide
+
+---
+
+# Second Slide
+
+```
+
+Separate slides by `---`.
+
+---
+
+### Generate HTML Slide Deck
+
+On your command-line, use the `pfwr` utility:
+
+```sh
+$ pfwr presentation.md presentation.html
+```
+
+Install the utility via `npm install -g pfwr`.
+
+---
+
+## Add Lists
+
+* bullet points
+* are supported, too
 
 ---
 
@@ -22,10 +57,79 @@ Normal text may be added.
 
 ![](./assets/me.jpg)
 
+Add cool image.
+
 ---
 
-<center>
+### Or With Heading
 
-:arrow_right: [Checkout on GitHub](https://github.com/nikku/pfwr)
+![](./assets/me.jpg)
 
-</center>
+---
+
+![Or a fullsize image](https://www.space.news/wp-content/uploads/sites/38/2015/12/Big-Death-Star.jpg)
+
+---
+
+Add `code`, **bold**, ~~strikethrough~~, or _highlight_.
+
+---
+
+### Add Tables
+
+| This | Is | Table |
+| :--- | :---: | ---: |
+| :one: || :two: :three: |
+| Long | Cell Content | *Can be fitted, too?* |
+
+<small>With a description</small>
+
+---
+
+### Add Some Code
+
+```javascript
+function hello() {
+  window.alert('How yo doing?');
+}
+
+if (isFirstTime(visit)) {
+  hello();
+} else {
+  welcomeBack();
+}
+```
+
+---
+
+<!--config
+theme=funky
+-->
+
+### Customize your Background
+
+Some `code`, good right? _Yea!_
+
+---
+
+<!--config
+align=right
+-->
+
+# How is it
+
+## Not :arrow_left: aligned?
+
+---
+
+And finally, :printer: your slides to PDF.
+
+Use your browser's :printer: function.
+
+It actually *works*.
+
+---
+
+:arrow_right: [GitHub](https://github.com/nikku/pfwr)
+
+:memo: [Presentation Source](https://github.com/nikku/pfwr/blob/main/example/presentation.md)
