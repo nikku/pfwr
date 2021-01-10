@@ -6,6 +6,7 @@
   "bin": "./bin/cli.js",
   "scripts": {
     "bundle": "rollup -c",
+    "postbundle": "qjsc -flto -fno-eval -fno-proxy -fno-module-loader -fno-bigint -o tmp/pfwr tmp/cli.js",
     "dev": "chokidar --initial \"browser/*.*\" \"dist/*.*\" \"example/*.md\" --command \"npm start\"",
     "start": "node bin/cli.js example/presentation.md example/presentation.html",
     "pretest": "npm run bundle",
@@ -15,9 +16,11 @@
   "author": "Nico Rehwaldt<https://github.com/nikku>",
   "license": "MIT",
   "devDependencies": {
+    "@rollup/plugin-alias": "^3.1.1",
     "@rollup/plugin-commonjs": "^17.0.0",
     "@rollup/plugin-json": "^4.1.0",
     "@rollup/plugin-node-resolve": "^11.0.1",
+    "@rollup/plugin-replace": "^2.3.4",
     "chokidar-cli": "^2.1.0",
     "js-yaml": "^4.0.0",
     "mdast-comment-marker": "^1.1.2",
