@@ -1,8 +1,9 @@
 ---
-title: pfwr - Generate HTML Slidedecks from Markdown files
+title: pfwr - Generate HTML Slide Decks from Markdown Files
 description: This slide deck introduces pfwr - a little command line utility that generates beautiful, self-contained HTML slide decks from Markdown files.
 author: nikku
 authorTwitter: '@nrehwaldt'
+type: website
 tags:
   - pfwr
   - static side generator
@@ -12,7 +13,7 @@ origin: https://github.com/nikku/pfwr
 
 # *pfwr*
 
-### Turns Your Markdown Presentation into a :sunflower: HTML Slidedeck.
+### Turns Your Markdown :memo: into a :sparkles: HTML Slide Deck.
 
 ---
 
