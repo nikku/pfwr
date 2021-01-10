@@ -36,15 +36,13 @@
     "rollup": "^2.36.1",
     "twemoji": "^13.0.1",
     "unified": "^9.2.0",
-    "unist-util-visit-parents": "^3.1.1"
+    "unist-util-visit-parents": "^3.1.1",
+    "vfile": "^4.2.1"
   },
   "keywords": [
     "markdown-to-html",
     "markdown",
     "presentation",
     "cli"
-  ],
-  "dependencies": {
-    "to-vfile": "^6.1.0"
-  }
+  ]
 }

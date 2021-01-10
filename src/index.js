@@ -14,6 +14,7 @@ import emoji from 'remark-emoji';
 import doc from 'rehype-document';
 import meta from 'rehype-meta';
 import wrap from 'rehype-wrap';
+import vfile from 'vfile';
 
 import pageSplit from './remark/page-split';
 import parseComments from './remark/parse-comments';
@@ -27,7 +28,7 @@ const prismStyle = fs.readFileSync(path.join(__dirname, '../browser/vendor/prism
 
 const indexScript = fs.readFileSync(path.join(__dirname, '../browser/index.js'), 'utf8');
 
-function pfwr(vfile) {
+function pfwr(input) {
 
   return new Promise((resolve, reject) => {
     unified()
@@ -68,12 +69,12 @@ function pfwr(vfile) {
       .use(html, {
         allowDangerousHtml: true
       })
-      .process(vfile, function(err, file) {
+      .process(vfile(input), function(err, output) {
         if (err) {
           return reject(err);
         }
 
-        return resolve(file);
+        return resolve(output);
       });
   });
 
