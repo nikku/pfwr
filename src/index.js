@@ -1,6 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 
+import vfile from 'vfile';
 import unified from 'unified';
 import markdown from 'remark-parse';
 import frontmatter from 'remark-frontmatter';
@@ -14,19 +15,18 @@ import emoji from 'remark-emoji';
 import doc from 'rehype-document';
 import meta from 'rehype-meta';
 import wrap from 'rehype-wrap';
-import vfile from 'vfile';
 
 import pageSplit from './remark/page-split';
 import parseComments from './remark/parse-comments';
 import autoTag from './remark/auto-tag';
 
-const pfwrStyle = fs.readFileSync(path.join(__dirname, '../browser/style.css'), 'utf8');
-const pfwrScript = fs.readFileSync(path.join(__dirname, '../browser/pfwr.js'), 'utf8');
+import pfwrStyle from '../browser/style.css';
+import pfwrScript from '../browser/pfwr.js';
 
-const prismScript = fs.readFileSync(path.join(__dirname, '../browser/vendor/prism.js'), 'utf8');
-const prismStyle = fs.readFileSync(path.join(__dirname, '../browser/vendor/prism.css'), 'utf8');
+import prismScript from '../browser/vendor/prism.js';
+import prismStyle from '../browser/vendor/prism.css';
 
-const indexScript = fs.readFileSync(path.join(__dirname, '../browser/index.js'), 'utf8');
+import indexScript from '../browser/index.js';
 
 function pfwr(input) {
 

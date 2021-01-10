@@ -1,6 +1,7 @@
 import nodeResolve from '@rollup/plugin-node-resolve';
 import commonjs from '@rollup/plugin-commonjs';
 import json from '@rollup/plugin-json';
+import { string } from 'rollup-plugin-string';
 
 const outputDir = 'dist';
 
@@ -23,13 +24,18 @@ export default configs;
 
 function pgl(plugins=[]) {
   return [
+    ...plugins,
     nodeResolve({
       mainFields: [
+        'browser',
+        'module',
         'main'
       ]
     }),
+    string({
+      include: 'browser/**/*.*'
+    }),
     commonjs(),
-    json(),
-    ...plugins
+    json()
   ];
 }
