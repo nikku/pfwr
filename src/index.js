@@ -11,7 +11,6 @@ import format from 'rehype-format';
 import html from 'rehype-stringify';
 import externalLinks from 'remark-external-links';
 import emoji from 'remark-emoji';
-import twemoji from 'remark-twemoji';
 import doc from 'rehype-document';
 import meta from 'rehype-meta';
 import wrap from 'rehype-wrap';
@@ -40,10 +39,6 @@ function pfwr(vfile) {
       .use(pageSplit)
       .use(externalLinks)
       .use(emoji)
-      .use(twemoji, {
-        folder: 'svg',
-        ext: '.svg'
-      })
       .use(autoTag)
       .use(remark2rehype, {
         allowDangerousHtml: true
@@ -58,6 +53,9 @@ function pfwr(vfile) {
         style: [
           prismStyle,
           pfwrStyle
+        ],
+        js: [
+          'https://twemoji.maxcdn.com/v/latest/twemoji.min.js'
         ],
         script: [
           pfwrScript,

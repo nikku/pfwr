@@ -1,3 +1,7 @@
+function onLoaded(fn) {
+  window.addEventListener('DOMContentLoaded', fn);
+}
+
 function setSlide(slide) {
   window.location.hash = '#' + (slide + 1);
 }
@@ -10,12 +14,26 @@ function getSlide() {
   return (slideHash && parseInt(slideHash, 10) || 1) - 1;
 }
 
-const presentation = pfwr({
-  container: document.querySelector('#slide-container')
-});
+onLoaded(() => {
+  const container = document.querySelector('#slide-container');
 
-presentation.goto(getSlide());
+  // proper emojis
 
-presentation.on('slideChanged', function(event) {
-  setSlide(event.slideIndex);
+  twemoji.parse(container, {
+    folder: 'svg',
+    ext: '.svg'
+  });
+
+  // bootstrap presentation
+
+  const presentation = pfwr({
+    container
+  });
+
+  presentation.goto(getSlide());
+
+  presentation.on('slideChanged', function(event) {
+    setSlide(event.slideIndex);
+  });
+
 });
