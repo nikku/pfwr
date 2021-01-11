@@ -4,6 +4,8 @@
 
 Turns your [Markdown file](https://github.com/nikku/pfwr/blob/main/README.md#example) into [a beautiful HTML slide deck](https://cdn.statically.io/gh/nikku/pfwr/v0.0.10/example/presentation.html). Batteries included.
 
+## Introduction
+
 [![Slide deck generated from Markdown via pfwr](https://raw.githubusercontent.com/nikku/pfwr/main/docs/screenshot.png)](https://cdn.statically.io/gh/nikku/pfwr/v0.0.10/example/presentation.html)
 
 
