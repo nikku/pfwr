@@ -68,7 +68,7 @@ Open [the slide deck](https://cdn.statically.io/gh/nikku/pfwr/v0.0.10/example/pr
 
 ## Security Considerations
 
-:warning: `pfwr` is not safe to use on untrusted input since it allows you to embed arbitrary HTML within your slides.
+[pfwr](https://github.com/nikku/pfwr) embeds arbitrary HTML contained in your Markdown file. Thus, it is not safe to use on untrusted input.
 
 
 ## License
