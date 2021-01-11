@@ -4,6 +4,7 @@
 
 Turns your [Markdown file](https://github.com/nikku/pfwr/blob/main/README.md#example) into [a beautiful HTML slide deck](https://cdn.statically.io/gh/nikku/pfwr/v0.0.10/example/presentation.html). Batteries included.
 
+
 ## Introduction
 
 [![Slide deck generated from Markdown via pfwr](https://raw.githubusercontent.com/nikku/pfwr/main/docs/screenshot.png)](https://cdn.statically.io/gh/nikku/pfwr/v0.0.10/example/presentation.html)
@@ -11,9 +12,18 @@ Turns your [Markdown file](https://github.com/nikku/pfwr/blob/main/README.md#exa
 
 ## Usage
 
+Install the package globally via `npm`:
+
+```sh
+npm install -g pfwr
 ```
-npx pfwr presentation.md presentation.html
+
+Then, transform your Markdown file with the `pfwr` tool:
+
 ```
+pfwr presentation.md presentation.html
+```
+
 
 ## Features
 
@@ -25,7 +35,7 @@ npx pfwr presentation.md presentation.html
 
 ## Example
 
-Write your presentation in a single markdown file:
+Write your presentation in a single Markdown file:
 
 ```markdown
 ---
@@ -60,7 +70,7 @@ Normal text may be added.
 Convert the file to an HTML file:
 
 ```sh
-npx pfwr presentation.md presentation.html
+pfwr presentation.md presentation.html
 ```
 
 Open [the slide deck](https://cdn.statically.io/gh/nikku/pfwr/v0.0.10/example/presentation.html) in your favorite browser.
