@@ -42,7 +42,7 @@ body {
   --color-table-head: #ff7e00;
 }
 
-code {
+code:not([class*="language-"]) {
   padding: .2em .4em;
   margin: 0;
   font-size: 85%;
