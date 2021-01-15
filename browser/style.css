@@ -132,6 +132,7 @@ table, pre {
 
 .slide[data-align='center'] {
   align-items: center;
+  text-align: center;
 }
 
 .slide[data-align='left'] {
