@@ -5,3 +5,4 @@ example
 src
 tasks
 rollup.config.js
+tsconfig.js
