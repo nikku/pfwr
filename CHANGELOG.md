@@ -6,6 +6,10 @@ All notable changes to [pfwr](https://github.com/nikku/pfwr) are documented here
 
 ___Note:__ Yet to be released changes appear here._
 
+## 0.3.1
+
+* `FIX`: mark boolean cli switches
+
 ## 0.3.0
 
 * `FEAT`: add `--open` switch
