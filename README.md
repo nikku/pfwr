@@ -20,7 +20,7 @@ npm install -g pfwr
 
 Then, transform your Markdown file with the `pfwr` tool:
 
-```
+```sh
 pfwr presentation.md presentation.html
 ```
 
@@ -31,6 +31,7 @@ pfwr presentation.md presentation.html
 * Creates a self-contained, printable HTML slide deck
 * Embeds HTML, on purpose (cf. [security considerations](#security-considerations))
 * Allows you to configure meta-data via front-matter
+* Watch mode (rebuild on changes)
 
 
 ## Example

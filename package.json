@@ -45,5 +45,8 @@
     "markdown",
     "presentation",
     "cli"
-  ]
+  ],
+  "dependencies": {
+    "mri": "^1.1.6"
+  }
 }
