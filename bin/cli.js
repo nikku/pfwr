@@ -11,6 +11,7 @@ const opener = require('opener');
 const argv = process.argv.slice(2);
 
 const args = mri(argv, {
+  boolean: [ 'open', 'help', 'watch' ],
   alias: {
     w: 'watch',
     h: 'help',
