@@ -6,13 +6,15 @@ const path = require('path');
 const fs = require('fs');
 
 const mri = require('mri');
+const opener = require('opener');
 
 const argv = process.argv.slice(2);
 
 const args = mri(argv, {
   alias: {
     w: 'watch',
-    h: 'help'
+    h: 'help',
+    o: 'open'
   }
 });
 
@@ -29,6 +31,7 @@ Usage: pfwr input.md [output.html]
 
 Options:
     -w, --watch     rebundle on change
+    -o, --open      open the presentation in your web browser
 
 Examples:
     $ pfwr presentation.md
@@ -139,8 +142,15 @@ function watch() {
   }, 100));
 }
 
-run().then(args.watch ? watch : noop).catch(err => {
-  console.error(err);
+function open() {
+  opener(outputFile).unref();
+}
 
-  process.exit(1);
-});
+run()
+  .then(args.open ? open : noop)
+  .then(args.watch ? watch : noop)
+  .catch(err => {
+    console.error(err);
+
+    process.exit(1);
+  });

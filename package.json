@@ -47,6 +47,7 @@
     "cli"
   ],
   "dependencies": {
-    "mri": "^1.1.6"
+    "mri": "^1.1.6",
+    "opener": "^1.5.2"
   }
 }
