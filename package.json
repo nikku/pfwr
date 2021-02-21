@@ -5,6 +5,7 @@
   "main": "dist/index.js",
   "bin": "./bin/cli.js",
   "scripts": {
+    "all": "npm run bundle && npm run test",
     "bundle": "rollup -c",
     "dev": "chokidar --initial \"browser/*.*\" \"dist/*.*\" \"example/*.md\" --command \"npm start\"",
     "start": "node bin/cli.js example/presentation.md example/presentation.html",
