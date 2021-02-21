@@ -121,6 +121,86 @@ Some `code`, good right? _Yea!_
 ---
 
 <!--config
+theme=funky
+-->
+
+### Add Some Code
+
+```javascript
+function hello() {
+  window.alert('How yo doing?');
+}
+
+if (isFirstTime(visit)) {
+  hello();
+} else {
+  welcomeBack();
+}
+```
+
+---
+
+<!--config
+theme=funky
+-->
+
+### Add Tables
+
+| This | Is | Table |
+| :--- | :---: | ---: |
+| :one: || :two: :three: |
+| Long | Cell Content | *Can be fitted, too?* |
+
+<small>[With a link](#3)</small>
+
+---
+
+<!--config
+theme=eco
+-->
+
+### Or go green?
+
+Some `code`, good right? _Yea!_
+
+---
+
+<!--config
+theme=eco
+-->
+
+### Add Some Code
+
+```javascript
+function hello() {
+  window.alert('How yo doing?');
+}
+
+if (isFirstTime(visit)) {
+  hello();
+} else {
+  welcomeBack();
+}
+```
+
+---
+
+<!--config
+theme=eco
+-->
+
+### Add Tables
+
+| This | Is | Table |
+| :--- | :---: | ---: |
+| :one: || :two: :three: |
+| Long | Cell Content | *Can be fitted, too?* |
+
+<small>[With a link](#3)</small>
+
+---
+
+<!--config
 align=right
 -->
 
