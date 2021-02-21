@@ -6,6 +6,11 @@ All notable changes to [pfwr](https://github.com/nikku/pfwr) are documented here
 
 ___Note:__ Yet to be released changes appear here._
 
+## 0.4.0
+
+* `FEAT`: add `eco` theme
+* `CHORE`: slightly improve colors
+
 ## 0.3.1
 
 * `FIX`: mark boolean cli switches
