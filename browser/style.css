@@ -25,21 +25,94 @@ body {
 
   --list-margin: .5em;
 
-  --color-bright: #FEFEFE;
-  --color-brighter: #F0F0F0;
+  --color-navy: #001F3F;
+  --color-blue: #0074D9;
+  --color-aqua: #7FDBFF;
+  --color-teal: #39CCCC;
+  --color-olive: #3D9970;
+  --color-green: #2ECC40;
+  --color-lime: #01FF70;
+  --color-yellow: #FFDC00;
+  --color-orange: #FF851B;
+  --color-red: #FF4136;
+  --color-fuchsia: #F012BE;
+  --color-purple: #B10DC9;
+  --color-maroon: #85144B;
+  --color-white: #FFFFFF;
+  --color-silver: #DDDDDD;
+  --color-gray: #AAAAAA;
+  --color-black: #111;
 
-  --color-light-gray: #F0F0F0;
-  --color-darker-gray: #CCC;
-  --color-code-bg: #1b1f230d;
-  --color-muted: #888;
+  --color-black-1: var(--color-black);
+  --color-black-2: #333;
+  --color-gray-0: var(--color-gray);
+  --color-gray-1: var(--color-silver);
+  --color-gray-2: #888;
+  --color-gray-3: #F0F0F0;
+  --color-white-0: var(--color-white);
+  --color-white-1: #FEFEFE;
+  --color-white-2: #FAFAFA;
 
-  --color-default: #333;
-  --color-highlight: fuchsia;
+  --color-default: var(--color-black-1);
+  --color-bg: var(--color-white-0);
 
-  --color-highlight-inverse: #ffc124;
+  --color-highlight: var(--color-white-1);
+  --color-highlight-bg: var(--color-fuchsia);
 
-  --color-link: #0076ff;
-  --color-table-head: #ff7e00;
+  --color-slide-number: var(--color-gray-2);
+
+  --color-code-bg: #cfcaca59;
+  --color-code: var(--color-white-1);
+
+  --color-link: var(--color-blue);
+
+  --color-table-head: var(--color-white-1);
+  --color-table-head-bg: var(--color-orange);
+  --color-table: var(--color-default);
+  --color-table-bg: var(--color-white-1);
+  --color-table-border: var(--color-gray-2);
+}
+
+.slide[data-theme='funky'] {
+
+  --color-default: var(--color-white-1);
+  --color-bg: var(--color-fuchsia);
+
+  --color-slide-number: var(--color-gray-1);
+
+  --color-code: var(--color-white-1);
+  --color-code-bg: #cfcaca59;
+
+  --color-highlight: var(--color-white-1);
+  --color-highlight-bg: var(--color-orange);
+
+  --color-link: var(--color-white-1);
+
+  --color-table-head: var(--color-black-2);
+  --color-table-head-bg: var(--color-yellow);
+  --color-table-bg: var(--color-white-1);
+  --color-table-border: var(--color-gray-2);
+}
+
+.slide[data-theme='eco'] {
+
+  --color-default: var(--color-white-1);
+  --color-bg: var(--color-olive);
+
+  --color-slide-number: var(--color-gray-1);
+
+  --color-code: var(--color-white-1);
+  --color-code-bg: #cfcaca59;
+
+  --color-highlight: var(--color-gray-3);
+  --color-highlight-bg: var(--color-red);
+
+  --color-link: var(--color-white-1);
+
+  --color-table-head: var(--color-white-1);
+  --color-table-head-bg: var(--color-orange);
+  --color-table-bg: var(--color-white-1);
+  --color-table-border: var(--color-gray-2);
 }
 
 code:not([class*="language-"]) {
@@ -83,9 +156,9 @@ a {
 }
 
 em {
-  background: var(--color-highlight);
+  background: var(--color-highlight-bg);
   font-style: normal;
-  color: white;
+  color: var(--color-highlight);
 }
 
 table, pre {
@@ -96,7 +169,6 @@ table, pre {
 .slide-container {
   font-family: var(--font-family-body);
   font-size: var(--font-size-default);
-  color: var(--color-default);
 }
 
 .slide > *,
@@ -128,6 +200,9 @@ table, pre {
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
+
+  background: var(--color-bg);
+  color: var(--color-default);
 }
 
 .slide[data-align='center'] {
@@ -143,42 +218,24 @@ table, pre {
   align-items: flex-end;
 }
 
-.slide[data-theme='funky'] {
-  background: var(--color-highlight);
-  color: var(--color-bright);
-}
-
-.slide[data-theme='funky'] code {
-  background: #1b1f232f;
-  color: white;
-}
-
-.slide[data-theme='funky'] em {
-  color: var(--color-default);
-  background: var(--color-highlight-inverse);
-}
-
-.slide[data-theme='funky'] .slide-number {
-  color: var(--color-brighter);
-}
-
 table {
   border-radius: 1rem;
   overflow: hidden;
   border-collapse: collapse;
 
-  background: var(--color-light-gray);
+  color: var(--color-table);
+  background: var(--color-table-bg);
 
   font-size: .7em;
 }
 
 thead {
-  color: var(--color-bright);
-  background: var(--color-table-head);
+  color: var(--color-table-head);
+  background: var(--color-table-head-bg);
 }
 
 tbody tr + tr {
-  border-top: solid 1px var(--color-darker-gray);
+  border-top: solid 1px var(--color-table-border);
 }
 
 table td,
@@ -200,7 +257,7 @@ table td:last-child {
   position: absolute;
   bottom: calc(var(--slide-margin) / 2);
   right: calc(var(--slide-margin) / 2);
-  color: var(--color-muted);
+  color: var(--color-slide-number);
   font-size: var(--font-size-small);
   margin: 0;
 }
