@@ -177,7 +177,7 @@ function pfwr(options) {
       return false;
     }
 
-    if (key === 'ArrowRight' || key === 'Enter') {
+    if (key === 'ArrowRight' || key === 'Enter' || key === ' ') {
       goto('next');
 
       return false;
