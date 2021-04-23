@@ -14,16 +14,16 @@ function addPage(index, slide) {
 function addNavigationControls(container, goto) {
 
   const html = `<nav class="slide-navigation shown">
-    <a class="navigation-button" data-navigate="first" title="Goto first slide" href>
+    <a class="navigation-button" data-navigate="first" title="First slide" href>
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path fill-rule="evenodd" d="M12 16.5a4.5 4.5 0 100-9 4.5 4.5 0 000 9zm0 1.5a6 6 0 100-12 6 6 0 000 12z"></path></svg>
     </a>
-    <a class="navigation-button" data-navigate="previous" title="Goto previous slide" href>
+    <a class="navigation-button" data-navigate="previous" title="Previous slide (Left Arrow)" href>
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path d="M8.854 11.646l5.792-5.792a.5.5 0 01.854.353v11.586a.5.5 0 01-.854.353l-5.792-5.792a.5.5 0 010-.708z"></path></svg>
     </a>
-    <a class="navigation-button" data-navigate="next" title="Goto next slide" href>
+    <a class="navigation-button" data-navigate="next" title="Next slide (Enter/Spacebar/Right Arrow)" href>
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path d="M15.146 12.354l-5.792 5.792a.5.5 0 01-.854-.353V6.207a.5.5 0 01.854-.353l5.792 5.792a.5.5 0 010 .708z"></path></svg>
     </a>
-    <a class="navigation-button" data-navigate="last" title="Goto last slide" href>
+    <a class="navigation-button" data-navigate="last" title="Last slide" href>
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path d="M12 18a6 6 0 100-12 6 6 0 000 12z"></path></svg>
     </a>
   </nav>`;
