@@ -6,6 +6,13 @@ All notable changes to [pfwr](https://github.com/nikku/pfwr) are documented here
 
 ___Note:__ Yet to be released changes appear here._
 
+## 0.5.0
+
+* `FEAT`: add navigation widget
+* `FEAT`: document keyboard shortcuts on mouse navigation widget
+* `FEAT`: change slide on URL hash changes
+* `FEAT`: recognize `Spacebar` to go to next slide
+
 ## 0.4.1
 
 * `CHORE`: minor additional color improvements
