@@ -282,7 +282,42 @@ img {
   font-size: .5em;
 }
 
+.slide-navigation {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+}
+
+.slide-navigation:not(.shown) {
+  display: none;
+}
+
+.slide-navigation a {
+  text-decoration: none;
+  display: inline-block;
+  margin: .05em;
+  padding: .2em;
+
+  background: var(--color-gray-5);
+  color: var(--color-gray-1);
+  opacity: .4;
+  border-radius: .1em;
+}
+
+.slide-navigation a svg {
+  display: block;
+}
+
+.slide-navigation a:hover {
+  opacity: 1;
+}
+
 @media print {
+
+  .slide-navigation {
+    display: none;
+  }
+
   .slide-container {
     font-size: var(--font-size-default-print);
   }
