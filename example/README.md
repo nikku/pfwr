@@ -6,4 +6,4 @@ Create a self-contained HTML slide deck:
 npx pfwr presentation.md presentation.html
 ```
 
-Open the [`presentation.html`](https://cdn.statically.io/gh/nikku/pfwr/v0.4.1/example/presentation.html) in your browser.
+Open the [`presentation.html`](https://cdn.statically.io/gh/nikku/pfwr/v0.5.0/example/presentation.html) in your browser.
