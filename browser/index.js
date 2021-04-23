@@ -2,6 +2,10 @@ function onLoaded(fn) {
   window.addEventListener('DOMContentLoaded', fn);
 }
 
+function onHashChange(fn) {
+  window.addEventListener('hashchange', fn, false);
+}
+
 function setSlide(slide) {
   window.location.hash = '#' + (slide + 1);
 }
@@ -31,6 +35,10 @@ onLoaded(() => {
   });
 
   presentation.goto(getSlide());
+
+  onHashChange(() => {
+    presentation.goto(getSlide());
+  });
 
   presentation.on('slideChanged', function(event) {
     setSlide(event.slideIndex);
