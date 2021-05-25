@@ -38,6 +38,9 @@ function tagFile(node, file) {
   const config = yaml.load(node.value);
 
   file.data.meta = Object.assign({
+    og: true,
+    twitter: true,
+    copyright: true,
     type: 'presentation'
   }, config);
 }
