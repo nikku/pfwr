@@ -6,6 +6,11 @@ All notable changes to [pfwr](https://github.com/nikku/pfwr) are documented here
 
 ___Note:__ Yet to be released changes appear here._
 
+## 0.5.1
+
+* `FIX`: add `og` and `twitter` meta tags to presentations
+* `DEPS`: bump dependencies
+
 ## 0.5.0
 
 * `FEAT`: add navigation widget
