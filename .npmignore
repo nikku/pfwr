@@ -1,8 +1,0 @@
-.github
-!dist
-browser
-example
-src
-tasks
-rollup.config.js
-tsconfig.json
