@@ -56,7 +56,7 @@ async function run() {
   const t = Date.now();
 
   if (!fs.existsSync(inputFile)) {
-    console.log('Creating %s');
+    console.log('Created %s', inputFile);
 
     fs.copyFileSync(__dirname + '/template.md', inputFile);
   }

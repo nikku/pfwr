@@ -9,9 +9,9 @@
     "bundle": "rollup -c",
     "dev": "chokidar --initial \"browser/*.*\" \"dist/*.*\" \"example/*.md\" --command \"npm start\"",
     "start": "node bin/cli.js example/presentation.md example/presentation.html",
-    "pretest": "npm run bundle",
     "version": "./tasks/bump-examples",
-    "test": "node bin/cli.js example/presentation.md example/presentation.html"
+    "test": "node bin/cli.js example/presentation.md example/presentation.html",
+    "prepare": "npm run bundle"
   },
   "author": "Nico Rehwaldt<https://github.com/nikku>",
   "license": "MIT",

@@ -1,10 +1,10 @@
 ---
-title: <title>
+title: Some Title
 description: A human readable description
-author: <author>
+author: Fred the Duck
 ---
 
-# <title>
+# Some Title
 
 #### Sub title
 
@@ -15,6 +15,8 @@ author: <author>
 *Some* _Markdown_ **!**
 
 `code`
+
+---
 
 ## Add Lists
 
