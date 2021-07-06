@@ -55,6 +55,12 @@ const outputFile = args._[1] || defaultOutput(inputFile);
 async function run() {
   const t = Date.now();
 
+  if (!fs.existsSync(inputFile)) {
+    console.log('Creating %s');
+
+    fs.copyFileSync(__dirname + '/template.md', inputFile);
+  }
+
   const input = {
     path: inputFile,
     contents: fs.readFileSync(inputFile, 'utf8')
