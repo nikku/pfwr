@@ -6,6 +6,11 @@ All notable changes to [pfwr](https://github.com/nikku/pfwr) are documented here
 
 ___Note:__ Yet to be released changes appear here._
 
+## 0.7.0
+
+* `DEPS`: bump dependencies
+* `CHORE`: turn into ES module
+
 ## 0.6.0
 
 * `FEAT`: create presentation from template if it does not exist yet
