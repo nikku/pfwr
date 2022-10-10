@@ -4,11 +4,15 @@ import { pfwr } from '../dist/index.js';
 
 import path from 'path';
 import fs from 'fs';
+import { fileURLToPath } from 'url'
 
 import mri from 'mri';
 import opener from 'opener';
 
-import pkg from '../package.json' assert { type: "json" };
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = path.dirname(__filename)
+
+const pkg = JSON.parse(fs.readFileSync(path.join(__dirname, '../package.json'), 'utf8'));
 
 const argv = process.argv.slice(2);
 
