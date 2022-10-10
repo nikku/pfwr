@@ -65,12 +65,12 @@ async function run() {
 
   const input = {
     path: inputFile,
-    contents: fs.readFileSync(inputFile, 'utf8')
+    value: fs.readFileSync(inputFile, 'utf8')
   };
 
   return pfwr(input).then(output => {
 
-    fs.writeFileSync(outputFile, output.contents, 'utf8');
+    fs.writeFileSync(outputFile, output.value, 'utf8');
 
     console.log('Transformed %s -> %s in %sms', inputFile, outputFile, (Date.now() - t));
   });
