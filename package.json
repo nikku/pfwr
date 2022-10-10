@@ -29,33 +29,34 @@
   "devDependencies": {
     "@rollup/plugin-commonjs": "^23.0.0",
     "@rollup/plugin-json": "^5.0.0",
+    "@rollup/plugin-node-resolve": "^15.0.0",
     "chokidar-cli": "^3.0.0",
+    "js-yaml": "^4.1.0",
+    "mdast-comment-marker": "^2.0.0",
+    "rehype-document": "^6.0.0",
+    "rehype-format": "^4.0.0",
+    "rehype-meta": "^3.1.0",
+    "rehype-stringify": "^9.0.2",
+    "rehype-wrap": "^1.0.10",
+    "remark-breaks": "^3.0.1",
+    "remark-emoji": "^3.0.1",
+    "remark-external-links": "^9.0.1",
+    "remark-frontmatter": "^4.0.0",
+    "remark-gfm": "^3.0.1",
+    "remark-parse": "^10.0.0",
+    "remark-rehype": "^10.1.0",
     "rollup": "^2.79.1",
-    "rollup-plugin-string": "^3.0.0"
+    "rollup-plugin-string": "^3.0.0",
+    "twemoji": "^14.0.2",
+    "unified": "^10.1.0",
+    "unist-util-visit-parents": "^5.0.0",
+    "vfile": "^5.1.0"
   },
   "engines": {
     "node": ">= 16"
   },
   "dependencies": {
-    "js-yaml": "^4.1.0",
-    "mdast-comment-marker": "^2.1.0",
     "mri": "^1.1.6",
-    "opener": "^1.5.2",
-    "rehype-document": "^6.1.0",
-    "rehype-format": "^4.0.1",
-    "rehype-meta": "^3.3.0",
-    "rehype-stringify": "^9.0.3",
-    "rehype-wrap": "^1.1.0",
-    "remark-breaks": "^3.0.2",
-    "remark-emoji": "^3.0.2",
-    "remark-external-links": "^9.0.1",
-    "remark-frontmatter": "^4.0.1",
-    "remark-gfm": "^3.0.1",
-    "remark-parse": "^10.0.1",
-    "remark-rehype": "^10.1.0",
-    "twemoji": "^14.0.2",
-    "unified": "^10.1.2",
-    "unist-util-visit-parents": "^5.1.1",
-    "vfile": "^5.3.5"
+    "opener": "^1.5.2"
   }
 }
