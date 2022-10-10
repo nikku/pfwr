@@ -1,14 +1,14 @@
-import visit from 'unist-util-visit-parents';
-import commentMarker from 'mdast-comment-marker';
+import { visitParents } from 'unist-util-visit-parents';
+import { commentMarker } from 'mdast-comment-marker';
 
 
-export default function plugin() {
-  return transform
+export function parseComments() {
+  return transform;
 }
 
 function transform(tree) {
 
-  visit(
+  visitParents(
     tree,
     node => node.type === 'html',
     commentConfigHtml

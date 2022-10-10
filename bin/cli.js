@@ -1,12 +1,14 @@
 #!/usr/bin/env node
 
-const { pfwr } = require('..');
+import { pfwr } from '../dist/index.js';
 
-const path = require('path');
-const fs = require('fs');
+import path from 'path';
+import fs from 'fs';
 
-const mri = require('mri');
-const opener = require('opener');
+import mri from 'mri';
+import opener from 'opener';
+
+import pkg from '../package.json' assert { type: "json" };
 
 const argv = process.argv.slice(2);
 
@@ -20,7 +22,7 @@ const args = mri(argv, {
 });
 
 if (args.version) {
-  console.log(require('../package').version);
+  console.log(pkg.version);
 
   process.exit(0);
 }

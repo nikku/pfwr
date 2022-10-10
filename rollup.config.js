@@ -10,7 +10,7 @@ const configs = [
     input: './src/index.js',
     output: {
       file: `${outputDir}/index.js`,
-      format: 'cjs',
+      format: 'esm',
       exports: 'named'
     },
     plugins: pgl()
@@ -27,7 +27,6 @@ function pgl(plugins=[]) {
     ...plugins,
     nodeResolve({
       mainFields: [
-        'browser',
         'module',
         'main'
       ]

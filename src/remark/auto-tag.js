@@ -1,8 +1,8 @@
-import visit from 'unist-util-visit-parents';
+import { visitParents } from 'unist-util-visit-parents';
 import yaml from 'js-yaml';
 
-export default function plugin() {
-  return transform
+export function autoTag() {
+  return transform;
 }
 
 function transform(tree, file) {
@@ -10,7 +10,7 @@ function transform(tree, file) {
   const slides = [];
   const config = [];
 
-  visit(
+  visitParents(
     tree,
     node => {
       if (node.type === 'slide') {

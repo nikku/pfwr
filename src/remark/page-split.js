@@ -1,14 +1,14 @@
-import visit from 'unist-util-visit-parents';
+import { visitParents } from 'unist-util-visit-parents';
 
-export default function plugin() {
-  return transform
+export function pageSplit() {
+  return transform;
 }
 
 function transform(tree) {
 
   const splits = [];
 
-  visit(
+  visitParents(
     tree,
     node => node.type === 'thematicBreak',
     node => splits.indexOf(node) === -1 ? splits.unshift(node) : null

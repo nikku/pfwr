@@ -1,8 +1,8 @@
 import fs from 'fs';
 import path from 'path';
 
-import vfile from 'vfile';
-import unified from 'unified';
+import { VFile } from 'vfile';
+import { unified } from 'unified';
 import markdown from 'remark-parse';
 import frontmatter from 'remark-frontmatter';
 import gfm from 'remark-gfm';
@@ -16,9 +16,9 @@ import doc from 'rehype-document';
 import meta from 'rehype-meta';
 import wrap from 'rehype-wrap';
 
-import pageSplit from './remark/page-split';
-import parseComments from './remark/parse-comments';
-import autoTag from './remark/auto-tag';
+import { pageSplit } from './remark/page-split';
+import { parseComments } from './remark/parse-comments';
+import { autoTag } from './remark/auto-tag';
 
 import pfwrStyle from '../browser/style.css';
 import pfwrScript from '../browser/pfwr.js';
@@ -28,7 +28,8 @@ import prismStyle from '../browser/vendor/prism.css';
 
 import indexScript from '../browser/index.js';
 
-function pfwr(input) {
+
+export function pfwr(input) {
 
   return new Promise((resolve, reject) => {
     unified()
@@ -69,7 +70,7 @@ function pfwr(input) {
       .use(html, {
         allowDangerousHtml: true
       })
-      .process(vfile(input), function(err, output) {
+      .process(new VFile(input), function(err, output) {
         if (err) {
           return reject(err);
         }
@@ -79,5 +80,3 @@ function pfwr(input) {
   });
 
 }
-
-module.exports.pfwr = pfwr;
