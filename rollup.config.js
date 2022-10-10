@@ -1,7 +1,8 @@
-import nodeResolve from '@rollup/plugin-node-resolve';
 import commonjs from '@rollup/plugin-commonjs';
 import json from '@rollup/plugin-json';
 import { string } from 'rollup-plugin-string';
+
+import pkg from './package.json';
 
 const outputDir = 'dist';
 
@@ -13,6 +14,7 @@ const configs = [
       format: 'esm',
       exports: 'named'
     },
+    external: Object.keys(pkg.dependencies),
     plugins: pgl()
   }
 ];
@@ -25,12 +27,6 @@ export default configs;
 function pgl(plugins=[]) {
   return [
     ...plugins,
-    nodeResolve({
-      mainFields: [
-        'module',
-        'main'
-      ]
-    }),
     string({
       include: 'browser/**/*.*'
     }),
