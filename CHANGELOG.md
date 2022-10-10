@@ -6,6 +6,11 @@ All notable changes to [pfwr](https://github.com/nikku/pfwr) are documented here
 
 ___Note:__ Yet to be released changes appear here._
 
+## 0.7.1
+
+* `FIX`: load `package.json` the old way
+* `FIX`: use `__dirname`, ESM style
+
 ## 0.7.0
 
 * `DEPS`: bump dependencies
