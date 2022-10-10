@@ -7,384 +7,481 @@
     <style>/* PrismJS 1.23.0
 https://prismjs.com/download.html#themes=prism-okaidia&languages=markup+css+clike+javascript */
 /**
-* okaidia theme for JavaScript, CSS and HTML
-* Loosely based on Monokai textmate theme by http://www.monokai.nl/
-* @author ocodia
-*/
+ * okaidia theme for JavaScript, CSS and HTML
+ * Loosely based on Monokai textmate theme by http://www.monokai.nl/
+ * @author ocodia
+ */
+
 code[class*="language-"],
 pre[class*="language-"] {
-color: #f8f8f2;
-background: none;
-text-shadow: 0 1px rgba(0, 0, 0, 0.3);
-font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
-font-size: 1em;
-text-align: left;
-white-space: pre;
-word-spacing: normal;
-word-break: normal;
-word-wrap: normal;
-line-height: 1.5;
--moz-tab-size: 4;
--o-tab-size: 4;
-tab-size: 4;
--webkit-hyphens: none;
--moz-hyphens: none;
--ms-hyphens: none;
-hyphens: none;
+	color: #f8f8f2;
+	background: none;
+	text-shadow: 0 1px rgba(0, 0, 0, 0.3);
+	font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+	font-size: 1em;
+	text-align: left;
+	white-space: pre;
+	word-spacing: normal;
+	word-break: normal;
+	word-wrap: normal;
+	line-height: 1.5;
+
+	-moz-tab-size: 4;
+	-o-tab-size: 4;
+	tab-size: 4;
+
+	-webkit-hyphens: none;
+	-moz-hyphens: none;
+	-ms-hyphens: none;
+	hyphens: none;
 }
+
 /* Code blocks */
 pre[class*="language-"] {
-padding: 1em;
-margin: .5em 0;
-overflow: auto;
-border-radius: 0.3em;
+	padding: 1em;
+	margin: .5em 0;
+	overflow: auto;
+	border-radius: 0.3em;
 }
+
 :not(pre) > code[class*="language-"],
 pre[class*="language-"] {
-background: #272822;
+	background: #272822;
 }
+
 /* Inline code */
 :not(pre) > code[class*="language-"] {
-padding: .1em;
-border-radius: .3em;
-white-space: normal;
+	padding: .1em;
+	border-radius: .3em;
+	white-space: normal;
 }
+
 .token.comment,
 .token.prolog,
 .token.doctype,
 .token.cdata {
-color: #8292a2;
+	color: #8292a2;
 }
+
 .token.punctuation {
-color: #f8f8f2;
+	color: #f8f8f2;
 }
+
 .token.namespace {
-opacity: .7;
+	opacity: .7;
 }
+
 .token.property,
 .token.tag,
 .token.constant,
 .token.symbol,
 .token.deleted {
-color: #f92672;
+	color: #f92672;
 }
+
 .token.boolean,
 .token.number {
-color: #ae81ff;
+	color: #ae81ff;
 }
+
 .token.selector,
 .token.attr-name,
 .token.string,
 .token.char,
 .token.builtin,
 .token.inserted {
-color: #a6e22e;
+	color: #a6e22e;
 }
+
 .token.operator,
 .token.entity,
 .token.url,
 .language-css .token.string,
 .style .token.string,
 .token.variable {
-color: #f8f8f2;
+	color: #f8f8f2;
 }
+
 .token.atrule,
 .token.attr-value,
 .token.function,
 .token.class-name {
-color: #e6db74;
+	color: #e6db74;
 }
+
 .token.keyword {
-color: #66d9ef;
+	color: #66d9ef;
 }
+
 .token.regex,
 .token.important {
-color: #fd971f;
+	color: #fd971f;
 }
+
 .token.important,
 .token.bold {
-font-weight: bold;
+	font-weight: bold;
 }
 .token.italic {
-font-style: italic;
+	font-style: italic;
 }
+
 .token.entity {
-cursor: help;
-}</style>
+	cursor: help;
+}
+
+</style>
     <style>html,
 body {
-margin: 0;
-padding: 0;
-height: 100%;
-box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  box-sizing: border-box;
 }
+
 :root {
---font-size-h1: 3em;
---font-size-h2: 1.8em;
---font-size-h3: 1.4em;
---font-size-h4: 1.1em;
---font-size-default: 3.5em;
---font-size-small: .4em;
---font-size-default-print: 2.5em;
---slide-margin: 2rem;
---font-family-body: 'Montserrat', sans-serif;
---font-family-heading: 'Roboto Slab', serif;
---font-family-code: 'Roboto Mono', monospace;
---list-margin: .5em;
---color-navy: #001F3F;
---color-blue: #0074D9;
---color-aqua: #7FDBFF;
---color-teal: #39CCCC;
---color-olive: #3D9970;
---color-green: #2ECC40;
---color-lime: #01FF70;
---color-yellow: #FFDC00;
---color-orange: #FF851B;
---color-red: #FF4136;
---color-fuchsia: #F012BE;
---color-purple: #B10DC9;
---color-maroon: #85144B;
---color-white: #FFFFFF;
---color-gray-7: #FCFCFC;
---color-gray-6: #F0F0F0;
---color-gray-5: #DDDDDD;
---color-gray-4: #AAAAAA;
---color-gray-3: #888;
---color-gray-2: #666;
---color-gray-1: #333;
---color-black: #111;
---color-default: var(--color-gray-1);
---color-bg: var(--color-white);
---color-highlight: var(--color-gray-7);
---color-highlight-bg: var(--color-fuchsia);
---color-slide-number: var(--color-gray-3);
---color-code-bg: #cfcaca59;
---color-code: var(--color-gray-7);
---color-link: var(--color-blue);
---color-table-head: var(--color-gray-7);
---color-table-head-bg: var(--color-orange);
---color-table: var(--color-default);
---color-table-bg: var(--color-gray-6);
---color-table-border: var(--color-gray-5);
+
+  --font-size-h1: 3em;
+  --font-size-h2: 1.8em;
+  --font-size-h3: 1.4em;
+  --font-size-h4: 1.1em;
+  --font-size-default: 3.5em;
+  --font-size-small: .4em;
+
+  --font-size-default-print: 2.5em;
+
+  --slide-margin: 2rem;
+
+  --font-family-body: 'Montserrat', sans-serif;
+  --font-family-heading: 'Roboto Slab', serif;
+  --font-family-code: 'Roboto Mono', monospace;
+
+  --list-margin: .5em;
+
+  --color-navy: #001F3F;
+  --color-blue: #0074D9;
+  --color-aqua: #7FDBFF;
+  --color-teal: #39CCCC;
+  --color-olive: #3D9970;
+  --color-green: #2ECC40;
+  --color-lime: #01FF70;
+  --color-yellow: #FFDC00;
+  --color-orange: #FF851B;
+  --color-red: #FF4136;
+  --color-fuchsia: #F012BE;
+  --color-purple: #B10DC9;
+  --color-maroon: #85144B;
+  --color-white: #FFFFFF;
+  --color-gray-7: #FCFCFC;
+  --color-gray-6: #F0F0F0;
+  --color-gray-5: #DDDDDD;
+  --color-gray-4: #AAAAAA;
+  --color-gray-3: #888;
+  --color-gray-2: #666;
+  --color-gray-1: #333;
+  --color-black: #111;
+
+  --color-default: var(--color-gray-1);
+  --color-bg: var(--color-white);
+
+  --color-highlight: var(--color-gray-7);
+  --color-highlight-bg: var(--color-fuchsia);
+
+  --color-slide-number: var(--color-gray-3);
+
+  --color-code-bg: #cfcaca59;
+  --color-code: var(--color-gray-7);
+
+  --color-link: var(--color-blue);
+
+  --color-table-head: var(--color-gray-7);
+  --color-table-head-bg: var(--color-orange);
+  --color-table: var(--color-default);
+  --color-table-bg: var(--color-gray-6);
+  --color-table-border: var(--color-gray-5);
 }
+
 .slide[data-theme='funky'] {
---color-default: var(--color-gray-7);
---color-bg: var(--color-fuchsia);
---color-slide-number: var(--color-gray-5);
---color-code: var(--color-gray-7);
---color-code-bg: #cfcaca59;
---color-highlight: var(--color-gray-7);
---color-highlight-bg: var(--color-orange);
---color-link: var(--color-gray-7);
---color-table-head: var(--color-gray-1);
---color-table-head-bg: var(--color-yellow);
---color-table-bg: var(--color-gray-7);
---color-table-border: var(--color-gray-4);
+
+  --color-default: var(--color-gray-7);
+  --color-bg: var(--color-fuchsia);
+
+  --color-slide-number: var(--color-gray-5);
+
+  --color-code: var(--color-gray-7);
+  --color-code-bg: #cfcaca59;
+
+  --color-highlight: var(--color-gray-7);
+  --color-highlight-bg: var(--color-orange);
+
+  --color-link: var(--color-gray-7);
+
+  --color-table-head: var(--color-gray-1);
+  --color-table-head-bg: var(--color-yellow);
+  --color-table-bg: var(--color-gray-7);
+  --color-table-border: var(--color-gray-4);
 }
+
 .slide[data-theme='eco'] {
---color-default: var(--color-gray-7);
---color-bg: var(--color-olive);
---color-slide-number: var(--color-gray-5);
---color-code: var(--color-gray-7);
---color-code-bg: #cfcaca59;
---color-highlight: var(--color-gray-6);
---color-highlight-bg: var(--color-red);
---color-link: var(--color-gray-7);
---color-table-head: var(--color-gray-7);
---color-table-head-bg: var(--color-orange);
---color-table-bg: var(--color-gray-7);
---color-table-border: var(--color-gray-4);
+
+  --color-default: var(--color-gray-7);
+  --color-bg: var(--color-olive);
+
+  --color-slide-number: var(--color-gray-5);
+
+  --color-code: var(--color-gray-7);
+  --color-code-bg: #cfcaca59;
+
+  --color-highlight: var(--color-gray-6);
+  --color-highlight-bg: var(--color-red);
+
+  --color-link: var(--color-gray-7);
+
+  --color-table-head: var(--color-gray-7);
+  --color-table-head-bg: var(--color-orange);
+  --color-table-bg: var(--color-gray-7);
+  --color-table-border: var(--color-gray-4);
 }
+
 code:not([class*="language-"]) {
-padding: .2em .4em;
-margin: 0;
-font-size: 85%;
-border-radius: .1em;
-background-color: var(--color-code-bg);
-font-family: var(--font-family-code);
+  padding: .2em .4em;
+  margin: 0;
+  font-size: 85%;
+  border-radius: .1em;
+
+  background-color: var(--color-code-bg);
+  font-family: var(--font-family-code);
 }
+
 h1, h2, h3, h4 {
-font-family: var(--font-family-heading);
-margin: 1rem;
+  font-family: var(--font-family-heading);
+
+  margin: 1rem;
 }
+
 h1 {
-font-size: var(--font-size-h1);
+  font-size: var(--font-size-h1);
 }
+
 h2 {
-font-size: var(--font-size-h2);
+  font-size: var(--font-size-h2);
 }
+
 h3 {
-font-size: var(--font-size-h3);
+  font-size: var(--font-size-h3);
 }
+
 h4 {
-font-size: var(--font-size-h4);
+  font-size: var(--font-size-h4);
 }
+
 li + li {
-margin-top: var(--list-margin);
+  margin-top: var(--list-margin);
 }
+
 a {
-color: var(--color-link);
+  color: var(--color-link);
 }
+
 em {
-background: var(--color-highlight-bg);
-font-style: normal;
-color: var(--color-highlight);
+  background: var(--color-highlight-bg);
+  font-style: normal;
+  color: var(--color-highlight);
 }
+
 table, pre {
-width: fit-content;
-min-width: 50%;
+  width: fit-content;
+  min-width: 50%;
 }
+
 .slide-container {
-font-family: var(--font-family-body);
-font-size: var(--font-size-default);
+  font-family: var(--font-family-body);
+  font-size: var(--font-size-default);
 }
+
 .slide > *,
 .slide > pre[class*="language-"] {
-margin: 0 var(--slide-margin);
+  margin: 0 var(--slide-margin);
 }
+
 .slide > ul {
-margin: 0 calc(var(--slide-margin) * 2);
+  margin: 0 calc(var(--slide-margin) * 2);
 }
+
 .slide > * + *,
 .slide > * + pre[class*="language-"],
 .slide > * + ul {
-margin-top: calc(var(--slide-margin) * 1.5);
+  margin-top: calc(var(--slide-margin) * 1.5);
 }
+
 .slide-container {
-width: 100vw;
-height: 100vh;
+  width: 100vw;
+  height: 100vh;
 }
+
 .slide {
-position: relative;
-width: 100%;
-height: 100%;
-display: flex;
-flex-direction: column;
-justify-content: center;
-align-items: flex-start;
-background: var(--color-bg);
-color: var(--color-default);
+  position: relative;
+
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+
+  background: var(--color-bg);
+  color: var(--color-default);
 }
+
 .slide[data-align='center'] {
-align-items: center;
-text-align: center;
+  align-items: center;
+  text-align: center;
 }
+
 .slide[data-align='left'] {
-align-items: flex-start;
+  align-items: flex-start;
 }
+
 .slide[data-align='right'] {
-align-items: flex-end;
+  align-items: flex-end;
 }
+
 table {
-border-radius: 1rem;
-overflow: hidden;
-border-collapse: collapse;
-color: var(--color-table);
-background: var(--color-table-bg);
-font-size: .7em;
+  border-radius: 1rem;
+  overflow: hidden;
+  border-collapse: collapse;
+
+  color: var(--color-table);
+  background: var(--color-table-bg);
+
+  font-size: .7em;
 }
+
 thead {
-color: var(--color-table-head);
-background: var(--color-table-head-bg);
+  color: var(--color-table-head);
+  background: var(--color-table-head-bg);
 }
+
 tbody tr + tr {
-border-top: solid 1px var(--color-table-border);
+  border-top: solid 1px var(--color-table-border);
 }
+
 table td,
 table th {
-padding: .7em .8em;
+  padding: .7em .8em;
 }
+
 table th:first-child,
 table td:first-child {
-padding-left: 1.5em;
+  padding-left: 1.5em;
 }
+
 table th:last-child,
 table td:last-child {
-padding-right: 1.5em;
+  padding-right: 1.5em;
 }
+
 .slide-number {
-position: absolute;
-bottom: calc(var(--slide-margin) / 2);
-right: calc(var(--slide-margin) / 2);
-color: var(--color-slide-number);
-font-size: var(--font-size-small);
-margin: 0;
+  position: absolute;
+  bottom: calc(var(--slide-margin) / 2);
+  right: calc(var(--slide-margin) / 2);
+  color: var(--color-slide-number);
+  font-size: var(--font-size-small);
+  margin: 0;
 }
+
 img.emoji {
-height: 1em;
-width: 1em;
-margin: 0 .05em 0 .1em;
-vertical-align: -0.1em;
+  height: 1em;
+  width: 1em;
+  margin: 0 .05em 0 .1em;
+  vertical-align: -0.1em;
 }
+
 img {
-object-fit: contain;
+  object-fit: contain;
 }
+
 .slide > img:not(.emoji) {
-max-width: calc(100% - var(--slide-margin));
-max-height: calc(100% - var(--slide-margin));
+  max-width: calc(100% - var(--slide-margin));
+  max-height: calc(100% - var(--slide-margin));
 }
+
 .slide p > img:not(.emoji) {
-max-width: 100%;
-max-height: 100%;
+  max-width: 100%;
+  max-height: 100%;
 }
+
 .slide > pre[class*="language-"] {
-font-size: .5em;
+  font-size: .5em;
 }
+
 .slide-navigation {
-position: fixed;
-top: 20px;
-right: 20px;
+  position: fixed;
+  top: 20px;
+  right: 20px;
 }
+
 .slide-navigation:not(.shown) {
-display: none;
+  display: none;
 }
+
 .slide-navigation a {
-text-decoration: none;
-display: inline-block;
-margin: .05em;
-padding: .2em;
-background: var(--color-gray-5);
-color: var(--color-gray-1);
-opacity: .4;
-border-radius: .1em;
+  text-decoration: none;
+  display: inline-block;
+  margin: .05em;
+  padding: .2em;
+
+  background: var(--color-gray-5);
+  color: var(--color-gray-1);
+  opacity: .4;
+  border-radius: .1em;
 }
+
 .slide-navigation a svg {
-display: block;
+  display: block;
 }
+
 .slide-navigation a:hover {
-opacity: 1;
+  opacity: 1;
 }
+
 @media print {
-.slide-navigation {
-display: none;
+
+  .slide-navigation {
+    display: none;
+  }
+
+  .slide-container {
+    font-size: var(--font-size-default-print);
+  }
+
+  .slide {
+    page-break-after: always;
+  }
 }
-.slide-container {
-font-size: var(--font-size-default-print);
-}
-.slide {
-page-break-after: always;
-}
-}
+
 @media screen {
-.slide-container {
-overflow: hidden;
-}
-.slide {
-position: absolute;
-transform: translate(-100%, -100%);
-}
-.slide.current {
-top: 0;
-left: 0;
-transform: translate(0, 0);
-}
+  .slide-container {
+    overflow: hidden;
+  }
+
+  .slide {
+    position: absolute;
+    transform: translate(-100%, -100%);
+  }
+
+  .slide.current {
+    top: 0;
+    left: 0;
+    transform: translate(0, 0);
+  }
 }</style>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat&#x26;family=Roboto+Slab:wght@400;700&#x26;family=Roboto+Mono:wght@400;700&#x26;display=swap">
     <link rel="canonical" href="https://github.com/nikku/pfwr/">
     <meta name="description" content="This slide deck introduces pfwr - a little command line utility that generates beautiful, self-contained HTML slide decks from Markdown files.">
     <meta name="keywords" content="pfwr, static side generator, markdown to html">
     <meta name="author" content="nikku">
-    <meta name="copyright" content="© 2021 nikku">
+    <meta name="copyright" content="© 2022 nikku">
     <meta property="og:type" content="article">
     <meta property="og:url" content="https://github.com/nikku/pfwr/">
     <meta property="og:title" content="pfwr - Generate HTML Slide Decks from Markdown Files">
@@ -470,8 +567,8 @@ transform: translate(0, 0);
           <tbody>
             <tr>
               <td align="left">1️⃣</td>
-              <td align="center">2️⃣ 3️⃣</td>
-              <td align="right"></td>
+              <td align="center"></td>
+              <td align="right">2️⃣ 3️⃣</td>
             </tr>
             <tr>
               <td align="left">Long</td>
@@ -531,8 +628,8 @@ theme=funky
           <tbody>
             <tr>
               <td align="left">1️⃣</td>
-              <td align="center">2️⃣ 3️⃣</td>
-              <td align="right"></td>
+              <td align="center"></td>
+              <td align="right">2️⃣ 3️⃣</td>
             </tr>
             <tr>
               <td align="left">Long</td>
@@ -579,8 +676,8 @@ theme=eco
           <tbody>
             <tr>
               <td align="left">1️⃣</td>
-              <td align="center">2️⃣ 3️⃣</td>
-              <td align="right"></td>
+              <td align="center"></td>
+              <td align="right">2️⃣ 3️⃣</td>
             </tr>
             <tr>
               <td align="left">Long</td>
@@ -608,146 +705,208 @@ align=right
       </section>
     </div>
     <script>function addPage(index, slide) {
-if (!index) {
-return;
+
+  if (!index) {
+    return;
+  }
+
+  const el = document.createElement('div');
+  el.classList.add('slide-number');
+  el.textContent = index + 1;
+
+  slide.appendChild(el);
 }
-const el = document.createElement('div');
-el.classList.add('slide-number');
-el.textContent = index + 1;
-slide.appendChild(el);
-}
+
 function addNavigationControls(container, goto) {
-const html = `<nav class="slide-navigation shown">
-<a class="navigation-button" data-navigate="first" title="First slide" href>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path fill-rule="evenodd" d="M12 16.5a4.5 4.5 0 100-9 4.5 4.5 0 000 9zm0 1.5a6 6 0 100-12 6 6 0 000 12z"></path></svg>
-</a>
-<a class="navigation-button" data-navigate="previous" title="Previous slide (Left Arrow)" href>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path d="M8.854 11.646l5.792-5.792a.5.5 0 01.854.353v11.586a.5.5 0 01-.854.353l-5.792-5.792a.5.5 0 010-.708z"></path></svg>
-</a>
-<a class="navigation-button" data-navigate="next" title="Next slide (Enter/Spacebar/Right Arrow)" href>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path d="M15.146 12.354l-5.792 5.792a.5.5 0 01-.854-.353V6.207a.5.5 0 01.854-.353l5.792 5.792a.5.5 0 010 .708z"></path></svg>
-</a>
-<a class="navigation-button" data-navigate="last" title="Last slide" href>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path d="M12 18a6 6 0 100-12 6 6 0 000 12z"></path></svg>
-</a>
-</nav>`;
-const tmp = document.createElement('div');
-tmp.innerHTML = html;
-const nav = tmp.removeChild(tmp.lastChild);
-nav.addEventListener('click', function(event) {
-event.preventDefault();
-let target = event.target;
-while (!target.matches('[data-navigate]')) {
-target = target.parentNode;
+
+  const html = `<nav class="slide-navigation shown">
+    <a class="navigation-button" data-navigate="first" title="First slide" href>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path fill-rule="evenodd" d="M12 16.5a4.5 4.5 0 100-9 4.5 4.5 0 000 9zm0 1.5a6 6 0 100-12 6 6 0 000 12z"></path></svg>
+    </a>
+    <a class="navigation-button" data-navigate="previous" title="Previous slide (Left Arrow)" href>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path d="M8.854 11.646l5.792-5.792a.5.5 0 01.854.353v11.586a.5.5 0 01-.854.353l-5.792-5.792a.5.5 0 010-.708z"></path></svg>
+    </a>
+    <a class="navigation-button" data-navigate="next" title="Next slide (Enter/Spacebar/Right Arrow)" href>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path d="M15.146 12.354l-5.792 5.792a.5.5 0 01-.854-.353V6.207a.5.5 0 01.854-.353l5.792 5.792a.5.5 0 010 .708z"></path></svg>
+    </a>
+    <a class="navigation-button" data-navigate="last" title="Last slide" href>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path d="M12 18a6 6 0 100-12 6 6 0 000 12z"></path></svg>
+    </a>
+  </nav>`;
+
+  const tmp = document.createElement('div');
+
+  tmp.innerHTML = html;
+
+  const nav = tmp.removeChild(tmp.lastChild);
+
+  nav.addEventListener('click', function(event) {
+
+    event.preventDefault();
+
+    let target = event.target;
+
+    while (!target.matches('[data-navigate]')) {
+      target = target.parentNode;
+    }
+
+    if (!target) {
+      return;
+    }
+
+    goto(target.dataset.navigate);
+  });
+
+  let hideTimer;
+
+  function show() {
+    if (!nav.matches('.shown')) {
+      nav.classList.add('shown');
+    }
+  }
+
+  function hide() {
+    nav.classList.remove('shown');
+  }
+
+  container.addEventListener('mousemove', function() {
+
+    show();
+
+    clearTimeout(hideTimer);
+
+    hideTimer = setTimeout(hide, 5000);
+  });
+
+  container.appendChild(nav);
 }
-if (!target) {
-return;
-}
-goto(target.dataset.navigate);
-});
-let hideTimer;
-function show() {
-if (!nav.matches('.shown')) {
-nav.classList.add('shown');
-}
-}
-function hide() {
-nav.classList.remove('shown');
-}
-container.addEventListener('mousemove', function() {
-show();
-clearTimeout(hideTimer);
-hideTimer = setTimeout(hide, 5000);
-});
-container.appendChild(nav);
-}
+
 function pfwr(options) {
-const {
-container
-} = options;
-// slide numbers
-const slides = Array.from(container.querySelectorAll('.slide'));
-for (const idx in slides) {
-addPage(+idx, slides[+idx]);
-}
-// mouse navigation controls
-addNavigationControls(container, goto);
-// event listeners ////////////////////////
-const listeners = [];
-function on(event, fn) {
-listeners.push([ event, fn ]);
-}
-function emit(event, data) {
-for (const [ eventType, fn ] of listeners) {
-if (event === eventType) {
-fn(data);
-}
-}
-}
-// slide life cycle ////////////////
-let slideIndex = -1;
-function goto(next) {
-const nextIndex = ((next, currentIndex, slides) => {
-if (next === 'next') {
-return currentIndex + 1;
-}
-if (next === 'previous') {
-return currentIndex - 1;
-}
-if (next === 'first') {
-return 0;
-}
-if (next === 'last') {
-return slides - 1;
-}
-if (next < 0) {
-return slides + next;
-}
-return next;
-})(next, slideIndex, slides.length);
-if (slideIndex === nextIndex) {
-return;
-}
-const slide = slides[slideIndex];
-const nextSlide = slides[nextIndex];
-if (!nextSlide) {
-return;
-}
-slide && slide.classList.remove('current');
-nextSlide.classList.add('current');
-slideIndex = nextIndex;
-emit('slideChanged', {
-slideIndex
-});
-}
-function handleKey(event) {
-const key = event.key;
-if (key === 'Home') {
-goto('first');
-return false;
-}
-if (key === 'End') {
-goto('last');
-return false;
-}
-if (key === 'ArrowRight' || key === 'Enter' || key === ' ') {
-goto('next');
-return false;
-}
-if (key === 'ArrowLeft') {
-goto('previous');
-return false;
-}
-}
-function destroy() {
-document.removeEventListener('keydown', handleKey);
-}
-document.addEventListener('keydown', handleKey);
-return {
-on,
-goto,
-destroy
-};
+
+  const {
+    container
+  } = options;
+
+  // slide numbers
+  const slides = Array.from(container.querySelectorAll('.slide'));
+
+  for (const idx in slides) {
+    addPage(+idx, slides[+idx]);
+  }
+
+  // mouse navigation controls
+  addNavigationControls(container, goto);
+
+  // event listeners ////////////////////////
+
+  const listeners = [];
+
+  function on(event, fn) {
+    listeners.push([ event, fn ]);
+  }
+
+  function emit(event, data) {
+
+    for (const [ eventType, fn ] of listeners) {
+      if (event === eventType) {
+        fn(data);
+      }
+    }
+  }
+
+  // slide life cycle ////////////////
+
+  let slideIndex = -1;
+
+  function goto(next) {
+
+    const nextIndex = ((next, currentIndex, slides) => {
+
+      if (next === 'next') {
+        return currentIndex + 1;
+      }
+
+      if (next === 'previous') {
+        return currentIndex - 1;
+      }
+
+      if (next === 'first') {
+        return 0;
+      }
+
+      if (next === 'last') {
+        return slides - 1;
+      }
+
+      if (next < 0) {
+        return slides + next;
+      }
+
+      return next;
+    })(next, slideIndex, slides.length);
+
+    if (slideIndex === nextIndex) {
+      return;
+    }
+
+    const slide = slides[slideIndex];
+
+    const nextSlide = slides[nextIndex];
+
+    if (!nextSlide) {
+      return;
+    }
+
+    slide && slide.classList.remove('current');
+    nextSlide.classList.add('current');
+
+    slideIndex = nextIndex;
+
+    emit('slideChanged', {
+      slideIndex
+    });
+  }
+
+  function handleKey(event) {
+
+    const key = event.key;
+
+    if (key === 'Home') {
+      goto('first');
+
+      return false;
+    }
+
+    if (key === 'End') {
+      goto('last');
+
+      return false;
+    }
+
+    if (key === 'ArrowRight' || key === 'Enter' || key === ' ') {
+      goto('next');
+
+      return false;
+    }
+
+    if (key === 'ArrowLeft') {
+      goto('previous');
+
+      return false;
+    }
+  }
+
+  function destroy() {
+    document.removeEventListener('keydown', handleKey);
+  }
+
+  document.addEventListener('keydown', handleKey);
+
+  return {
+    on,
+    goto,
+    destroy
+  };
 }</script>
     <script>/* PrismJS 1.23.0
 https://prismjs.com/download.html#themes=prism-okaidia&languages=markup+css+clike+javascript */
@@ -755,39 +914,54 @@ var _self="undefined"!=typeof window?window:"undefined"!=typeof WorkerGlobalScop
 Prism.languages.markup={comment:/<!--[\s\S]*?-->/,prolog:/<\?[\s\S]+?\?>/,doctype:{pattern:/<!DOCTYPE(?:[^>"'[\]]|"[^"]*"|'[^']*')+(?:\[(?:[^<"'\]]|"[^"]*"|'[^']*'|<(?!!--)|<!--(?:[^-]|-(?!->))*-->)*\]\s*)?>/i,greedy:!0,inside:{"internal-subset":{pattern:/(\[)[\s\S]+(?=\]>$)/,lookbehind:!0,greedy:!0,inside:null},string:{pattern:/"[^"]*"|'[^']*'/,greedy:!0},punctuation:/^<!|>$|[[\]]/,"doctype-tag":/^DOCTYPE/,name:/[^\s<>'"]+/}},cdata:/<!\[CDATA\[[\s\S]*?]]>/i,tag:{pattern:/<\/?(?!\d)[^\s>\/=$<%]+(?:\s(?:\s*[^\s>\/=]+(?:\s*=\s*(?:"[^"]*"|'[^']*'|[^\s'">=]+(?=[\s>]))|(?=[\s/>])))+)?\s*\/?>/,greedy:!0,inside:{tag:{pattern:/^<\/?[^\s>\/]+/,inside:{punctuation:/^<\/?/,namespace:/^[^\s>\/:]+:/}},"attr-value":{pattern:/=\s*(?:"[^"]*"|'[^']*'|[^\s'">=]+)/,inside:{punctuation:[{pattern:/^=/,alias:"attr-equals"},/"|'/]}},punctuation:/\/?>/,"attr-name":{pattern:/[^\s>\/]+/,inside:{namespace:/^[^\s>\/:]+:/}}}},entity:[{pattern:/&[\da-z]{1,8};/i,alias:"named-entity"},/&#x?[\da-f]{1,8};/i]},Prism.languages.markup.tag.inside["attr-value"].inside.entity=Prism.languages.markup.entity,Prism.languages.markup.doctype.inside["internal-subset"].inside=Prism.languages.markup,Prism.hooks.add("wrap",function(a){"entity"===a.type&&(a.attributes.title=a.content.replace(/&amp;/,"&"))}),Object.defineProperty(Prism.languages.markup.tag,"addInlined",{value:function(a,e){var s={};s["language-"+e]={pattern:/(^<!\[CDATA\[)[\s\S]+?(?=\]\]>$)/i,lookbehind:!0,inside:Prism.languages[e]},s.cdata=/^<!\[CDATA\[|\]\]>$/i;var n={"included-cdata":{pattern:/<!\[CDATA\[[\s\S]*?\]\]>/i,inside:s}};n["language-"+e]={pattern:/[\s\S]+/,inside:Prism.languages[e]};var t={};t[a]={pattern:RegExp("(<__[^>]*>)(?:<!\\[CDATA\\[(?:[^\\]]|\\](?!\\]>))*\\]\\]>|(?!<!\\[CDATA\\[)[^])*?(?=</__>)".replace(/__/g,function(){return a}),"i"),lookbehind:!0,greedy:!0,inside:n},Prism.languages.insertBefore("markup","cdata",t)}}),Prism.languages.html=Prism.languages.markup,Prism.languages.mathml=Prism.languages.markup,Prism.languages.svg=Prism.languages.markup,Prism.languages.xml=Prism.languages.extend("markup",{}),Prism.languages.ssml=Prism.languages.xml,Prism.languages.atom=Prism.languages.xml,Prism.languages.rss=Prism.languages.xml;
 !function(s){var e=/("|')(?:\\(?:\r\n|[\s\S])|(?!\1)[^\\\r\n])*\1/;s.languages.css={comment:/\/\*[\s\S]*?\*\//,atrule:{pattern:/@[\w-](?:[^;{\s]|\s+(?![\s{]))*(?:;|(?=\s*\{))/,inside:{rule:/^@[\w-]+/,"selector-function-argument":{pattern:/(\bselector\s*\(\s*(?![\s)]))(?:[^()\s]|\s+(?![\s)])|\((?:[^()]|\([^()]*\))*\))+(?=\s*\))/,lookbehind:!0,alias:"selector"},keyword:{pattern:/(^|[^\w-])(?:and|not|only|or)(?![\w-])/,lookbehind:!0}}},url:{pattern:RegExp("\\burl\\((?:"+e.source+"|(?:[^\\\\\r\n()\"']|\\\\[^])*)\\)","i"),greedy:!0,inside:{function:/^url/i,punctuation:/^\(|\)$/,string:{pattern:RegExp("^"+e.source+"$"),alias:"url"}}},selector:RegExp("[^{}\\s](?:[^{};\"'\\s]|\\s+(?![\\s{])|"+e.source+")*(?=\\s*\\{)"),string:{pattern:e,greedy:!0},property:/(?!\s)[-_a-z\xA0-\uFFFF](?:(?!\s)[-\w\xA0-\uFFFF])*(?=\s*:)/i,important:/!important\b/i,function:/[-a-z0-9]+(?=\()/i,punctuation:/[(){};:,]/},s.languages.css.atrule.inside.rest=s.languages.css;var t=s.languages.markup;t&&(t.tag.addInlined("style","css"),s.languages.insertBefore("inside","attr-value",{"style-attr":{pattern:/(^|["'\s])style\s*=\s*(?:"[^"]*"|'[^']*')/i,lookbehind:!0,inside:{"attr-value":{pattern:/=\s*(?:"[^"]*"|'[^']*'|[^\s'">=]+)/,inside:{style:{pattern:/(["'])[\s\S]+(?=["']$)/,lookbehind:!0,alias:"language-css",inside:s.languages.css},punctuation:[{pattern:/^=/,alias:"attr-equals"},/"|'/]}},"attr-name":/^style/i}}},t.tag))}(Prism);
 Prism.languages.clike={comment:[{pattern:/(^|[^\\])\/\*[\s\S]*?(?:\*\/|$)/,lookbehind:!0,greedy:!0},{pattern:/(^|[^\\:])\/\/.*/,lookbehind:!0,greedy:!0}],string:{pattern:/(["'])(?:\\(?:\r\n|[\s\S])|(?!\1)[^\\\r\n])*\1/,greedy:!0},"class-name":{pattern:/(\b(?:class|interface|extends|implements|trait|instanceof|new)\s+|\bcatch\s+\()[\w.\\]+/i,lookbehind:!0,inside:{punctuation:/[.\\]/}},keyword:/\b(?:if|else|while|do|for|return|in|instanceof|function|new|try|throw|catch|finally|null|break|continue)\b/,boolean:/\b(?:true|false)\b/,function:/\w+(?=\()/,number:/\b0x[\da-f]+\b|(?:\b\d+(?:\.\d*)?|\B\.\d+)(?:e[+-]?\d+)?/i,operator:/[<>]=?|[!=]=?=?|--?|\+\+?|&&?|\|\|?|[?*/~^%]/,punctuation:/[{}[\];(),.:]/};
-Prism.languages.javascript=Prism.languages.extend("clike",{"class-name":[Prism.languages.clike["class-name"],{pattern:/(^|[^$\w\xA0-\uFFFF])(?!\s)[_$A-Z\xA0-\uFFFF](?:(?!\s)[$\w\xA0-\uFFFF])*(?=\.(?:prototype|constructor))/,lookbehind:!0}],keyword:[{pattern:/((?:^|})\s*)(?:catch|finally)\b/,lookbehind:!0},{pattern:/(^|[^.]|\.\.\.\s*)\b(?:as|async(?=\s*(?:function\b|\(|[$\w\xA0-\uFFFF]|$))|await|break|case|class|const|continue|debugger|default|delete|do|else|enum|export|extends|for|from|function|(?:get|set)(?=\s*[\[$\w\xA0-\uFFFF])|if|implements|import|in|instanceof|interface|let|new|null|of|package|private|protected|public|return|static|super|switch|this|throw|try|typeof|undefined|var|void|while|with|yield)\b/,lookbehind:!0}],function:/#?(?!\s)[_$a-zA-Z\xA0-\uFFFF](?:(?!\s)[$\w\xA0-\uFFFF])*(?=\s*(?:\.\s*(?:apply|bind|call)\s*)?\()/,number:/\b(?:(?:0[xX](?:[\dA-Fa-f](?:_[\dA-Fa-f])?)+|0[bB](?:[01](?:_[01])?)+|0[oO](?:[0-7](?:_[0-7])?)+)n?|(?:\d(?:_\d)?)+n|NaN|Infinity)\b|(?:\b(?:\d(?:_\d)?)+\.?(?:\d(?:_\d)?)*|\B\.(?:\d(?:_\d)?)+)(?:[Ee][+-]?(?:\d(?:_\d)?)+)?/,operator:/--|\+\+|\*\*=?|=>|&&=?|\|\|=?|[!=]==|<<=?|>>>?=?|[-+*/%&|^!=<>]=?|\.{3}|\?\?=?|\?\.?|[~:]/}),Prism.languages.javascript["class-name"][0].pattern=/(\b(?:class|interface|extends|implements|instanceof|new)\s+)[\w.\\]+/,Prism.languages.insertBefore("javascript","keyword",{regex:{pattern:/((?:^|[^$\w\xA0-\uFFFF."'\])\s]|\b(?:return|yield))\s*)\/(?:\[(?:[^\]\\\r\n]|\\.)*]|\\.|[^/\\\[\r\n])+\/[gimyus]{0,6}(?=(?:\s|\/\*(?:[^*]|\*(?!\/))*\*\/)*(?:$|[\r\n,.;:})\]]|\/\/))/,lookbehind:!0,greedy:!0,inside:{"regex-source":{pattern:/^(\/)[\s\S]+(?=\/[a-z]*$)/,lookbehind:!0,alias:"language-regex",inside:Prism.languages.regex},"regex-flags":/[a-z]+$/,"regex-delimiter":/^\/|\/$/}},"function-variable":{pattern:/#?(?!\s)[_$a-zA-Z\xA0-\uFFFF](?:(?!\s)[$\w\xA0-\uFFFF])*(?=\s*[=:]\s*(?:async\s*)?(?:\bfunction\b|(?:\((?:[^()]|\([^()]*\))*\)|(?!\s)[_$a-zA-Z\xA0-\uFFFF](?:(?!\s)[$\w\xA0-\uFFFF])*)\s*=>))/,alias:"function"},parameter:[{pattern:/(function(?:\s+(?!\s)[_$a-zA-Z\xA0-\uFFFF](?:(?!\s)[$\w\xA0-\uFFFF])*)?\s*\(\s*)(?!\s)(?:[^()\s]|\s+(?![\s)])|\([^()]*\))+(?=\s*\))/,lookbehind:!0,inside:Prism.languages.javascript},{pattern:/(?!\s)[_$a-zA-Z\xA0-\uFFFF](?:(?!\s)[$\w\xA0-\uFFFF])*(?=\s*=>)/i,inside:Prism.languages.javascript},{pattern:/(\(\s*)(?!\s)(?:[^()\s]|\s+(?![\s)])|\([^()]*\))+(?=\s*\)\s*=>)/,lookbehind:!0,inside:Prism.languages.javascript},{pattern:/((?:\b|\s|^)(?!(?:as|async|await|break|case|catch|class|const|continue|debugger|default|delete|do|else|enum|export|extends|finally|for|from|function|get|if|implements|import|in|instanceof|interface|let|new|null|of|package|private|protected|public|return|set|static|super|switch|this|throw|try|typeof|undefined|var|void|while|with|yield)(?![$\w\xA0-\uFFFF]))(?:(?!\s)[_$a-zA-Z\xA0-\uFFFF](?:(?!\s)[$\w\xA0-\uFFFF])*\s*)\(\s*|\]\s*\(\s*)(?!\s)(?:[^()\s]|\s+(?![\s)])|\([^()]*\))+(?=\s*\)\s*\{)/,lookbehind:!0,inside:Prism.languages.javascript}],constant:/\b[A-Z](?:[A-Z_]|\dx?)*\b/}),Prism.languages.insertBefore("javascript","string",{"template-string":{pattern:/`(?:\\[\s\S]|\${(?:[^{}]|{(?:[^{}]|{[^}]*})*})+}|(?!\${)[^\\`])*`/,greedy:!0,inside:{"template-punctuation":{pattern:/^`|`$/,alias:"string"},interpolation:{pattern:/((?:^|[^\\])(?:\\{2})*)\${(?:[^{}]|{(?:[^{}]|{[^}]*})*})+}/,lookbehind:!0,inside:{"interpolation-punctuation":{pattern:/^\${|}$/,alias:"punctuation"},rest:Prism.languages.javascript}},string:/[\s\S]+/}}}),Prism.languages.markup&&Prism.languages.markup.tag.addInlined("script","javascript"),Prism.languages.js=Prism.languages.javascript;</script>
+Prism.languages.javascript=Prism.languages.extend("clike",{"class-name":[Prism.languages.clike["class-name"],{pattern:/(^|[^$\w\xA0-\uFFFF])(?!\s)[_$A-Z\xA0-\uFFFF](?:(?!\s)[$\w\xA0-\uFFFF])*(?=\.(?:prototype|constructor))/,lookbehind:!0}],keyword:[{pattern:/((?:^|})\s*)(?:catch|finally)\b/,lookbehind:!0},{pattern:/(^|[^.]|\.\.\.\s*)\b(?:as|async(?=\s*(?:function\b|\(|[$\w\xA0-\uFFFF]|$))|await|break|case|class|const|continue|debugger|default|delete|do|else|enum|export|extends|for|from|function|(?:get|set)(?=\s*[\[$\w\xA0-\uFFFF])|if|implements|import|in|instanceof|interface|let|new|null|of|package|private|protected|public|return|static|super|switch|this|throw|try|typeof|undefined|var|void|while|with|yield)\b/,lookbehind:!0}],function:/#?(?!\s)[_$a-zA-Z\xA0-\uFFFF](?:(?!\s)[$\w\xA0-\uFFFF])*(?=\s*(?:\.\s*(?:apply|bind|call)\s*)?\()/,number:/\b(?:(?:0[xX](?:[\dA-Fa-f](?:_[\dA-Fa-f])?)+|0[bB](?:[01](?:_[01])?)+|0[oO](?:[0-7](?:_[0-7])?)+)n?|(?:\d(?:_\d)?)+n|NaN|Infinity)\b|(?:\b(?:\d(?:_\d)?)+\.?(?:\d(?:_\d)?)*|\B\.(?:\d(?:_\d)?)+)(?:[Ee][+-]?(?:\d(?:_\d)?)+)?/,operator:/--|\+\+|\*\*=?|=>|&&=?|\|\|=?|[!=]==|<<=?|>>>?=?|[-+*/%&|^!=<>]=?|\.{3}|\?\?=?|\?\.?|[~:]/}),Prism.languages.javascript["class-name"][0].pattern=/(\b(?:class|interface|extends|implements|instanceof|new)\s+)[\w.\\]+/,Prism.languages.insertBefore("javascript","keyword",{regex:{pattern:/((?:^|[^$\w\xA0-\uFFFF."'\])\s]|\b(?:return|yield))\s*)\/(?:\[(?:[^\]\\\r\n]|\\.)*]|\\.|[^/\\\[\r\n])+\/[gimyus]{0,6}(?=(?:\s|\/\*(?:[^*]|\*(?!\/))*\*\/)*(?:$|[\r\n,.;:})\]]|\/\/))/,lookbehind:!0,greedy:!0,inside:{"regex-source":{pattern:/^(\/)[\s\S]+(?=\/[a-z]*$)/,lookbehind:!0,alias:"language-regex",inside:Prism.languages.regex},"regex-flags":/[a-z]+$/,"regex-delimiter":/^\/|\/$/}},"function-variable":{pattern:/#?(?!\s)[_$a-zA-Z\xA0-\uFFFF](?:(?!\s)[$\w\xA0-\uFFFF])*(?=\s*[=:]\s*(?:async\s*)?(?:\bfunction\b|(?:\((?:[^()]|\([^()]*\))*\)|(?!\s)[_$a-zA-Z\xA0-\uFFFF](?:(?!\s)[$\w\xA0-\uFFFF])*)\s*=>))/,alias:"function"},parameter:[{pattern:/(function(?:\s+(?!\s)[_$a-zA-Z\xA0-\uFFFF](?:(?!\s)[$\w\xA0-\uFFFF])*)?\s*\(\s*)(?!\s)(?:[^()\s]|\s+(?![\s)])|\([^()]*\))+(?=\s*\))/,lookbehind:!0,inside:Prism.languages.javascript},{pattern:/(?!\s)[_$a-zA-Z\xA0-\uFFFF](?:(?!\s)[$\w\xA0-\uFFFF])*(?=\s*=>)/i,inside:Prism.languages.javascript},{pattern:/(\(\s*)(?!\s)(?:[^()\s]|\s+(?![\s)])|\([^()]*\))+(?=\s*\)\s*=>)/,lookbehind:!0,inside:Prism.languages.javascript},{pattern:/((?:\b|\s|^)(?!(?:as|async|await|break|case|catch|class|const|continue|debugger|default|delete|do|else|enum|export|extends|finally|for|from|function|get|if|implements|import|in|instanceof|interface|let|new|null|of|package|private|protected|public|return|set|static|super|switch|this|throw|try|typeof|undefined|var|void|while|with|yield)(?![$\w\xA0-\uFFFF]))(?:(?!\s)[_$a-zA-Z\xA0-\uFFFF](?:(?!\s)[$\w\xA0-\uFFFF])*\s*)\(\s*|\]\s*\(\s*)(?!\s)(?:[^()\s]|\s+(?![\s)])|\([^()]*\))+(?=\s*\)\s*\{)/,lookbehind:!0,inside:Prism.languages.javascript}],constant:/\b[A-Z](?:[A-Z_]|\dx?)*\b/}),Prism.languages.insertBefore("javascript","string",{"template-string":{pattern:/`(?:\\[\s\S]|\${(?:[^{}]|{(?:[^{}]|{[^}]*})*})+}|(?!\${)[^\\`])*`/,greedy:!0,inside:{"template-punctuation":{pattern:/^`|`$/,alias:"string"},interpolation:{pattern:/((?:^|[^\\])(?:\\{2})*)\${(?:[^{}]|{(?:[^{}]|{[^}]*})*})+}/,lookbehind:!0,inside:{"interpolation-punctuation":{pattern:/^\${|}$/,alias:"punctuation"},rest:Prism.languages.javascript}},string:/[\s\S]+/}}}),Prism.languages.markup&&Prism.languages.markup.tag.addInlined("script","javascript"),Prism.languages.js=Prism.languages.javascript;
+</script>
     <script>function onLoaded(fn) {
-window.addEventListener('DOMContentLoaded', fn);
+  window.addEventListener('DOMContentLoaded', fn);
 }
+
 function onHashChange(fn) {
-window.addEventListener('hashchange', fn, false);
+  window.addEventListener('hashchange', fn, false);
 }
+
 function setSlide(slide) {
-window.location.hash = '#' + (slide + 1);
+  window.location.hash = '#' + (slide + 1);
 }
+
 function getSlide() {
-const hash = window.location.hash;
-const slideHash = hash && hash.substring(1);
-return (slideHash && parseInt(slideHash, 10) || 1) - 1;
+  const hash = window.location.hash;
+
+  const slideHash = hash && hash.substring(1);
+
+  return (slideHash && parseInt(slideHash, 10) || 1) - 1;
 }
+
 onLoaded(() => {
-const container = document.querySelector('#slide-container');
-// proper emojis
-twemoji.parse(container, {
-folder: 'svg',
-ext: '.svg'
-});
-// bootstrap presentation
-const presentation = pfwr({
-container
-});
-presentation.goto(getSlide());
-onHashChange(() => {
-presentation.goto(getSlide());
-});
-presentation.on('slideChanged', function(event) {
-setSlide(event.slideIndex);
-});
+  const container = document.querySelector('#slide-container');
+
+  // proper emojis
+
+  twemoji.parse(container, {
+    folder: 'svg',
+    ext: '.svg'
+  });
+
+  // bootstrap presentation
+
+  const presentation = pfwr({
+    container
+  });
+
+  presentation.goto(getSlide());
+
+  onHashChange(() => {
+    presentation.goto(getSlide());
+  });
+
+  presentation.on('slideChanged', function(event) {
+    setSlide(event.slideIndex);
+  });
+
 });</script>
     <script src="https://twemoji.maxcdn.com/v/latest/twemoji.min.js"></script>
   </body>
