@@ -1,6 +1,6 @@
 # pfwr
 
-[![CI Status](https://img.shields.io/github/workflow/status/nikku/pfwr/CI/main)](https://github.com/nikku/pfwr/actions?query=workflow%3ACI)
+[![CI](https://github.com/nikku/pfwr/actions/workflows/CI.yml/badge.svg)](https://github.com/nikku/pfwr/actions/workflows/CI.yml)
 
 Turns your [Markdown file](https://github.com/nikku/pfwr/blob/main/README.md#example) into [a beautiful HTML slide deck](https://cdn.statically.io/gh/nikku/pfwr/v0.7.2/example/presentation.html). Batteries included.
 
