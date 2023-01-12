@@ -53,7 +53,7 @@ export function pfwr(input) {
         pfwrStyle
       ],
       js: [
-        'https://twemoji.maxcdn.com/v/latest/twemoji.min.js'
+        'https://unpkg.com/twemoji@latest/dist/twemoji.min.js'
       ],
       script: [
         pfwrScript,

@@ -23,9 +23,10 @@ onLoaded(() => {
 
   // proper emojis
 
-  twemoji.parse(container, {
+  typeof twemoji !== 'undefined' && twemoji.parse(container, {
     folder: 'svg',
-    ext: '.svg'
+    ext: '.svg',
+    base: 'https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/'
   });
 
   // bootstrap presentation
