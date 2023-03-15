@@ -51,28 +51,9 @@ function addNavigationControls(container, goto) {
     goto(target.dataset.navigate);
   });
 
-  let hideTimer;
-
-  function show() {
-    if (!nav.matches('.shown')) {
-      nav.classList.add('shown');
-    }
-  }
-
-  function hide() {
-    nav.classList.remove('shown');
-  }
-
-  container.addEventListener('mousemove', function() {
-
-    show();
-
-    clearTimeout(hideTimer);
-
-    hideTimer = setTimeout(hide, 5000);
-  });
-
   container.appendChild(nav);
+
+  return nav;
 }
 
 function pfwr(options) {
@@ -89,7 +70,7 @@ function pfwr(options) {
   }
 
   // mouse navigation controls
-  addNavigationControls(container, goto);
+  const nav = addNavigationControls(container, goto);
 
   // event listeners ////////////////////////
 
@@ -161,29 +142,57 @@ function pfwr(options) {
     });
   }
 
+  // slide navigation
+
+  function showNav() {
+    if (nav && !nav.matches('.shown')) {
+      nav.classList.add('shown');
+    }
+  }
+
+  function hideNav() {
+    nav && nav.classList.remove('shown');
+  }
+
+  let hideTimer;
+
+  container.addEventListener('mousemove', function() {
+
+    showNav();
+
+    clearTimeout(hideTimer);
+
+    hideTimer = setTimeout(hideNav, 2000);
+  });
+
+
   function handleKey(event) {
 
     const key = event.key;
 
     if (key === 'Home') {
+      hideNav();
       goto('first');
 
       return false;
     }
 
     if (key === 'End') {
+      hideNav();
       goto('last');
 
       return false;
     }
 
     if (key === 'ArrowRight' || key === 'Enter' || key === ' ') {
+      hideNav();
       goto('next');
 
       return false;
     }
 
     if (key === 'ArrowLeft') {
+      hideNav();
       goto('previous');
 
       return false;
