@@ -1,6 +1,6 @@
 {
   "name": "pfwr",
-  "version": "0.7.3",
+  "version": "0.8.0",
   "description": "The last markdown to HTML slide show generator you need",
   "module": "dist/index.js",
   "bin": "./bin/cli.js",
