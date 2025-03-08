@@ -13,9 +13,9 @@ import rehypeDocument from 'rehype-document';
 import rehypeMeta from 'rehype-meta';
 import rehypeWrap from 'rehype-wrap';
 
-import { pageSplit } from './remark/page-split';
-import { parseComments } from './remark/parse-comments';
-import { autoTag } from './remark/auto-tag';
+import { pageSplit } from './remark/page-split.js';
+import { parseComments } from './remark/parse-comments.js';
+import { autoTag } from './remark/auto-tag.js';
 
 import pfwrStyle from '../browser/style.css';
 import pfwrScript from '../browser/pfwr.js';
@@ -35,6 +35,8 @@ export function pfwr(input) {
     .use(remarkFrontmatter, [ 'yaml' ])
     .use(parseComments)
     .use(pageSplit)
+
+    // @ts-ignore
     .use(remarkExternalLinks)
     .use(remarkEmoji)
     .use(autoTag)
