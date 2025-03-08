@@ -4,10 +4,14 @@ import { pfwr } from '../dist/index.js';
 
 import path from 'node:path';
 import fs from 'node:fs';
+import process from 'node:process';
+
 import { fileURLToPath } from 'node:url';
 
 import mri from 'mri';
 import opener from 'opener';
+
+import { debounce } from 'min-dash';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -82,57 +86,6 @@ async function run() {
 
 function defaultOutput(inputFile) {
   return path.join(path.dirname(inputFile), path.basename(inputFile, '.md') + '.html');
-}
-
-/**
- * Debounce fn, calling it only once if
- * the given time elapsed between calls.
- *
- * @param  {Function} fn
- * @param  {Number} timeout
- *
- * @return {Function} debounced function
- */
-function debounce(fn, timeout) {
-
-  var timer;
-
-  var lastArgs;
-  var lastThis;
-
-  var lastNow;
-
-  function fire() {
-
-    var now = Date.now();
-
-    var scheduledDiff = (lastNow + timeout) - now;
-
-    if (scheduledDiff > 0) {
-      return schedule(scheduledDiff);
-    }
-
-    fn.apply(lastThis, lastArgs);
-
-    timer = lastNow = lastArgs = lastThis = undefined;
-  }
-
-  function schedule(timeout) {
-    timer = setTimeout(fire, timeout);
-  }
-
-  return function(...args) {
-
-    lastNow = Date.now();
-
-    lastArgs = args;
-    lastThis = this;
-
-    // ensure an execution is scheduled
-    if (!timer) {
-      schedule(timeout);
-    }
-  };
 }
 
 // do actual work

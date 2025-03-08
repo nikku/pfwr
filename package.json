@@ -36,6 +36,7 @@
     "eslint-plugin-bpmn-io": "^2.2.0",
     "js-yaml": "^4.1.0",
     "mdast-comment-marker": "^3.0.0",
+    "min-dash": "^4.2.3",
     "npm-run-all2": "^7.0.2",
     "rehype-document": "^7.0.3",
     "rehype-format": "^5.0.1",
