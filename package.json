@@ -27,9 +27,9 @@
     "bin"
   ],
   "devDependencies": {
-    "@rollup/plugin-commonjs": "^23.0.0",
-    "@rollup/plugin-json": "^5.0.0",
-    "@rollup/plugin-node-resolve": "^15.0.0",
+    "@rollup/plugin-commonjs": "^28.0.3",
+    "@rollup/plugin-json": "^6.1.0",
+    "@rollup/plugin-node-resolve": "^16.0.0",
     "chokidar-cli": "^3.0.0",
     "js-yaml": "^4.1.0",
     "mdast-comment-marker": "^2.0.0",
@@ -45,7 +45,7 @@
     "remark-gfm": "^3.0.1",
     "remark-parse": "^10.0.0",
     "remark-rehype": "^10.1.0",
-    "rollup": "^2.79.1",
+    "rollup": "^4.35.0",
     "rollup-plugin-string": "^3.0.0",
     "twemoji": "^14.0.2",
     "unified": "^10.1.0",
