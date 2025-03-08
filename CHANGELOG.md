@@ -6,6 +6,10 @@ All notable changes to [pfwr](https://github.com/nikku/pfwr) are documented here
 
 ___Note:__ Yet to be released changes appear here._
 
+## 0.9.0
+
+* `DEPS`: update remark* dependencies
+
 ## 0.8.0
 
 * `FEAT`: hide `nav` on keyboard navigation
