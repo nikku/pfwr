@@ -59,7 +59,7 @@
     "vfile": "^6.0.3"
   },
   "engines": {
-    "node": ">= 16"
+    "node": ">= 20"
   },
   "dependencies": {
     "mri": "^1.1.6",
