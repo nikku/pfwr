@@ -6,7 +6,7 @@
   "bin": "./bin/cli.js",
   "type": "module",
   "scripts": {
-    "all": "npm run bundle && npm run test",
+    "all": "run-s lint bundle test",
     "bundle": "rollup -c",
     "dev": "chokidar --initial \"browser/*.*\" \"dist/*.*\" \"example/*.md\" --command \"npm start\"",
     "start": "node bin/cli.js example/presentation.md example/presentation.html",
@@ -36,6 +36,7 @@
     "eslint-plugin-bpmn-io": "^2.2.0",
     "js-yaml": "^4.1.0",
     "mdast-comment-marker": "^3.0.0",
+    "npm-run-all2": "^7.0.2",
     "rehype-document": "^7.0.3",
     "rehype-format": "^5.0.1",
     "rehype-meta": "^4.0.1",
