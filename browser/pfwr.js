@@ -34,6 +34,14 @@ function addNavigationControls(container, goto) {
 
   const nav = tmp.removeChild(tmp.lastChild);
 
+  nav.addEventListener('mouseenter', function(event) {
+    nav.classList.add('hovered');
+  });
+
+  nav.addEventListener('mouseleave', function(event) {
+    nav.classList.remove('hovered');
+  });
+
   nav.addEventListener('click', function(event) {
 
     event.preventDefault();
@@ -146,13 +154,11 @@ function pfwr(options) {
   // slide navigation
 
   function showNav() {
-    if (nav && !nav.matches('.shown')) {
-      nav.classList.add('shown');
-    }
+    nav && nav.classList.toggle('shown', true);
   }
 
   function hideNav() {
-    nav && nav.classList.remove('shown');
+    nav && !nav.matches('.hovered') && nav.classList.toggle('shown', false);
   }
 
   let hideTimer;
