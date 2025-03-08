@@ -15,7 +15,7 @@ function transform(tree) {
   );
 
   function commentConfigHtml(node) {
-    var marker = commentMarker(node)
+    var marker = commentMarker(node);
 
     if (marker && marker.name === 'config') {
       node.config = Object.assign(node.config || {}, marker.parameters);

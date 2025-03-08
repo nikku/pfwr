@@ -32,7 +32,7 @@ export function pfwr(input) {
     .use(remarkParse)
     .use(remarkGfm)
     .use(remarkBreaks)
-    .use(remarkFrontmatter, ['yaml'])
+    .use(remarkFrontmatter, [ 'yaml' ])
     .use(parseComments)
     .use(pageSplit)
     .use(remarkExternalLinks)

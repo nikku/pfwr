@@ -56,6 +56,7 @@ function addNavigationControls(container, goto) {
   return nav;
 }
 
+// eslint-disable-next-line no-unused-vars
 function pfwr(options) {
 
   const {

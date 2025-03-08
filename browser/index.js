@@ -1,3 +1,5 @@
+/* global twemoji, pfwr */
+
 function onLoaded(fn) {
   window.addEventListener('DOMContentLoaded', fn);
 }

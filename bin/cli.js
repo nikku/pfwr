@@ -9,8 +9,8 @@ import { fileURLToPath } from 'node:url';
 import mri from 'mri';
 import opener from 'opener';
 
-const __filename = fileURLToPath(import.meta.url)
-const __dirname = path.dirname(__filename)
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const pkg = JSON.parse(fs.readFileSync(path.join(__dirname, '../package.json'), 'utf8'));
 
@@ -33,7 +33,7 @@ if (args.version) {
 
 if (args.help) {
   console.log(
-`
+    `
 Usage: pfwr input.md [output.html]
 
 Options:

@@ -24,7 +24,7 @@ function transform(tree, file) {
   );
 
   for (const node of slides) {
-    tagSlide(node)
+    tagSlide(node);
   }
 
   for (const node of config) {
