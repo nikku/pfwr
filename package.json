@@ -11,6 +11,7 @@
     "dev": "chokidar --initial \"browser/*.*\" \"dist/*.*\" \"example/*.md\" --command \"npm start\"",
     "start": "node bin/cli.js example/presentation.md example/presentation.html",
     "version": "./tasks/bump-examples",
+    "lint": "eslint .",
     "test": "node bin/cli.js example/presentation.md example/presentation.html",
     "prepare": "npm run bundle"
   },
@@ -31,6 +32,8 @@
     "@rollup/plugin-json": "^6.1.0",
     "@rollup/plugin-node-resolve": "^16.0.0",
     "chokidar-cli": "^3.0.0",
+    "eslint": "^9.22.0",
+    "eslint-plugin-bpmn-io": "^2.2.0",
     "js-yaml": "^4.1.0",
     "mdast-comment-marker": "^3.0.0",
     "rehype-document": "^7.0.3",
