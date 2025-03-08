@@ -1,18 +1,13 @@
 {
   "compilerOptions": {
-    "module": "commonjs",
+    "module": "NodeNext",
     "lib": [
-      "es2019"
+      "ES2022"
     ],
-    "target": "es2019",
     "allowJs": true,
     "checkJs": true,
-    "rootDir": ".",
     "strict": false,
-    "noEmit": true,
-    "skipLibCheck": true,
-    "resolveJsonModule": true,
-    "esModuleInterop": true
+    "noEmit": true
   },
   "include": [
     "src",

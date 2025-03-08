@@ -1,8 +1,9 @@
 {
+  "extends": "../tsconfig.json",
   "compilerOptions": {
     "lib": [
-      "es2019",
-      "dom"
+      "ES2022",
+      "DOM"
     ]
   }
 }
