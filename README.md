@@ -2,12 +2,12 @@
 
 [![CI](https://github.com/nikku/pfwr/actions/workflows/CI.yml/badge.svg)](https://github.com/nikku/pfwr/actions/workflows/CI.yml)
 
-Turns your [Markdown file](https://github.com/nikku/pfwr/blob/main/README.md#example) into [a beautiful HTML slide deck](https://cdn.statically.io/gh/nikku/pfwr/v0.9.0/example/presentation.html). Batteries included.
+Turns your [Markdown file](https://github.com/nikku/pfwr/blob/main/README.md#example) into [a beautiful HTML slide deck](https://cdn.statically.io/gh/nikku/pfwr/v0.9.1/example/presentation.html). Batteries included.
 
 
 ## Introduction
 
-[![Slide deck generated from Markdown via pfwr](https://raw.githubusercontent.com/nikku/pfwr/main/docs/screenshot.png)](https://cdn.statically.io/gh/nikku/pfwr/v0.9.0/example/presentation.html)
+[![Slide deck generated from Markdown via pfwr](https://raw.githubusercontent.com/nikku/pfwr/main/docs/screenshot.png)](https://cdn.statically.io/gh/nikku/pfwr/v0.9.1/example/presentation.html)
 
 
 ## Usage
@@ -74,7 +74,7 @@ Convert the file to an HTML file:
 pfwr presentation.md presentation.html
 ```
 
-Open [the slide deck](https://cdn.statically.io/gh/nikku/pfwr/v0.9.0/example/presentation.html) in your favorite browser.
+Open [the slide deck](https://cdn.statically.io/gh/nikku/pfwr/v0.9.1/example/presentation.html) in your favorite browser.
 
 
 ## Security Considerations
