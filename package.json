@@ -31,7 +31,7 @@
     "@rollup/plugin-commonjs": "^28.0.3",
     "@rollup/plugin-json": "^6.1.0",
     "@rollup/plugin-node-resolve": "^16.0.0",
-    "@types/node": "^20.17.24",
+    "@types/node": "^20.17.32",
     "chokidar-cli": "^3.0.0",
     "eslint": "^9.22.0",
     "eslint-plugin-bpmn-io": "^2.2.0",
