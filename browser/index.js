@@ -9,7 +9,7 @@ function onHashChange(fn) {
 }
 
 function setSlide(slide) {
-  window.location.hash = '#' + (slide + 1);
+  window.location.hash = '#' + (typeof slide === 'number' ? slide + 1 : slide);
 }
 
 function getSlide() {
@@ -17,7 +17,17 @@ function getSlide() {
 
   const slideHash = hash && hash.substring(1);
 
-  return (slideHash && parseInt(slideHash, 10) || 1) - 1;
+  if (!slideHash) {
+    return 0;
+  }
+
+  const slideNumber = parseInt(slideHash, 10);
+
+  if (slideNumber > 0) {
+    return slideNumber - 1;
+  }
+
+  return slideHash;
 }
 
 onLoaded(() => {

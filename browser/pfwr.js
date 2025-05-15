@@ -104,7 +104,9 @@ function pfwr(options) {
 
   function goto(next) {
 
-    const nextIndex = ((next, currentIndex, slides) => {
+    const slide = slides[slideIndex] || slides.find(s => s.dataset.name === slideIndex);
+
+    const nextIndex = ((next, currentIndex, numberOfSlides) => {
 
       if (next === 'next') {
         return currentIndex + 1;
@@ -119,23 +121,21 @@ function pfwr(options) {
       }
 
       if (next === 'last') {
-        return slides - 1;
+        return numberOfSlides - 1;
       }
 
       if (next < 0) {
-        return slides + next;
+        return numberOfSlides + next;
       }
 
       return next;
-    })(next, slideIndex, slides.length);
+    })(next, slides.indexOf(slide), slides.length);
 
     if (slideIndex === nextIndex) {
       return;
     }
 
-    const slide = slides[slideIndex];
-
-    const nextSlide = slides[nextIndex];
+    const nextSlide = slides[nextIndex] || slides.find(s => s.dataset.name === nextIndex);
 
     if (!nextSlide) {
       return;
