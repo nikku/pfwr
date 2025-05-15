@@ -6,6 +6,10 @@ All notable changes to [pfwr](https://github.com/nikku/pfwr) are documented here
 
 ___Note:__ Yet to be released changes appear here._
 
+## 0.10.1
+
+* `FIX`: style `small` tag
+
 ## 0.10.0
 
 * `FEAT`: allow to address slides by name
