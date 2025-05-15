@@ -171,13 +171,15 @@ table, pre {
   margin: 0 var(--slide-margin);
 }
 
-.slide > ul {
+.slide > ul,
+.slide > ol {
   margin: 0 calc(var(--slide-margin) * 2);
 }
 
 .slide > * + *,
 .slide > * + pre[class*="language-"],
-.slide > * + ul {
+.slide > * + ul,
+.slide > * + ol {
   margin-top: calc(var(--slide-margin) * 1.5);
 }
 
