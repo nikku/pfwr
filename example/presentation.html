@@ -507,19 +507,19 @@ img {
         <p><a href="https://github.com/nikku" target="_blank" rel="nofollow noopener noreferrer"><code>@nikku</code></a> on GitHub</p>
       </section>
       <section class="slide" data-align="left">
-        <h3>Write Markdown</h3>
+        <h2>Write Markdown</h2>
         <pre><code class="language-markdown">
-# First Slide
+## First Slide
 
 ---
 
-# Second Slide
+## Second Slide
 
 </code></pre>
         <p>Separate slides by <code>---</code>.</p>
       </section>
       <section class="slide" data-align="left">
-        <h3>Generate HTML Slide Deck</h3>
+        <h2>Generate HTML Slide Deck</h2>
         <p>On your command-line, use the <code>pfwr</code> utility:</p>
         <pre><code class="language-sh">$ pfwr presentation.md presentation.html
 </code></pre>
@@ -533,10 +533,17 @@ img {
         </ul>
       </section>
       <section class="slide" data-align="left">
-        <ul>
-          <li>bullet points</li>
-          <li>are supported, too</li>
-        </ul>
+        <h2>Or numbered</h2>
+        <ol>
+          <li>one</li>
+          <li>two</li>
+        </ol>
+      </section>
+      <section class="slide" data-align="left">
+        <h1>Write</h1>
+        <h2>Many</h2>
+        <h3>Different</h3>
+        <h4>Headings</h4>
       </section>
       <section class="slide" data-align="center">
         <p>
@@ -545,7 +552,7 @@ img {
         <p>Add cool image.</p>
       </section>
       <section class="slide" data-align="left">
-        <h3>Or With Heading</h3>
+        <h2>Or With Heading</h2>
         <p>
           <img src="./assets/me.jpg" alt="">
         </p>
@@ -556,8 +563,11 @@ img {
       <section class="slide" data-align="center">
         <p>Add <code>code</code>, <strong>bold</strong>, <del>strikethrough</del>, or <em>highlight</em>.</p>
       </section>
+      <section class="slide" data-align="center">
+        <p>Link slides <a href="#3">by number</a> or <a href="#add-some-code">name</a>.</p>
+      </section>
       <section class="slide" data-align="left">
-        <h3>Add Tables</h3>
+        <h2>Add Tables</h2>
         <table>
           <thead>
             <tr>
@@ -579,12 +589,30 @@ img {
             </tr>
           </tbody>
         </table>
-        <p><small>With a description</small></p>
+        <p><small>With a caption</small></p>
       </section>
       <section class="slide" data-align="left">
-        <h3>Add Some Code</h3>
+        <h2>Add Some Code</h2>
         <pre><code class="language-javascript">function hello() {
   window.alert('How yo doing?');
+}
+
+if (isFirstTime(visit)) {
+  hello();
+} else {
+  welcomeBack();
+}
+</code></pre>
+        <p><small>With a caption</small></p>
+      </section>
+      <section class="slide" data-align="left">
+        <h2>Or a Longer Snippet</h2>
+        <pre><code class="language-javascript">function hello() {
+  window.alert('How yo doing?');
+}
+
+function isFirstTime(visit) {
+  return exists(visit);
 }
 
 if (isFirstTime(visit)) {
@@ -597,13 +625,13 @@ if (isFirstTime(visit)) {
       <section class="slide" data-theme="funky" data-align="left"><!--config
 theme=funky
 -->
-        <h3>Customize your Background</h3>
+        <h2>Customize your Background</h2>
         <p>Some <code>code</code>, good right? <em>Yea!</em></p>
       </section>
       <section class="slide" data-theme="funky" data-align="left"><!--config
 theme=funky
 -->
-        <h3>Add Some Code</h3>
+        <h2>Add Some Code</h2>
         <pre><code class="language-javascript">function hello() {
   window.alert('How yo doing?');
 }
@@ -614,11 +642,12 @@ if (isFirstTime(visit)) {
   welcomeBack();
 }
 </code></pre>
+        <p><small>With a caption</small></p>
       </section>
       <section class="slide" data-theme="funky" data-align="left"><!--config
 theme=funky
 -->
-        <h3>Add Tables</h3>
+        <h2>Add Tables</h2>
         <table>
           <thead>
             <tr>
@@ -640,18 +669,18 @@ theme=funky
             </tr>
           </tbody>
         </table>
-        <p><small><a href="#3">With a link</a></small></p>
       </section>
       <section class="slide" data-theme="eco" data-align="left"><!--config
 theme=eco
 -->
-        <h3>Or go green?</h3>
+        <h2>Or go green?</h2>
         <p>Some <code>code</code>, good right? <em>Yea!</em></p>
       </section>
-      <section class="slide" data-theme="eco" data-align="left"><!--config
+      <section class="slide" data-theme="eco" data-name="add-some-code" data-align="left"><!--config
 theme=eco
+name=add-some-code
 -->
-        <h3>Add Some Code</h3>
+        <h2>Add Some Code</h2>
         <pre><code class="language-javascript">function hello() {
   window.alert('How yo doing?');
 }
@@ -662,11 +691,12 @@ if (isFirstTime(visit)) {
   welcomeBack();
 }
 </code></pre>
+        <p><small>With a caption</small></p>
       </section>
       <section class="slide" data-theme="eco" data-align="left"><!--config
 theme=eco
 -->
-        <h3>Add Tables</h3>
+        <h2>Add Tables</h2>
         <table>
           <thead>
             <tr>
@@ -698,7 +728,7 @@ align=right
       </section>
       <section class="slide" data-align="center">
         <p>And finally, 🖨 your slides to PDF.</p>
-        <p>Use your browser's 🖨 function.</p>
+        <p><strong>Use your browser's 🖨 function</strong>.</p>
         <p>It actually <em>works</em>.</p>
       </section>
       <section class="slide" data-align="center">

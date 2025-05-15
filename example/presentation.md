@@ -24,15 +24,15 @@ image: https://cdn.statically.io/gh/nikku/pfwr/main/docs/screenshot.png
 
 ---
 
-### Write Markdown
+## Write Markdown
 
 ```markdown
 
-# First Slide
+## First Slide
 
 ---
 
-# Second Slide
+## Second Slide
 
 ```
 
@@ -40,7 +40,7 @@ Separate slides by `---`.
 
 ---
 
-### Generate HTML Slide Deck
+## Generate HTML Slide Deck
 
 On your command-line, use the `pfwr` utility:
 
@@ -59,8 +59,20 @@ Install the utility via `npm install -g pfwr`.
 
 ---
 
-* bullet points
-* are supported, too
+## Or numbered
+
+1. one
+2. two
+
+---
+
+# Write
+
+## Many
+
+### Different
+
+#### Headings
 
 ---
 
@@ -70,7 +82,7 @@ Add cool image.
 
 ---
 
-### Or With Heading
+## Or With Heading
 
 ![](./assets/me.jpg)
 
@@ -84,22 +96,48 @@ Add `code`, **bold**, ~~strikethrough~~, or _highlight_.
 
 ---
 
-### Add Tables
+Link slides [by number](#3) or [name](#add-some-code).
+
+---
+
+## Add Tables
 
 | This | Is | Table |
 | :--- | :---: | ---: |
 | :one: || :two: :three: |
 | Long | Cell Content | *Can be fitted, too?* |
 
-<small>With a description</small>
+<small>With a caption</small>
 
 ---
 
-### Add Some Code
+## Add Some Code
 
 ```javascript
 function hello() {
   window.alert('How yo doing?');
+}
+
+if (isFirstTime(visit)) {
+  hello();
+} else {
+  welcomeBack();
+}
+```
+
+<small>With a caption</small>
+
+---
+
+## Or a Longer Snippet
+
+```javascript
+function hello() {
+  window.alert('How yo doing?');
+}
+
+function isFirstTime(visit) {
+  return exists(visit);
 }
 
 if (isFirstTime(visit)) {
@@ -115,7 +153,7 @@ if (isFirstTime(visit)) {
 theme=funky
 -->
 
-### Customize your Background
+## Customize your Background
 
 Some `code`, good right? _Yea!_
 
@@ -125,7 +163,7 @@ Some `code`, good right? _Yea!_
 theme=funky
 -->
 
-### Add Some Code
+## Add Some Code
 
 ```javascript
 function hello() {
@@ -138,6 +176,8 @@ if (isFirstTime(visit)) {
   welcomeBack();
 }
 ```
+
+<small>With a caption</small>
 
 ---
 
@@ -145,14 +185,12 @@ if (isFirstTime(visit)) {
 theme=funky
 -->
 
-### Add Tables
+## Add Tables
 
 | This | Is | Table |
 | :--- | :---: | ---: |
 | :one: || :two: :three: |
 | Long | Cell Content | *Can be fitted, too?* |
-
-<small>[With a link](#3)</small>
 
 ---
 
@@ -160,7 +198,7 @@ theme=funky
 theme=eco
 -->
 
-### Or go green?
+## Or go green?
 
 Some `code`, good right? _Yea!_
 
@@ -168,9 +206,10 @@ Some `code`, good right? _Yea!_
 
 <!--config
 theme=eco
+name=add-some-code
 -->
 
-### Add Some Code
+## Add Some Code
 
 ```javascript
 function hello() {
@@ -184,13 +223,15 @@ if (isFirstTime(visit)) {
 }
 ```
 
+<small>With a caption</small>
+
 ---
 
 <!--config
 theme=eco
 -->
 
-### Add Tables
+## Add Tables
 
 | This | Is | Table |
 | :--- | :---: | ---: |
@@ -213,7 +254,7 @@ align=right
 
 And finally, :printer: your slides to PDF.
 
-Use your browser's :printer: function.
+**Use your browser's :printer: function**.
 
 It actually *works*.
 
