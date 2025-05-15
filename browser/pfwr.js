@@ -177,6 +177,10 @@ function pfwr(options) {
 
     const key = event.key;
 
+    if (event.altKey || event.metaKey || event.ctrlKey) {
+      return;
+    }
+
     if (key === 'Home') {
       hideNav();
       goto('first');
