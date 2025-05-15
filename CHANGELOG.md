@@ -6,6 +6,12 @@ All notable changes to [pfwr](https://github.com/nikku/pfwr) are documented here
 
 ___Note:__ Yet to be released changes appear here._
 
+## 0.10.0
+
+* `FEAT`: allow to address slides by name
+* `FEAT`: ignore special keystrokes (such as browser navigation)
+* `FIX`: correct styling of numbered lists
+
 ## 0.9.1
 
 * `FIX`: make `min-dash` a production dependency
