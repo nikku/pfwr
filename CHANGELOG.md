@@ -6,6 +6,10 @@ All notable changes to [pfwr](https://github.com/nikku/pfwr) are documented here
 
 ___Note:__ Yet to be released changes appear here._
 
+## 0.12.0
+
+* `FEAT`: prefer name over slide index in URL hash
+
 ## 0.11.0
 
 * `FIX`: style `small` tag
