@@ -144,7 +144,7 @@ function pfwr(options) {
     slide && slide.classList.remove('current');
     nextSlide.classList.add('current');
 
-    slideIndex = nextIndex;
+    slideIndex = nextSlide.dataset.name || nextIndex;
 
     emit('slideChanged', {
       slideIndex
