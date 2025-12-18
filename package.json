@@ -30,9 +30,9 @@
     "bin"
   ],
   "devDependencies": {
-    "@rollup/plugin-commonjs": "^28.0.3",
+    "@rollup/plugin-commonjs": "^29.0.0",
     "@rollup/plugin-json": "^6.1.0",
-    "@rollup/plugin-node-resolve": "^16.0.1",
+    "@rollup/plugin-node-resolve": "^16.0.3",
     "@types/node": "^24.10.4",
     "chokidar-cli": "^3.0.0",
     "eslint": "^9.39.2",
@@ -52,7 +52,7 @@
     "remark-gfm": "^4.0.1",
     "remark-parse": "^11.0.0",
     "remark-rehype": "^11.1.2",
-    "rollup": "^4.40.1",
+    "rollup": "^4.53.5",
     "rollup-plugin-string": "^3.0.0",
     "twemoji": "^14.0.2",
     "unified": "^11.0.5",
