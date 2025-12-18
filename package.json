@@ -35,7 +35,7 @@
     "@rollup/plugin-node-resolve": "^16.0.1",
     "@types/node": "^20.17.32",
     "chokidar-cli": "^3.0.0",
-    "eslint": "^9.22.0",
+    "eslint": "^9.39.2",
     "eslint-plugin-bpmn-io": "^2.2.0",
     "js-yaml": "^4.1.0",
     "mdast-comment-marker": "^3.0.0",
