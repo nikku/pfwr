@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-import { pfwr } from '../dist/index.js';
+import { pfwr } from 'pfwr';
 
 import path from 'node:path';
 import fs from 'node:fs';

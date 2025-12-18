@@ -5,6 +5,10 @@
   "main": "./dist/index.js",
   "bin": "./bin/cli.js",
   "type": "module",
+  "exports": {
+    ".": "./dist/index.js",
+    "./package.json": "./package.json"
+  },
   "scripts": {
     "all": "run-s lint bundle test",
     "bundle": "rollup -c",
