@@ -63,7 +63,7 @@
     "node": ">= 20.12"
   },
   "dependencies": {
-    "min-dash": "^4.2.3",
+    "min-dash": "^5.0.0",
     "mri": "^1.1.6",
     "opener": "^1.5.2"
   }
