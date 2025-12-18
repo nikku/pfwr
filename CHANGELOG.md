@@ -6,6 +6,12 @@ All notable changes to [pfwr](https://github.com/nikku/pfwr) are documented here
 
 ___Note:__ Yet to be released changes appear here._
 
+## 0.13.0
+
+* `CHORE`: add `exports` declaration
+* `CHORE`: restore `main` export
+* `CHORE`: bump `unified*` dependencies
+
 ## 0.12.0
 
 * `FEAT`: prefer name over slide index in URL hash
