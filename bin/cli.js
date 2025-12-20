@@ -6,17 +6,22 @@ import path from 'node:path';
 import fs from 'node:fs';
 import process from 'node:process';
 
-import { fileURLToPath } from 'node:url';
-
 import mri from 'mri';
 import opener from 'opener';
 
 import { debounce } from 'min-dash';
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+/**
+ * @param {string} path
+ *
+ * @return {URL} file url for the local path
+ */
+function fileUrl(path) {
+  return new URL(path, import.meta.url);
+}
 
-const pkg = JSON.parse(fs.readFileSync(path.join(__dirname, '../package.json'), 'utf8'));
+const pkg = JSON.parse(fs.readFileSync(fileUrl('../package.json'), 'utf8'));
+
 
 const argv = process.argv.slice(2);
 
@@ -68,7 +73,7 @@ async function run() {
   if (!fs.existsSync(inputFile)) {
     console.log('Created %s', inputFile);
 
-    fs.copyFileSync(__dirname + '/template.md', inputFile);
+    fs.copyFileSync(fileUrl('./template.md'), inputFile);
   }
 
   const input = {
