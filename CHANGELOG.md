@@ -6,6 +6,10 @@ All notable changes to [pfwr](https://github.com/nikku/pfwr) are documented here
 
 ___Note:__ Yet to be released changes appear here._
 
+## 0.15.0
+
+* `FEAT`: add swipe navigation
+
 ## 0.14.0
 
 * `FEAT`: generate responsive / mobile ready slide deck ([#3](https://github.com/nikku/pfwr/pull/3))
