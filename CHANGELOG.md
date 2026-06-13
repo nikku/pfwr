@@ -6,6 +6,13 @@ All notable changes to [pfwr](https://github.com/nikku/pfwr) are documented here
 
 ___Note:__ Yet to be released changes appear here._
 
+## 0.14.0
+
+* `FEAT`: generate responsive / mobile ready slide deck ([#3](https://github.com/nikku/pfwr/pull/3))
+* `FEAT`: adjust font sizes, ensuring headers clearly distinguish ([#3](https://github.com/nikku/pfwr/pull/3))
+* `FEAT`: improve placement of images ([#3](https://github.com/nikku/pfwr/pull/3))
+* `FEAT`: scale down large images to fit content ([#3](https://github.com/nikku/pfwr/pull/3))
+
 ## 0.13.0
 
 * `CHORE`: add `exports` declaration
