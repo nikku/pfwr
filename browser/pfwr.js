@@ -173,6 +173,43 @@ function pfwr(options) {
   });
 
 
+  let initialTouch = null;
+
+  function touchPosition(event) {
+    return {
+      x: event.touches[0].clientX,
+      y: event.touches[0].clientY
+    };
+  }
+
+  function handleTouchStart(event) {
+    initialTouch = touchPosition(event);
+  }
+
+  function handleTouchMove(event) {
+
+    if (!initialTouch) {
+      return;
+    }
+
+    var currentTouch = touchPosition(event);
+
+    var diff = {
+      x: initialTouch.x - currentTouch.x,
+      y: initialTouch.y - currentTouch.y
+    };
+
+    if (Math.abs(diff.x) > 30) {
+      if (diff.x < 0) {
+        goto('previous');
+      } else {
+        goto('next');
+      }
+
+      initialTouch = null;
+    }
+  }
+
   function handleKey(event) {
 
     const key = event.key;
@@ -212,9 +249,15 @@ function pfwr(options) {
 
   function destroy() {
     document.removeEventListener('keydown', handleKey);
+
+    document.removeEventListener('touchstart', handleTouchStart, false);
+    document.removeEventListener('touchmove', handleTouchMove, false);
   }
 
   document.addEventListener('keydown', handleKey);
+
+  document.addEventListener('touchstart', handleTouchStart, false);
+  document.addEventListener('touchmove', handleTouchMove, false);
 
   return {
     on,
