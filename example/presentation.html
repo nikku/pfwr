@@ -142,17 +142,20 @@ body {
 :root {
 
   --font-scale: 1;
-  --font-size-default: calc(var(--font-scale) * 2.4em);
-  --font-size-h1: calc(var(--font-scale) * 3.2em);
-  --font-size-h2: calc(var(--font-scale) * 2.2em);
-  --font-size-h3: calc(var(--font-scale) * 1.8em);
-  --font-size-h4: calc(var(--font-scale) * 1.4em);
-  --font-size-small: .4em;
+
+  /* base type scales with the slide container (cqmin), so the same slide
+     renders legibly full-screen and as a small overview tile */
+  --font-size-default: calc(var(--font-scale) * 5cqmin);
+  --font-size-h1: 3.2em;
+  --font-size-h2: 2.2em;
+  --font-size-h3: 1.8em;
+  --font-size-h4: 1.4em;
+  --font-size-small: 1.5cqmin;
   --font-size-smaller: .7em;
 
   --font-size-default-print: 2.4em;
 
-  --slide-margin: 4rem;
+  --slide-margin: calc(var(--font-scale) * 6cqmin);
 
   --font-family-body: 'Montserrat', sans-serif;
   --font-family-heading: 'Roboto Slab', serif;
@@ -313,35 +316,40 @@ img:not(.emoji) {
   object-fit: scale-down;
 }
 
-.slide > pre[class*="language-"] {
+.slide-content > pre[class*="language-"] {
   font-size: .5em;
   margin: 2em;
 }
 
-.slide > *:not(:first-child) {
+.slide-content > *:not(:first-child) {
   margin-top: 0 !important;
 }
 
-.slide > *,
-.slide > pre[class*="language-"] {
+.slide-content > *,
+.slide-content > pre[class*="language-"] {
   margin-left: var(--slide-margin);
   margin-right: var(--slide-margin);
 }
 
-.slide > *:first-child {
+.slide-content > *:first-child {
   margin-top: var(--slide-margin);
 }
 
-/** exclude slide number */
-.slide > *:nth-last-child(2) {
+.slide-content > *:last-child {
   margin-bottom: var(--slide-margin);
 }
 
 .slide-container {
   font-family: var(--font-family-body);
-  font-size: var(--font-size-default);
-
   line-height: var(--line-height);
+}
+
+/* display: contents keeps the content elements as flex items of .slide
+   (so layout/alignment is unchanged) while anchoring the responsive
+   base font-size to .slide, which is the query container */
+.slide-content {
+  display: contents;
+  font-size: var(--font-size-default);
 }
 
 .slide-container {
@@ -354,6 +362,7 @@ img:not(.emoji) {
 
   width: 100%;
   height: 100%;
+  container-type: size;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -377,7 +386,7 @@ img:not(.emoji) {
 }
 
 table {
-  border-radius: 1rem;
+  border-radius: .6em;
   overflow: hidden;
   border-collapse: collapse;
 
@@ -458,13 +467,18 @@ img.emoji {
   opacity: 1;
 }
 
+/* in overview only the toggle stays; slide navigation is meaningless */
+.slide-container.overview .navigation-button:not([data-navigate="overview"]) {
+  display: none;
+}
+
 @media print {
 
   .slide-navigation {
     display: none;
   }
 
-  .slide-container {
+  .slide-content {
     font-size: var(--font-size-default-print);
   }
 
@@ -488,21 +502,46 @@ img.emoji {
     left: 0;
     transform: translate(0, 0);
   }
-}
 
-@media (width < 1250px) {
-  :root {
-    --font-scale: .9;
-    --slide-margin: 3rem;
+  /* overview: lay slides out as a responsive grid of clickable tiles.
+     each tile is a size container, so the cqmin-based type scales down */
+  .slide-container.overview {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+    gap: 1.5rem;
+    padding: 1.5rem;
+
+    /* grow with the tiles and let the document scroll; a fixed height
+       would collapse the auto rows (size-contained tiles report no
+       height), making the aspect-ratio tiles overlap */
+    height: auto;
+    min-height: 100vh;
+    overflow: visible;
+
+    /* fill the available width instead of 100vw + padding (content-box),
+       which would overflow past the scrollbar and force horizontal scroll */
+    width: auto;
+    align-items: start;
+    background: var(--color-gray-5);
+  }
+
+  .overview .slide {
+    position: static;
+    transform: none;
+    height: auto;
+    min-height: 0;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    cursor: pointer;
+    border-radius: .5rem;
+    box-shadow: 0 0 .2rem rgb(0 0 0 / .25);
+  }
+
+  .overview .slide.current {
+    box-shadow: 0 0 0 .25rem var(--color-navy), 0.1rem .1rem .2rem rgb(0 0 0 / .25);
   }
 }
 
-@media (width < 800px) {
-  :root {
-    --font-scale: .7;
-    --slide-margin: 2rem;
-  }
-}
 </style>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat&#x26;family=Roboto+Slab:wght@400;700&#x26;family=Roboto+Mono:wght@400;700&#x26;display=swap" rel="stylesheet">
     <link rel="canonical" href="https://github.com/nikku/pfwr/">
@@ -525,16 +564,22 @@ img.emoji {
   <body>
     <div id="slide-container" class="slide-container">
       <section class="slide" data-align="left">
-        <h1><em>pfwr</em></h1>
-        <h3>Turns Your Markdown 📝 into a ✨ HTML Slide Deck.</h3>
+        <div class="slide-content">
+          <h1><em>pfwr</em></h1>
+          <h3>Turns Your Markdown 📝 into a ✨ HTML Slide Deck.</h3>
+        </div>
       </section>
       <section class="slide" data-align="left">
-        <h3><em>Disclaimer</em> I built this tool 😉</h3>
-        <p><a href="https://github.com/nikku" target="_blank" rel="nofollow noopener noreferrer"><code>@nikku</code></a> on GitHub</p>
+        <div class="slide-content">
+          <h3><em>Disclaimer</em> I built this tool 😉</h3>
+          <p><a href="https://github.com/nikku" target="_blank" rel="nofollow noopener noreferrer"><code>@nikku</code></a> on GitHub</p>
+        </div>
+        <div class="slide-number">2</div>
       </section>
       <section class="slide" data-align="left">
-        <h2>Write Markdown</h2>
-        <pre><code class="language-markdown">
+        <div class="slide-content">
+          <h2>Write Markdown</h2>
+          <pre><code class="language-markdown">
 ## First Slide
 
 ---
@@ -542,90 +587,125 @@ img.emoji {
 ## Second Slide
 
 </code></pre>
-        <p>Separate slides by <code>---</code>.</p>
+          <p>Separate slides by <code>---</code>.</p>
+        </div>
+        <div class="slide-number">3</div>
       </section>
       <section class="slide" data-align="left">
-        <h2>Generate HTML Slide Deck</h2>
-        <p>On your command-line, use the <code>pfwr</code> utility:</p>
-        <pre><code class="language-sh">$ pfwr presentation.md presentation.html
+        <div class="slide-content">
+          <h2>Generate HTML Slide Deck</h2>
+          <p>On your command-line, use the <code>pfwr</code> utility:</p>
+          <pre><code class="language-sh">$ pfwr presentation.md presentation.html
 </code></pre>
-        <p>Install the utility via <code>npm install -g pfwr</code>.</p>
+          <p>Install the utility via <code>npm install -g pfwr</code>.</p>
+        </div>
+        <div class="slide-number">4</div>
       </section>
       <section class="slide" data-align="left">
-        <h2>Add Lists</h2>
-        <ul>
-          <li>bullet points</li>
-          <li>are supported, too</li>
-        </ul>
+        <div class="slide-content">
+          <h2>Add Lists</h2>
+          <ul>
+            <li>bullet points</li>
+            <li>are supported, too</li>
+          </ul>
+        </div>
+        <div class="slide-number">5</div>
       </section>
       <section class="slide" data-align="left">
-        <h2>Or numbered</h2>
-        <ol>
-          <li>one</li>
-          <li>two</li>
-        </ol>
+        <div class="slide-content">
+          <h2>Or numbered</h2>
+          <ol>
+            <li>one</li>
+            <li>two</li>
+          </ol>
+        </div>
+        <div class="slide-number">6</div>
       </section>
       <section class="slide" data-align="left">
-        <h1>Write</h1>
-        <h2>Many</h2>
-        <h3>Different</h3>
-        <h4>Headings</h4>
+        <div class="slide-content">
+          <h1>Write</h1>
+          <h2>Many</h2>
+          <h3>Different</h3>
+          <h4>Headings</h4>
+        </div>
+        <div class="slide-number">7</div>
       </section>
       <section class="slide" data-align="center">
-        <p>When you really want to get the point across then there is plenty of room to tell a story - any story. Just be clear that folks likely don't read the content. <em>Colors</em> can of course help - but only get you half the way.</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        <div class="slide-content">
+          <p>When you really want to get the point across then there is plenty of room to tell a story - any story. Just be clear that folks likely don't read the content. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Got it?</p>
+        </div>
+        <div class="slide-number">8</div>
       </section>
       <section class="slide" data-align="center">
-        <p>
-          <img src="./assets/me.jpg" alt="">
-        </p>
-        <p>Add cool image.</p>
+        <div class="slide-content">
+          <p>
+            <img src="./assets/me.jpg" alt="">
+          </p>
+          <p>Add cool image.</p>
+        </div>
+        <div class="slide-number">9</div>
       </section>
       <section class="slide" data-align="left">
-        <h2>Or With Heading</h2>
-        <p>
-          <img src="./assets/me.jpg" alt="">
-        </p>
+        <div class="slide-content">
+          <h2>Or With Heading</h2>
+          <p>
+            <img src="./assets/me.jpg" alt="">
+          </p>
+        </div>
+        <div class="slide-number">10</div>
       </section>
       <section class="slide" data-align="center">
-        <p>
-          <img src="https://www.space.news/wp-content/uploads/sites/38/2015/12/Big-Death-Star.jpg" alt="Or a fullsize image">
-        </p>
+        <div class="slide-content">
+          <p>
+            <img src="https://www.space.news/wp-content/uploads/sites/38/2015/12/Big-Death-Star.jpg" alt="Or a fullsize image">
+          </p>
+        </div>
+        <div class="slide-number">11</div>
       </section>
       <section class="slide" data-align="center">
-        <p>Add <code>code</code>, <strong>bold</strong>, <del>strikethrough</del>, or <em>highlight</em>.</p>
+        <div class="slide-content">
+          <p>Add <code>code</code>, <strong>bold</strong>, <del>strikethrough</del>, or <em>highlight</em>.</p>
+        </div>
+        <div class="slide-number">12</div>
       </section>
       <section class="slide" data-align="center">
-        <p>Link slides <a href="#3">by number</a> or <a href="#add-some-code">name</a>.</p>
+        <div class="slide-content">
+          <p>Link slides <a href="#3">by number</a> or <a href="#add-some-code">name</a>.</p>
+        </div>
+        <div class="slide-number">13</div>
       </section>
       <section class="slide" data-align="left">
-        <h2>Add Tables</h2>
-        <table>
-          <thead>
-            <tr>
-              <th align="left">This</th>
-              <th align="center">Is</th>
-              <th align="right">Table</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td align="left">1️⃣</td>
-              <td align="center"></td>
-              <td align="right">2️⃣ 3️⃣</td>
-            </tr>
-            <tr>
-              <td align="left">Long</td>
-              <td align="center">Cell Content</td>
-              <td align="right"><em>Can be fitted, too?</em></td>
-            </tr>
-          </tbody>
-        </table>
-        <p><small>With a caption</small></p>
+        <div class="slide-content">
+          <h2>Add Tables</h2>
+          <table>
+            <thead>
+              <tr>
+                <th align="left">This</th>
+                <th align="center">Is</th>
+                <th align="right">Table</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td align="left">1️⃣</td>
+                <td align="center"></td>
+                <td align="right">2️⃣ 3️⃣</td>
+              </tr>
+              <tr>
+                <td align="left">Long</td>
+                <td align="center">Cell Content</td>
+                <td align="right"><em>Can be fitted, too?</em></td>
+              </tr>
+            </tbody>
+          </table>
+          <p><small>With a caption</small></p>
+        </div>
+        <div class="slide-number">14</div>
       </section>
       <section class="slide" data-align="left">
-        <h2>Add Some Code</h2>
-        <pre><code class="language-javascript">function hello() {
+        <div class="slide-content">
+          <h2>Add Some Code</h2>
+          <pre><code class="language-javascript">function hello() {
   window.alert('How yo doing?');
 }
 
@@ -635,11 +715,14 @@ if (isFirstTime(visit)) {
   welcomeBack();
 }
 </code></pre>
-        <p><small>With a caption</small></p>
+          <p><small>With a caption</small></p>
+        </div>
+        <div class="slide-number">15</div>
       </section>
       <section class="slide" data-align="left">
-        <h2>Or a Longer Snippet</h2>
-        <pre><code class="language-javascript">function hello() {
+        <div class="slide-content">
+          <h2>Or a Longer Snippet</h2>
+          <pre><code class="language-javascript">function hello() {
   window.alert('How yo doing?');
 }
 
@@ -654,18 +737,24 @@ if (isFirstTime(visit)) {
   welcomeBack();
 }
 </code></pre>
+        </div>
+        <div class="slide-number">16</div>
       </section>
-      <section class="slide" data-theme="funky" data-align="left"><!--config
+      <section class="slide" data-theme="funky" data-align="left">
+        <div class="slide-content"><!--config
 theme=funky
 -->
-        <h2>Customize your Background</h2>
-        <p>Some <code>code</code>, good right? <em>Yea!</em></p>
+          <h2>Customize your Background</h2>
+          <p>Some <code>code</code>, good right? <em>Yea!</em></p>
+        </div>
+        <div class="slide-number">17</div>
       </section>
-      <section class="slide" data-theme="funky" data-align="left"><!--config
+      <section class="slide" data-theme="funky" data-align="left">
+        <div class="slide-content"><!--config
 theme=funky
 -->
-        <h2>Add Some Code</h2>
-        <pre><code class="language-javascript">function hello() {
+          <h2>Add Some Code</h2>
+          <pre><code class="language-javascript">function hello() {
   window.alert('How yo doing?');
 }
 
@@ -675,46 +764,55 @@ if (isFirstTime(visit)) {
   welcomeBack();
 }
 </code></pre>
-        <p><small>With a caption</small></p>
+          <p><small>With a caption</small></p>
+        </div>
+        <div class="slide-number">18</div>
       </section>
-      <section class="slide" data-theme="funky" data-align="left"><!--config
+      <section class="slide" data-theme="funky" data-align="left">
+        <div class="slide-content"><!--config
 theme=funky
 -->
-        <h2>Add Tables</h2>
-        <table>
-          <thead>
-            <tr>
-              <th align="left">This</th>
-              <th align="center">Is</th>
-              <th align="right">Table</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td align="left">1️⃣</td>
-              <td align="center"></td>
-              <td align="right">2️⃣ 3️⃣</td>
-            </tr>
-            <tr>
-              <td align="left">Long</td>
-              <td align="center">Cell Content</td>
-              <td align="right"><em>Can be fitted, too?</em></td>
-            </tr>
-          </tbody>
-        </table>
+          <h2>Add Tables</h2>
+          <table>
+            <thead>
+              <tr>
+                <th align="left">This</th>
+                <th align="center">Is</th>
+                <th align="right">Table</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td align="left">1️⃣</td>
+                <td align="center"></td>
+                <td align="right">2️⃣ 3️⃣</td>
+              </tr>
+              <tr>
+                <td align="left">Long</td>
+                <td align="center">Cell Content</td>
+                <td align="right"><em>Can be fitted, too?</em></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="slide-number">19</div>
       </section>
-      <section class="slide" data-theme="eco" data-align="left"><!--config
+      <section class="slide" data-theme="eco" data-align="left">
+        <div class="slide-content"><!--config
 theme=eco
 -->
-        <h2>Or go green?</h2>
-        <p>Some <code>code</code>, good right? <em>Yea!</em></p>
+          <h2>Or go green?</h2>
+          <p>Some <code>code</code>, good right? <em>Yea!</em></p>
+        </div>
+        <div class="slide-number">20</div>
       </section>
-      <section class="slide" data-theme="eco" data-name="add-some-code" data-align="left"><!--config
+      <section class="slide" data-theme="eco" data-name="add-some-code" data-align="left">
+        <div class="slide-content"><!--config
 theme=eco
 name=add-some-code
 -->
-        <h2>Add Some Code</h2>
-        <pre><code class="language-javascript">function hello() {
+          <h2>Add Some Code</h2>
+          <pre><code class="language-javascript">function hello() {
   window.alert('How yo doing?');
 }
 
@@ -724,65 +822,66 @@ if (isFirstTime(visit)) {
   welcomeBack();
 }
 </code></pre>
-        <p><small>With a caption</small></p>
+          <p><small>With a caption</small></p>
+        </div>
+        <div class="slide-number">21</div>
       </section>
-      <section class="slide" data-theme="eco" data-align="left"><!--config
+      <section class="slide" data-theme="eco" data-align="left">
+        <div class="slide-content"><!--config
 theme=eco
 -->
-        <h2>Add Tables</h2>
-        <table>
-          <thead>
-            <tr>
-              <th align="left">This</th>
-              <th align="center">Is</th>
-              <th align="right">Table</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td align="left">1️⃣</td>
-              <td align="center"></td>
-              <td align="right">2️⃣ 3️⃣</td>
-            </tr>
-            <tr>
-              <td align="left">Long</td>
-              <td align="center">Cell Content</td>
-              <td align="right"><em>Can be fitted, too?</em></td>
-            </tr>
-          </tbody>
-        </table>
-        <p><small><a href="#3">With a link</a></small></p>
+          <h2>Add Tables</h2>
+          <table>
+            <thead>
+              <tr>
+                <th align="left">This</th>
+                <th align="center">Is</th>
+                <th align="right">Table</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td align="left">1️⃣</td>
+                <td align="center"></td>
+                <td align="right">2️⃣ 3️⃣</td>
+              </tr>
+              <tr>
+                <td align="left">Long</td>
+                <td align="center">Cell Content</td>
+                <td align="right"><em>Can be fitted, too?</em></td>
+              </tr>
+            </tbody>
+          </table>
+          <p><small><a href="#3">With a link</a></small></p>
+        </div>
+        <div class="slide-number">22</div>
       </section>
-      <section class="slide" data-align="right"><!--config
+      <section class="slide" data-align="right">
+        <div class="slide-content"><!--config
 align=right
 -->
-        <h1>How is it</h1>
-        <h2>Not ⬅️ aligned?</h2>
+          <h1>How is it</h1>
+          <h2>Not ⬅️ aligned?</h2>
+        </div>
+        <div class="slide-number">23</div>
       </section>
       <section class="slide" data-align="center">
-        <p>And finally, 🖨 your slides to PDF.</p>
-        <p><strong>Use your browser's 🖨 function</strong>.</p>
-        <p>It actually <em>works</em>.</p>
+        <div class="slide-content">
+          <p>And finally, 🖨 your slides to PDF.</p>
+          <p><strong>Use your browser's 🖨 function</strong>.</p>
+          <p>It actually <em>works</em>.</p>
+        </div>
+        <div class="slide-number">24</div>
       </section>
       <section class="slide" data-align="center">
-        <p>➡️ <a href="https://github.com/nikku/pfwr" target="_blank" rel="nofollow noopener noreferrer">GitHub</a></p>
-        <p>📝 <a href="https://github.com/nikku/pfwr/blob/main/example/presentation.md" target="_blank" rel="nofollow noopener noreferrer">Presentation Source</a></p>
+        <div class="slide-content">
+          <p>➡️ <a href="https://github.com/nikku/pfwr" target="_blank" rel="nofollow noopener noreferrer">GitHub</a></p>
+          <p>📝 <a href="https://github.com/nikku/pfwr/blob/main/example/presentation.md" target="_blank" rel="nofollow noopener noreferrer">Presentation Source</a></p>
+        </div>
+        <div class="slide-number">25</div>
       </section>
     </div>
-    <script>function addPage(index, slide) {
-
-  if (!index) {
-    return;
-  }
-
-  const el = document.createElement('div');
-  el.classList.add('slide-number');
-  el.textContent = index + 1;
-
-  slide.appendChild(el);
-}
-
-function addNavigationControls(container, goto) {
+    <script>function addNavigationControls(container, dispatch) {
 
   const html = `<nav class="slide-navigation shown">
     <a class="navigation-button" data-navigate="first" title="First slide" href>
@@ -796,6 +895,9 @@ function addNavigationControls(container, goto) {
     </a>
     <a class="navigation-button" data-navigate="last" title="Last slide" href>
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path d="M12 18a6 6 0 100-12 6 6 0 000 12z"></path></svg>
+    </a>
+    <a class="navigation-button" data-navigate="overview" title="Toggle overview (O)" href>
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="-4 -4 24 24"><path d="m14.12 10.163 1.715.858c.22.11.22.424 0 .534L8.267 15.34a.6.6 0 0 1-.534 0L.165 11.555a.299.299 0 0 1 0-.534l1.716-.858 5.317 2.659c.505.252 1.1.252 1.604 0l5.317-2.66zM7.733.063a.6.6 0 0 1 .534 0l7.568 3.784a.3.3 0 0 1 0 .535L8.267 8.165a.6.6 0 0 1-.534 0L.165 4.382a.299.299 0 0 1 0-.535z"></path><path d="m14.12 6.576 1.715.858c.22.11.22.424 0 .534l-7.568 3.784a.6.6 0 0 1-.534 0L.165 7.968a.299.299 0 0 1 0-.534l1.716-.858 5.317 2.659c.505.252 1.1.252 1.604 0z"></path></svg>
     </a>
   </nav>`;
 
@@ -827,7 +929,7 @@ function addNavigationControls(container, goto) {
       return;
     }
 
-    goto(target.dataset.navigate);
+    dispatch(target.dataset.navigate);
   });
 
   container.appendChild(nav);
@@ -842,15 +944,10 @@ function pfwr(options) {
     container
   } = options;
 
-  // slide numbers
   const slides = Array.from(container.querySelectorAll('.slide'));
 
-  for (const idx in slides) {
-    addPage(+idx, slides[+idx]);
-  }
-
   // mouse navigation controls
-  const nav = addNavigationControls(container, goto);
+  const nav = addNavigationControls(container, dispatch);
 
   // event listeners ////////////////////////
 
@@ -872,6 +969,40 @@ function pfwr(options) {
   // slide life cycle ////////////////
 
   let slideIndex = -1;
+  let overview = false;
+
+  function emitState() {
+    emit('change', { slide: slideIndex, overview });
+  }
+
+  function toggleOverview(value) {
+
+    value = !!value;
+
+    if (overview === value) {
+      return;
+    }
+
+    overview = value;
+    container.classList.toggle('overview', overview);
+
+    if (overview) {
+      const current = container.querySelector('.slide.current');
+
+      current && current.scrollIntoView({ block: 'center' });
+    }
+
+    emitState();
+  }
+
+  function dispatch(action) {
+
+    if (action === 'overview') {
+      return toggleOverview(!overview);
+    }
+
+    goto(action);
+  }
 
   function goto(next) {
 
@@ -917,9 +1048,7 @@ function pfwr(options) {
 
     slideIndex = nextSlide.dataset.name || nextIndex;
 
-    emit('slideChanged', {
-      slideIndex
-    });
+    emitState();
   }
 
   // slide navigation
@@ -941,6 +1070,23 @@ function pfwr(options) {
     clearTimeout(hideTimer);
 
     hideTimer = setTimeout(hideNav, 2000);
+  });
+
+  // open a slide by clicking its tile in overview
+  container.addEventListener('click', function(event) {
+
+    if (!overview) {
+      return;
+    }
+
+    const slide = event.target.closest('.slide');
+
+    if (!slide) {
+      return;
+    }
+
+    goto(slides.indexOf(slide));
+    toggleOverview(false);
   });
 
 
@@ -1016,6 +1162,12 @@ function pfwr(options) {
 
       return false;
     }
+
+    if (key === 'o' || key === 'O') {
+      toggleOverview(!overview);
+
+      return false;
+    }
   }
 
   function destroy() {
@@ -1033,6 +1185,7 @@ function pfwr(options) {
   return {
     on,
     goto,
+    toggleOverview,
     destroy
   };
 }</script>
@@ -1054,26 +1207,34 @@ function onHashChange(fn) {
   window.addEventListener('hashchange', fn, false);
 }
 
-function setSlide(slide) {
-  window.location.hash = '#' + (typeof slide === 'number' ? slide + 1 : slide);
+function setState(state) {
+  const page = typeof state.slide === 'number' ? state.slide + 1 : state.slide;
+
+  window.location.hash = '#' + page + (state.overview ? '/overview' : '');
 }
 
-function getSlide() {
-  const hash = window.location.hash;
+function getState() {
+  const [ page, ...modifiers ] = window.location.hash.substring(1).split('/');
 
-  const slideHash = hash && hash.substring(1);
+  return {
+    slide: parsePage(page),
+    overview: modifiers.includes('overview')
+  };
+}
 
-  if (!slideHash) {
+function parsePage(page) {
+
+  if (!page) {
     return 0;
   }
 
-  const slideNumber = parseInt(slideHash, 10);
+  const slideNumber = parseInt(page, 10);
 
   if (slideNumber > 0) {
     return slideNumber - 1;
   }
 
-  return slideHash;
+  return page;
 }
 
 onLoaded(() => {
@@ -1093,15 +1254,18 @@ onLoaded(() => {
     container
   });
 
-  presentation.goto(getSlide());
+  function applyState() {
+    const { slide, overview } = getState();
 
-  onHashChange(() => {
-    presentation.goto(getSlide());
-  });
+    presentation.goto(slide);
+    presentation.toggleOverview(overview);
+  }
 
-  presentation.on('slideChanged', function(event) {
-    setSlide(event.slideIndex);
-  });
+  applyState();
+
+  onHashChange(applyState);
+
+  presentation.on('change', setState);
 
 });</script>
     <script src="https://unpkg.com/twemoji@latest/dist/twemoji.min.js"></script>
