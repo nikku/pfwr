@@ -9,17 +9,20 @@ body {
 :root {
 
   --font-scale: 1;
-  --font-size-default: calc(var(--font-scale) * 2.4em);
-  --font-size-h1: calc(var(--font-scale) * 3.2em);
-  --font-size-h2: calc(var(--font-scale) * 2.2em);
-  --font-size-h3: calc(var(--font-scale) * 1.8em);
-  --font-size-h4: calc(var(--font-scale) * 1.4em);
-  --font-size-small: .4em;
+
+  /* base type scales with the slide container (cqmin), so the same slide
+     renders legibly full-screen and as a small overview tile */
+  --font-size-default: calc(var(--font-scale) * 5cqmin);
+  --font-size-h1: 3.2em;
+  --font-size-h2: 2.2em;
+  --font-size-h3: 1.8em;
+  --font-size-h4: 1.4em;
+  --font-size-small: 1.5cqmin;
   --font-size-smaller: .7em;
 
   --font-size-default-print: 2.5em;
 
-  --slide-margin: 4rem;
+  --slide-margin: calc(var(--font-scale) * 6cqmin);
 
   --font-family-body: 'Montserrat', sans-serif;
   --font-family-heading: 'Roboto Slab', serif;
@@ -180,35 +183,40 @@ img:not(.emoji) {
   object-fit: scale-down;
 }
 
-.slide > pre[class*="language-"] {
+.slide-content > pre[class*="language-"] {
   font-size: .5em;
   margin: 2em;
 }
 
-.slide > *:not(:first-child) {
+.slide-content > *:not(:first-child) {
   margin-top: 0 !important;
 }
 
-.slide > *,
-.slide > pre[class*="language-"] {
+.slide-content > *,
+.slide-content > pre[class*="language-"] {
   margin-left: var(--slide-margin);
   margin-right: var(--slide-margin);
 }
 
-.slide > *:first-child {
+.slide-content > *:first-child {
   margin-top: var(--slide-margin);
 }
 
-/** exclude slide number */
-.slide > *:nth-last-child(2) {
+.slide-content > *:last-child {
   margin-bottom: var(--slide-margin);
 }
 
 .slide-container {
   font-family: var(--font-family-body);
-  font-size: var(--font-size-default);
-
   line-height: var(--line-height);
+}
+
+/* display: contents keeps the content elements as flex items of .slide
+   (so layout/alignment is unchanged) while anchoring the responsive
+   base font-size to .slide, which is the query container */
+.slide-content {
+  display: contents;
+  font-size: var(--font-size-default);
 }
 
 .slide-container {
@@ -221,6 +229,7 @@ img:not(.emoji) {
 
   width: 100%;
   height: 100%;
+  container-type: size;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -244,7 +253,7 @@ img:not(.emoji) {
 }
 
 table {
-  border-radius: 1rem;
+  border-radius: .6em;
   overflow: hidden;
   border-collapse: collapse;
 
@@ -331,7 +340,7 @@ img.emoji {
     display: none;
   }
 
-  .slide-container {
+  .slide-content {
     font-size: var(--font-size-default-print);
   }
 
@@ -357,16 +366,3 @@ img.emoji {
   }
 }
 
-@media (width < 1250px) {
-  :root {
-    --font-scale: .9;
-    --slide-margin: 3rem;
-  }
-}
-
-@media (width < 800px) {
-  :root {
-    --font-scale: .7;
-    --slide-margin: 2rem;
-  }
-}
