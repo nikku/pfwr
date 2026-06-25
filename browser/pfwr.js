@@ -1,3 +1,15 @@
+function wrapContent(slide) {
+
+  const content = document.createElement('div');
+  content.classList.add('slide-content');
+
+  while (slide.firstChild) {
+    content.appendChild(slide.firstChild);
+  }
+
+  slide.appendChild(content);
+}
+
 function addPage(index, slide) {
 
   if (!index) {
@@ -75,6 +87,7 @@ function pfwr(options) {
   const slides = Array.from(container.querySelectorAll('.slide'));
 
   for (const idx in slides) {
+    wrapContent(slides[+idx]);
     addPage(+idx, slides[+idx]);
   }
 
