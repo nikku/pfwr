@@ -24,7 +24,18 @@ function transform(tree) {
 
     const group = {
       type: 'slide',
-      children: between,
+      children: [
+        {
+          type: 'slideContent',
+          children: between,
+          data: {
+            hName: 'div',
+            hProperties: {
+              className: [ 'slide-content' ]
+            }
+          }
+        }
+      ],
       data: {
         hName: 'section',
         hProperties: {
@@ -36,5 +47,19 @@ function transform(tree) {
     tree.children.splice(idx, between.length + (idx === 0 ? 0 : 1), group);
 
     end = idx;
+  }
+
+  // add slide numbers - first slide unnumbered (title slide convention)
+  for (let i = 1; i < tree.children.length; i++) {
+    tree.children[i].children.push({
+      type: 'slideNumber',
+      children: [ { type: 'text', value: String(i + 1) } ],
+      data: {
+        hName: 'div',
+        hProperties: {
+          className: [ 'slide-number' ]
+        }
+      }
+    });
   }
 }

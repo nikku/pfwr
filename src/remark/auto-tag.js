@@ -47,11 +47,14 @@ function tagFile(node, file) {
 
 function tagSlide(node) {
 
-  const isLanding = node.children.every(
+  const contentNode = node.children.find(el => el.type === 'slideContent');
+  const children = contentNode ? contentNode.children : node.children;
+
+  const isLanding = children.every(
     el => el.type !== 'heading' && el.type !== 'list'
   );
 
-  const configNode = node.children.find(el => el.config);
+  const configNode = children.find(el => el.config);
 
   const {
     align = isLanding ? 'center' : 'left',
