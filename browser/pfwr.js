@@ -1,28 +1,3 @@
-function wrapContent(slide) {
-
-  const content = document.createElement('div');
-  content.classList.add('slide-content');
-
-  while (slide.firstChild) {
-    content.appendChild(slide.firstChild);
-  }
-
-  slide.appendChild(content);
-}
-
-function addPage(index, slide) {
-
-  if (!index) {
-    return;
-  }
-
-  const el = document.createElement('div');
-  el.classList.add('slide-number');
-  el.textContent = index + 1;
-
-  slide.appendChild(el);
-}
-
 function addNavigationControls(container, dispatch) {
 
   const html = `<nav class="slide-navigation shown">
@@ -86,13 +61,7 @@ function pfwr(options) {
     container
   } = options;
 
-  // slide numbers
   const slides = Array.from(container.querySelectorAll('.slide'));
-
-  for (const idx in slides) {
-    wrapContent(slides[+idx]);
-    addPage(+idx, slides[+idx]);
-  }
 
   // mouse navigation controls
   const nav = addNavigationControls(container, dispatch);
