@@ -8,26 +8,34 @@ function onHashChange(fn) {
   window.addEventListener('hashchange', fn, false);
 }
 
-function setSlide(slide) {
-  window.location.hash = '#' + (typeof slide === 'number' ? slide + 1 : slide);
+function setState(state) {
+  const page = typeof state.slide === 'number' ? state.slide + 1 : state.slide;
+
+  window.location.hash = '#' + page + (state.overview ? '/overview' : '');
 }
 
-function getSlide() {
-  const hash = window.location.hash;
+function getState() {
+  const [ page, ...modifiers ] = window.location.hash.substring(1).split('/');
 
-  const slideHash = hash && hash.substring(1);
+  return {
+    slide: parsePage(page),
+    overview: modifiers.includes('overview')
+  };
+}
 
-  if (!slideHash) {
+function parsePage(page) {
+
+  if (!page) {
     return 0;
   }
 
-  const slideNumber = parseInt(slideHash, 10);
+  const slideNumber = parseInt(page, 10);
 
   if (slideNumber > 0) {
     return slideNumber - 1;
   }
 
-  return slideHash;
+  return page;
 }
 
 onLoaded(() => {
@@ -47,14 +55,17 @@ onLoaded(() => {
     container
   });
 
-  presentation.goto(getSlide());
+  function applyState() {
+    const { slide, overview } = getState();
 
-  onHashChange(() => {
-    presentation.goto(getSlide());
-  });
+    presentation.goto(slide);
+    presentation.toggleOverview(overview);
+  }
 
-  presentation.on('slideChanged', function(event) {
-    setSlide(event.slideIndex);
-  });
+  applyState();
+
+  onHashChange(applyState);
+
+  presentation.on('change', setState);
 
 });

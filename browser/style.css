@@ -334,6 +334,11 @@ img.emoji {
   opacity: 1;
 }
 
+/* in overview only the toggle stays; slide navigation is meaningless */
+.slide-container.overview .navigation-button:not([data-navigate="overview"]) {
+  display: none;
+}
+
 @media print {
 
   .slide-navigation {
@@ -363,6 +368,44 @@ img.emoji {
     top: 0;
     left: 0;
     transform: translate(0, 0);
+  }
+
+  /* overview: lay slides out as a responsive grid of clickable tiles.
+     each tile is a size container, so the cqmin-based type scales down */
+  .slide-container.overview {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+    gap: 1.5rem;
+    padding: 1.5rem;
+
+    /* grow with the tiles and let the document scroll; a fixed height
+       would collapse the auto rows (size-contained tiles report no
+       height), making the aspect-ratio tiles overlap */
+    height: auto;
+    min-height: 100vh;
+    overflow: visible;
+
+    /* fill the available width instead of 100vw + padding (content-box),
+       which would overflow past the scrollbar and force horizontal scroll */
+    width: auto;
+    align-items: start;
+    background: var(--color-gray-5);
+  }
+
+  .overview .slide {
+    position: static;
+    transform: none;
+    height: auto;
+    min-height: 0;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    cursor: pointer;
+    border-radius: .5rem;
+    box-shadow: 0 0 .2rem rgb(0 0 0 / .25);
+  }
+
+  .overview .slide.current {
+    box-shadow: 0 0 0 .25rem var(--color-navy), 0.1rem .1rem .2rem rgb(0 0 0 / .25);
   }
 }
 
