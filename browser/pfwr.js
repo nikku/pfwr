@@ -23,7 +23,7 @@ function addPage(index, slide) {
   slide.appendChild(el);
 }
 
-function addNavigationControls(container, goto) {
+function addNavigationControls(container, dispatch) {
 
   const html = `<nav class="slide-navigation shown">
     <a class="navigation-button" data-navigate="first" title="First slide" href>
@@ -37,6 +37,9 @@ function addNavigationControls(container, goto) {
     </a>
     <a class="navigation-button" data-navigate="last" title="Last slide" href>
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path d="M12 18a6 6 0 100-12 6 6 0 000 12z"></path></svg>
+    </a>
+    <a class="navigation-button" data-navigate="overview" title="Toggle overview (O)" href>
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="-4 -4 24 24"><path d="m14.12 10.163 1.715.858c.22.11.22.424 0 .534L8.267 15.34a.6.6 0 0 1-.534 0L.165 11.555a.299.299 0 0 1 0-.534l1.716-.858 5.317 2.659c.505.252 1.1.252 1.604 0l5.317-2.66zM7.733.063a.6.6 0 0 1 .534 0l7.568 3.784a.3.3 0 0 1 0 .535L8.267 8.165a.6.6 0 0 1-.534 0L.165 4.382a.299.299 0 0 1 0-.535z"></path><path d="m14.12 6.576 1.715.858c.22.11.22.424 0 .534l-7.568 3.784a.6.6 0 0 1-.534 0L.165 7.968a.299.299 0 0 1 0-.534l1.716-.858 5.317 2.659c.505.252 1.1.252 1.604 0z"></path></svg>
     </a>
   </nav>`;
 
@@ -68,7 +71,7 @@ function addNavigationControls(container, goto) {
       return;
     }
 
-    goto(target.dataset.navigate);
+    dispatch(target.dataset.navigate);
   });
 
   container.appendChild(nav);
@@ -92,7 +95,7 @@ function pfwr(options) {
   }
 
   // mouse navigation controls
-  const nav = addNavigationControls(container, goto);
+  const nav = addNavigationControls(container, dispatch);
 
   // event listeners ////////////////////////
 
@@ -114,6 +117,40 @@ function pfwr(options) {
   // slide life cycle ////////////////
 
   let slideIndex = -1;
+  let overview = false;
+
+  function emitState() {
+    emit('change', { slide: slideIndex, overview });
+  }
+
+  function toggleOverview(value) {
+
+    value = !!value;
+
+    if (overview === value) {
+      return;
+    }
+
+    overview = value;
+    container.classList.toggle('overview', overview);
+
+    if (overview) {
+      const current = container.querySelector('.slide.current');
+
+      current && current.scrollIntoView({ block: 'center' });
+    }
+
+    emitState();
+  }
+
+  function dispatch(action) {
+
+    if (action === 'overview') {
+      return toggleOverview(!overview);
+    }
+
+    goto(action);
+  }
 
   function goto(next) {
 
@@ -159,9 +196,7 @@ function pfwr(options) {
 
     slideIndex = nextSlide.dataset.name || nextIndex;
 
-    emit('slideChanged', {
-      slideIndex
-    });
+    emitState();
   }
 
   // slide navigation
@@ -183,6 +218,23 @@ function pfwr(options) {
     clearTimeout(hideTimer);
 
     hideTimer = setTimeout(hideNav, 2000);
+  });
+
+  // open a slide by clicking its tile in overview
+  container.addEventListener('click', function(event) {
+
+    if (!overview) {
+      return;
+    }
+
+    const slide = event.target.closest('.slide');
+
+    if (!slide) {
+      return;
+    }
+
+    goto(slides.indexOf(slide));
+    toggleOverview(false);
   });
 
 
@@ -258,6 +310,12 @@ function pfwr(options) {
 
       return false;
     }
+
+    if (key === 'o' || key === 'O') {
+      toggleOverview(!overview);
+
+      return false;
+    }
   }
 
   function destroy() {
@@ -275,6 +333,7 @@ function pfwr(options) {
   return {
     on,
     goto,
+    toggleOverview,
     destroy
   };
 }
