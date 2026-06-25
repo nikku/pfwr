@@ -20,7 +20,7 @@ body {
   --font-size-small: 1.5cqmin;
   --font-size-smaller: .7em;
 
-  --font-size-default-print: 2.5em;
+  --font-size-default-print: 2.4em;
 
   --slide-margin: calc(var(--font-scale) * 6cqmin);
 
