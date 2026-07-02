@@ -28,7 +28,10 @@ pfwr presentation.md presentation.html
 ## Features
 
 * Recognizes [CommonMark](https://commonmark.org/) and [GitHub flavored Markdown](https://github.github.com/gfm/)
-* Creates a self-contained, printable HTML slide deck
+* Produces a self-contained HTML slide deck
+  * Responsive
+  * Printable
+  * Single slide + grid view
 * Embeds HTML, on purpose (cf. [security considerations](#security-considerations))
 * Allows you to configure meta-data via front-matter
 * Watch mode (rebuild on changes)
