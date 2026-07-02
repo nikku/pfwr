@@ -21,6 +21,10 @@
     "test:watch": "chokidar --initial \"browser/*.*\" \"dist/*.*\" \"bin/*.*\" \"example/*.md\" --command \"run-s test\"",
     "prepare": "npm run bundle"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nikku/pfwr.git"
+  },
   "author": "Nico Rehwaldt<https://github.com/nikku>",
   "license": "MIT",
   "keywords": [
