@@ -3,7 +3,9 @@
   "version": "0.16.0",
   "description": "The last markdown to HTML slide show generator you need",
   "main": "./dist/index.js",
-  "bin": "./bin/cli.js",
+  "bin": {
+    "pfwr": "bin/cli.js"
+  },
   "type": "module",
   "exports": {
     ".": "./dist/index.js",
