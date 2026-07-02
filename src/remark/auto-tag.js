@@ -1,5 +1,5 @@
 import { visitParents } from 'unist-util-visit-parents';
-import yaml from 'js-yaml';
+import { load as parseYaml } from 'js-yaml';
 
 export function autoTag() {
   return transform;
@@ -35,7 +35,7 @@ function transform(tree, file) {
 
 function tagFile(node, file) {
 
-  const config = yaml.load(node.value);
+  const config = parseYaml(node.value);
 
   file.data.meta = Object.assign({
     og: true,
