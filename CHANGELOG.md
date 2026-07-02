@@ -6,6 +6,8 @@ All notable changes to [pfwr](https://github.com/nikku/pfwr) are documented here
 
 ___Note:__ Yet to be released changes appear here._
 
+## 0.17.1
+
 * `FIX`: jump to slide when clicking anywhere in overview
 
 ## 0.17.0
