@@ -6,6 +6,10 @@ All notable changes to [pfwr](https://github.com/nikku/pfwr) are documented here
 
 ___Note:__ Yet to be released changes appear here._
 
+## 0.17.0
+
+* `CHORE`: update to `js-yaml@5.2.1`
+
 ## 0.16.0
 
 * `FEAT`: add slide overview feature ([#4](https://github.com/nikku/pfwr/issues/4), [#5](https://github.com/nikku/pfwr/pull/5))
