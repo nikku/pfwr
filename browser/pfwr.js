@@ -202,6 +202,10 @@ function pfwr(options) {
       return;
     }
 
+    // prevent links (and other default actions) from
+    // triggering while navigating via overview
+    event.preventDefault();
+
     goto(slides.indexOf(slide));
     toggleOverview(false);
   });
