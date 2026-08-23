@@ -47,7 +47,7 @@
     "chokidar-cli": "^3.0.0",
     "eslint": "^9.39.5",
     "eslint-plugin-bpmn-io": "^2.3.1",
-    "js-yaml": "^5.2.1",
+    "js-yaml": "^5.3.0",
     "mdast-comment-marker": "^3.0.0",
     "npm-run-all2": "^9.0.2",
     "rehype-document": "^7.0.3",
