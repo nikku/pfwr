@@ -6,6 +6,11 @@ All notable changes to [pfwr](https://github.com/nikku/pfwr) are documented here
 
 ___Note:__ Yet to be released changes appear here._
 
+## 0.17.2
+
+* `DEPS`: update to `min-dash@5.1.0`
+* `CHORE`: update to `js-yaml@5.3.0`
+
 ## 0.17.1
 
 * `FIX`: jump to slide when clicking anywhere in overview
